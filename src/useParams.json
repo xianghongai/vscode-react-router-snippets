@@ -1,0 +1,15 @@
+{
+	"import useParams": {
+		"prefix": ["imup"],
+		"body": [
+			"import { useParams } from 'react-router-dom'",
+			"${0:let { param \\} = useParams()}"
+		],
+		"description": "import `useParams` hook. \n"
+	},
+	"useParams": {
+		"prefix": ["up", "useParams"],
+		"body": ["const { ${1:slug} } = useParams()"],
+		"description": "useParams returns an object of key/value pairs of URL parameters. Use it to access match.params of the current `<Route>`.\n"
+	}
+}

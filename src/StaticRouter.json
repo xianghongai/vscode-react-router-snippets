@@ -1,0 +1,12 @@
+{
+	"import <StaticRouter>": {
+		"prefix": ["imsr", "importStaticRouter"],
+		"body": ["import { StaticRouter as Router } from 'react-router-dom'"],
+		"description": "import <StaticRouter>.\n"
+	},
+	"StaticRouter": {
+		"prefix": ["StaticRouter"],
+		"body": ["<Router location='/${2:path}'>", "\t${3:<App />}", "</Router>"],
+		"description": "React <StaticRouter>"
+	}
+}

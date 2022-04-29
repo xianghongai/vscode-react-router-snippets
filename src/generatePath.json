@@ -1,0 +1,17 @@
+{
+	"import generatePath": {
+		"prefix": ["imgp"],
+		"body": ["import { generatePath } from 'react-router'"],
+		"description": "import generatePath"
+	},
+	"generatePath": {
+		"prefix": "generatePath",
+		"body": [
+			"const path = generatePath('${1:/user/:id/:entity(posts|comments)}', {",
+			"\tid: 1,",
+			"\tentity: 'posts'",
+			"})"
+		],
+		"description": "The generatePath function can be used to generate URLs to the routes. Internally the path-to-regexp library is used.\n"
+	}
+}

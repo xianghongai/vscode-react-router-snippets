@@ -1,0 +1,14 @@
+{
+	"import Redirect": {
+		"prefix": ["imr", "importRedirect"],
+		"body": ["import { Redirect } from 'react-router-dom'"],
+		"description": "import Redirect.\n"
+	},
+	"React Router <Redirect>": {
+		"prefix": ["Redirect"],
+		"body": [
+			"<Redirect from='${1:/users/:id}' to='${2:/users/profile/:id}' />"
+		],
+		"description": "Rendering a `<Redirect>` will navigate to a new location. The new location will override the current location in the history stack, like server-side redirects (HTTP 3xx) do."
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"import useHistory": {
+		"prefix": ["imuh"],
+		"body": ["import { useHistory } from 'react-router-dom'"],
+		"description": "import `useHistory`.\n"
+	},
+	"React Router useHistory": {
+		"prefix": ["uh", "useHistory"],
+		"body": [
+			"const history = useHistory()",
+			"",
+			"function handleClick() {",
+			"\thistory.push(${1:'path'})$0",
+			"}"
+		],
+		"description": "The `useHistory` hook gives you access to the history instance that you may use to navigate.\n"
+	}
+}

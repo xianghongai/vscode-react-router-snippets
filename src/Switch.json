@@ -1,0 +1,22 @@
+{
+	"import <Switch>, <Route>": {
+		"prefix": ["imsr"],
+		"body": ["import { Switch, Route } from 'react-router-dom'"],
+		"description": "import <Switch>, <Route>.\n"
+	},
+
+	"React Router <Switch>, <Route>": {
+		"prefix": ["Switch"],
+		"body": [
+			"<Switch>",
+			"\t<Route exact path='/'>",
+			"\t\t<${1:Component} />",
+			"\t</Route>",
+			"\t<Route path='${2:path}'>",
+			"\t\t<${3:Component} />",
+			"\t</Route>",
+			"</Switch>"
+		],
+		"description": "React Router <Switch>, <Route>.\n"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"import <Link>": {
+		"prefix": ["iml", "importLink"],
+		"body": ["import { Link } from 'react-router-dom'"],
+		"description": "import <Link>.\n"
+	},
+	"Link": {
+		"prefix": ["rl", "Link"],
+		"body": [
+			"<Link",
+			"\tto={{",
+			"\t\tpathname: '${1:/path}',",
+			"\t}}",
+			">",
+			"\t${2:Text}",
+			"</Link>"
+		],
+		"description": "Provides declarative, accessible navigation around your application."
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"import <NavLink>": {
+		"prefix": ["iml", "importNavLink"],
+		"body": ["import { NavLink } from 'react-router-dom'"],
+		"description": "import <NavLink>.\n"
+	},
+	"NavLink": {
+		"prefix": ["nl", "NavLink"],
+		"body": ["<NavLink exact to='${1:/path}'>", "\t${2:Text}", "</NavLink>"],
+		"description": "A special version of the `<Link>` that will add styling attributes to the rendered element when it matches the current URL."
+	}
+}

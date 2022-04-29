@@ -1,0 +1,18 @@
+{
+	"import matchPath": {
+		"prefix": ["immp"],
+		"body": ["import { matchPath } from 'react-router'"],
+		"description": "import matchPath"
+	},
+	"matchPath": {
+		"prefix": ["matchPath"],
+		"body": [
+			"const match = matchPath('${1:/users/1}', {",
+			"\tpath: '${2:/users/:id}',",
+			"\texact: ${3:true},",
+			"\tstrict: ${4:false},",
+			"})"
+		],
+		"description": "This lets you use the same matching code that <Route> uses except outside of the normal render cycle, like gathering up data dependencies before rendering on the server."
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"location": {
+		"prefix": "location",
+		"body": [
+			"const location = {",
+			"\tkey: 'Key',",
+			"\tpathname: '/path",
+			"\tsearch: '?q=query-string',",
+			"\thash: '#fragment',",
+			"\tstate: {}",
+			"}"
+		],
+		"description": "location: \nRoute component as `this.props.location`, \nRoute render as `({ location }) => ()`, \nRoute children as `({ location }) => ()`, \nwithRouter as `this.props.location`, \nWeb Link to, \nNative Link to, \nRedirect to, \nhistory.push, \nhistory.replace, \nRoute, \nSwitch."
+	}
+}

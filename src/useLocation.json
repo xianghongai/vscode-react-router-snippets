@@ -1,0 +1,17 @@
+{
+	"import useLocation": {
+		"prefix": ["imul"],
+		"body": ["import { useLocation } from 'react-router-dom'"],
+		"description": "import `useLocation`.\n"
+	},
+	"React Router useLocation": {
+		"prefix": ["ul", "useLocation"],
+		"body": [
+			"const location = useLocation()",
+			"useEffect(() => {",
+			"\t",
+			"}, [location])"
+		],
+		"description": "The useLocation hook returns the location object that represents the current URL. You can think about it like a useState that returns a new location whenever the URL changes.\n"
+	}
+}

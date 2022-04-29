@@ -1,0 +1,27 @@
+{
+	"import <BrowserRouter>": {
+		"prefix": ["imbr", "importBrowserRouter"],
+		"body": ["import { BrowserRouter as Router } from 'react-router-dom'"],
+		"description": "import <BrowserRouter>.\n"
+	},
+	"import <HashRouter>": {
+		"prefix": ["imhr", "importHashRouter"],
+		"body": ["import { HashRouter as Router } from 'react-router-dom'"],
+		"description": "import <HashRouter>.\n"
+	},
+	"import <NativeRouter>": {
+		"prefix": ["imnr", "importNativeRouter"],
+		"body": ["import { NativeRouter } from 'react-router-dom'"],
+		"description": "import <NativeRouter>.\n"
+	},
+
+	"React Router": {
+		"prefix": ["rr", "Router"],
+		"body": [
+			"<Router${1: basename='/${2:path}'}>",
+			"\t${3:<App />}",
+			"</Router>"
+		],
+		"description": "React Router (BrowserRouter, HashRouter)"
+	}
+}
