@@ -1,11 +1,12 @@
 {
-	"import useRouteMatch": {
+	"import Router useRouteMatch": {
 		"prefix": ["imurm"],
 		"body": ["import { useRouteMatch } from 'react-router-dom'"],
 		"description": "import `useRouteMatch`.\n"
 	},
-	"React Router useRouteMatch": {
-		"prefix": ["urm", "useRouteMatch"],
+
+	"Router useRouteMatch": {
+		"prefix": ["useRouteMatch"],
 		"body": [
 			"const match = useRouteMatch()",
 			"",

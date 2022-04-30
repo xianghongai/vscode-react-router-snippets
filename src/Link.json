@@ -1,10 +1,10 @@
 {
-	"import <Link>": {
-		"prefix": ["iml", "importLink"],
+	"import Router <Link>": {
+		"prefix": ["imrl", "importLink"],
 		"body": ["import { Link } from 'react-router-dom'"],
 		"description": "import <Link>.\n"
 	},
-	"Link": {
+	"Router Link": {
 		"prefix": ["rl", "Link"],
 		"body": [
 			"<Link",

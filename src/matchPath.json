@@ -1,10 +1,10 @@
 {
-	"import matchPath": {
-		"prefix": ["immp"],
+	"import Router matchPath": {
+		"prefix": ["imrmp"],
 		"body": ["import { matchPath } from 'react-router'"],
 		"description": "import matchPath"
 	},
-	"matchPath": {
+	"Router matchPath": {
 		"prefix": ["matchPath"],
 		"body": [
 			"const match = matchPath('${1:/users/1}', {",

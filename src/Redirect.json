@@ -1,10 +1,10 @@
 {
-	"import Redirect": {
-		"prefix": ["imr", "importRedirect"],
+	"import Router Redirect": {
+		"prefix": ["imrr", "importRedirect"],
 		"body": ["import { Redirect } from 'react-router-dom'"],
 		"description": "import Redirect.\n"
 	},
-	"React Router <Redirect>": {
+	"Router <Redirect>": {
 		"prefix": ["Redirect"],
 		"body": [
 			"<Redirect from='${1:/users/:id}' to='${2:/users/profile/:id}' />"

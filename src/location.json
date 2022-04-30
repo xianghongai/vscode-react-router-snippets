@@ -1,6 +1,6 @@
 {
-	"location": {
-		"prefix": "location",
+	"Router location": {
+		"prefix": ["location"],
 		"body": [
 			"const location = {",
 			"\tkey: 'Key',",

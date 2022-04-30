@@ -1,11 +1,11 @@
 {
-	"import withRouter": {
-		"prefix": ["imwr"],
+	"import Router withRouter": {
+		"prefix": ["imrwr"],
 		"body": ["import { withRouter } from 'react-router'"],
 		"description": "import `withRouter`.\n"
 	},
-	"withRouter": {
-		"prefix": "withRouter",
+	"Router withRouter": {
+		"prefix": ["withRouter"],
 		"body": ["const ${1:FeatureComponent}WithRouter = withRouter($1)"],
 		"description": "withRouter"
 	}

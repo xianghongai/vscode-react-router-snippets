@@ -1,11 +1,12 @@
 {
-	"import useHistory": {
+	"import Router useHistory": {
 		"prefix": ["imuh"],
 		"body": ["import { useHistory } from 'react-router-dom'"],
 		"description": "import `useHistory`.\n"
 	},
-	"React Router useHistory": {
-		"prefix": ["uh", "useHistory"],
+
+	"Router useHistory": {
+		"prefix": ["useHistory"],
 		"body": [
 			"const history = useHistory()",
 			"",

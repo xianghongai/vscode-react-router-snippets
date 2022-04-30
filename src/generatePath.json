@@ -5,7 +5,7 @@
 		"description": "import generatePath"
 	},
 	"generatePath": {
-		"prefix": "generatePath",
+		"prefix": ["generatePath"],
 		"body": [
 			"const path = generatePath('${1:/user/:id/:entity(posts|comments)}', {",
 			"\tid: 1,",

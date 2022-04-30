@@ -1,11 +1,11 @@
 {
-	"import <Switch>, <Route>": {
-		"prefix": ["imsr"],
+	"import Router <Switch>, <Route>": {
+		"prefix": ["imrsr"],
 		"body": ["import { Switch, Route } from 'react-router-dom'"],
 		"description": "import <Switch>, <Route>.\n"
 	},
 
-	"React Router <Switch>, <Route>": {
+	"Router <Switch>, <Route>": {
 		"prefix": ["Switch"],
 		"body": [
 			"<Switch>",

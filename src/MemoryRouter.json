@@ -1,5 +1,5 @@
 {
-	"import <MemoryRouter>": {
+	"import Router <MemoryRouter>": {
 		"prefix": ["immr", "importMemoryRouter"],
 		"body": ["import { MemoryRouter } from 'react-router-dom'"],
 		"description": "import <MemoryRouter>.\n"

@@ -1,11 +1,12 @@
 {
-	"import useLocation": {
-		"prefix": ["imul"],
+	"import Router useLocation": {
+		"prefix": ["imrul"],
 		"body": ["import { useLocation } from 'react-router-dom'"],
 		"description": "import `useLocation`.\n"
 	},
-	"React Router useLocation": {
-		"prefix": ["ul", "useLocation"],
+
+	"Router useLocation": {
+		"prefix": ["useLocation"],
 		"body": [
 			"const location = useLocation()",
 			"useEffect(() => {",
