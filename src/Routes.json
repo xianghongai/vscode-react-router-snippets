@@ -1,0 +1,19 @@
+{
+	"import Router <Routes>, <Route>": {
+		"prefix": ["imrr"],
+		"body": ["import { Routes, Route } from 'react-router-dom'"],
+		"description": "import Router `<Routes>, <Route>`\n`<Routes>` instead of `<Switch>`\n"
+	},
+
+	"Router <Routes>, <Route>": {
+		"prefix": ["Routes"],
+		"body": [
+			"<Routes>",
+			"\t<Route path=\"/\" element={<${1:Home} />} />",
+			"\t<Route path=\"${1:feature}\" element={<${2:FeatureComponent} />} />",
+			"</Routes>",
+			""
+		],
+		"description": "React Router <Routes>, <Route>.\n"
+	}
+}

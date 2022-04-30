@@ -1,0 +1,13 @@
+{
+	"import Router createSearchParams": {
+		"prefix": ["imrcsp"],
+		"body": ["import { createSearchParams } from 'react-router-dom'"],
+		"description": "import `createSearchParams` hook.\n"
+	},
+
+	"Router createSearchParams()": {
+		"prefix": ["createSearchParams"],
+		"body": ["const { ${1:searchParams} } = createSearchParams()"],
+		"description": "`createSearchParams` is a thin wrapper around `new URLSearchParams(init)` that adds support for using objects with array values. This is the same function that `useSearchParams` uses internally for creating `URLSearchParams` objects from `URLSearchParamsInit` values.\n"
+	}
+}

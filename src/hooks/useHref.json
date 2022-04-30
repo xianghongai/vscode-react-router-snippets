@@ -1,0 +1,13 @@
+{
+	"import Router useHref": {
+		"prefix": ["imruh"],
+		"body": ["import { useHref } from 'react-router-dom'"],
+		"description": "import `useHref`.\n"
+	},
+
+	"Router useHref()": {
+		"prefix": ["useHref"],
+		"body": ["const href = useHref()"],
+		"description": "The `useHref` hook returns a URL that may be used to link to the given to location, even outside of React Router.\n"
+	}
+}

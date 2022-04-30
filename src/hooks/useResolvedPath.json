@@ -1,0 +1,13 @@
+{
+	"import Router useResolvedPath": {
+		"prefix": ["imrurp"],
+		"body": ["import { useResolvedPath } from 'react-router-dom'"],
+		"description": "import `useResolvedPath`.\n"
+	},
+
+	"Router useResolvedPath()": {
+		"prefix": ["useResolvedPath"],
+		"body": ["const resolvedPath = useResolvedPath()"],
+		"description": "The `useResolvedPath` hook resolves the pathname of the location in the given to value against the pathname of the current location.\n"
+	}
+}

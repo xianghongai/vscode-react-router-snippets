@@ -1,0 +1,58 @@
+{
+	"import Router <BrowserRouter>": {
+		"prefix": ["imbr", "importBrowserRouter"],
+		"body": ["import { BrowserRouter as Router } from 'react-router-dom'"],
+		"description": "import <BrowserRouter>.\n"
+	},
+	"import Router <HashRouter>": {
+		"prefix": ["imhr", "importHashRouter"],
+		"body": ["import { HashRouter as Router } from 'react-router-dom'"],
+		"description": "import <HashRouter>.\n"
+	},
+	"import Router <StaticRouter>": {
+		"prefix": ["imsr", "importStaticRouter"],
+		"body": [
+			"import { StaticRouter as Router } from 'react-router-dom/server'"
+		],
+		"description": "import <StaticRouter>.\n"
+	},
+	"import Router <NativeRouter>": {
+		"prefix": ["imnr", "importNativeRouter"],
+		"body": ["import { NativeRouter } from 'react-router-dom'"],
+		"description": "import <NativeRouter>.\n"
+	},
+	"import Router <MemoryRouter>": {
+		"prefix": ["immr", "importMemoryRouter"],
+		"body": ["import { MemoryRouter } from 'react-router-dom'"],
+		"description": "import <MemoryRouter>.\n"
+	},
+	"import Router <HistoryRouter>": {
+		"prefix": ["imhr", "HistoryRouter"],
+		"body": [
+			"import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom'",
+			"import { createBrowserHistory } from 'history';",
+			"",
+			"const history = createBrowserHistory({ window });"
+		],
+		"description": "import <HistoryRouter>.\n"
+	},
+
+	"React Router (BrowserRouter, HashRouter)": {
+		"prefix": ["rr", "Router"],
+		"body": [
+			"<Router${1: basename=\"/${2:path}\"}>",
+			"\t${3:<App />}",
+			"</Router>"
+		],
+		"description": "React Router (BrowserRouter, HashRouter).\n"
+	},
+	"React HistoryRouter": {
+		"prefix": ["rr", "HistoryRouter"],
+		"body": [
+			"<HistoryRouter history={history}>",
+			"\t${1:<App />}",
+			"</HistoryRouter>"
+		],
+		"description": "React HistoryRouter.\n"
+	}
+}

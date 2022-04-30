@@ -1,0 +1,12 @@
+{
+	"import Router <NavLink>": {
+		"prefix": ["imrnl", "importNavLink"],
+		"body": ["import { NavLink } from 'react-router-dom'"],
+		"description": "import <NavLink>.\n"
+	},
+	"Router <NavLink>": {
+		"prefix": ["rnl", "NavLink"],
+		"body": ["<NavLink to=\"${1:/path}\">", "\t${2:Text}", "</NavLink>"],
+		"description": "A <NavLink> is a special kind of <Link> that knows whether or not it is \"active\".\n"
+	}
+}

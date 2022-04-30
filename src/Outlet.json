@@ -1,0 +1,13 @@
+{
+	"import Router <Outlet>": {
+		"prefix": ["imro"],
+		"body": ["import { Outlet } from 'react-router-dom'", "${0:<Outlet />}"],
+		"description": "import Router <Outlet>\nAn `<Outlet>` should be used in parent route elements to render their child route elements.\n"
+	},
+
+	"Router Outlet": {
+		"prefix": ["Outlet"],
+		"body": ["<Outlet />"],
+		"description": "An `<Outlet>` should be used in parent route elements to render their child route elements.\n"
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"import Router useNavigationType": {
+		"prefix": ["imrunt"],
+		"body": ["import { useNavigationType } from 'react-router-dom'"],
+		"description": "import `useNavigationType`.\n"
+	},
+
+	"Router useNavigationType()": {
+		"prefix": ["useNavigationType"],
+		"body": ["const navigationType = useNavigationType()"],
+		"description": "The `useNavigationType` hook returns the current type of navigation or how the user came to the current page; either via a pop, push, or replace action on the history stack."
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"import Router useRoutes": {
+		"prefix": ["imur"],
+		"body": ["import { useRoutes } from 'react-router-dom'"],
+		"description": "import Router `useRoutes` hook. \n"
+	},
+
+	"Router useRoutes()": {
+		"prefix": ["useRoutes"],
+		"body": [
+			"let ${1:routes} = useRoutes([",
+			"\t{",
+			"\t\tpath: ${2:'/'},",
+			"\t\telement: ${3:<Dashboard />},",
+			"\t\tchildren: [",
+			"\t\t\t{ path: ${4:'messages'}, element: ${5:<DashboardMessages />} },",
+			"\t\t\t{ path: ${6:'tasks'}, element: ${7:<DashboardTasks />} },",
+			"\t\t],",
+			"\t},",
+			"\t{ path: ${8:'team'}, element: ${9:<AboutPage />} },",
+			"])",
+			"",
+			"return ${1}"
+		],
+		"description": "The `useRoutes` hook is the functional equivalent of `<Routes>`, but it uses JavaScript objects instead of `<Route>` elements to define your routes. These objects have the same properties as normal `<Route>` elements, but they don't require JSX.\n"
+	}
+}

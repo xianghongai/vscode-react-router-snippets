@@ -1,0 +1,13 @@
+{
+	"import Router useMatch": {
+		"prefix": ["imrum"],
+		"body": ["import { useMatch } from 'react-router-dom'"],
+		"description": "import `useMatch`.\n"
+	},
+
+	"Router useMatch()": {
+		"prefix": ["useMatch"],
+		"body": ["const pathMatch = useMatch()"],
+		"description": "The `useMatch` hook Returns match data about a route at the given path relative to the current location. See `matchPath` for more information.\n"
+	}
+}

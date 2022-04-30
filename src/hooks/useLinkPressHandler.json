@@ -1,0 +1,15 @@
+{
+	"import Router useLinkPressHandler": {
+		"prefix": ["imrulph"],
+		"body": ["import { useLinkPressHandler } from 'react-router-native'"],
+		"description": "import `useLinkPressHandler`.\n"
+	},
+
+	"Router useLinkPressHandler()": {
+		"prefix": ["useLinkPressHandler"],
+		"body": [
+			"const ${3:handlePress} = useLinkPressHandler(${1:to}, ${2:options})"
+		],
+		"description": "The `react-router-native` counterpart to `useLinkClickHandler`, `useLinkPressHandler` returns a press event handler for custom `<Link>` navigation.\n"
+	}
+}

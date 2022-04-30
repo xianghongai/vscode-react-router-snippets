@@ -1,0 +1,16 @@
+{
+	"import Router useNavigate": {
+		"prefix": ["imrun"],
+		"body": ["import { useNavigate } from 'react-router-dom'"],
+		"description": "import Router `useNavigate` hook. \n `useNavigate` hook instead of `useHistory`\n"
+	},
+
+	"Router useNavigate()": {
+		"prefix": ["useNavigate"],
+		"body": [
+			"const navigate = useNavigate()",
+			"navigate(${1:path}, { replace: true })"
+		],
+		"description": "The `useNavigate` hook returns a function that lets you navigate programmatically, for example after a form is submitted.\n"
+	}
+}

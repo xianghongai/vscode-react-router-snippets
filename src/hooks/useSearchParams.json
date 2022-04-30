@@ -1,0 +1,27 @@
+{
+	"import Router useSearchParams": {
+		"prefix": ["imusp"],
+		"body": ["import { useSearchParams } from 'react-router-dom'"],
+		"description": "import `useSearchParams` hook.\n"
+	},
+
+	"import Router useSearchParams (React Native)": {
+		"prefix": ["imusp"],
+		"body": ["import { useSearchParams } from 'react-router-native'"],
+		"description": "import `useSearchParams` hook (React Native).\n"
+	},
+
+	"Router useSearchParams()": {
+		"prefix": ["useSearchParams"],
+		"body": [
+			"const [searchParams, setSearchParams] = useSearchParams()",
+			"",
+			"function handleSubmit(event) {",
+			"\tevent.preventDefault()",
+			"\tconst params = serializeFormQuery(event.target)",
+			"\tsetSearchParams(params)",
+			"}"
+		],
+		"description": "The `useSearchParams` hook is used to read and modify the query string in the URL for the current location. Like React's own useState hook, `useSearchParams` returns an array of two values: the current location's search params and a function that may be used to update them.\n"
+	}
+}

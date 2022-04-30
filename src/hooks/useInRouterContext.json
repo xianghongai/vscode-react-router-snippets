@@ -1,0 +1,13 @@
+{
+	"import Router useInRouterContext": {
+		"prefix": ["imruirc"],
+		"body": ["import { useInRouterContext } from 'react-router-dom'"],
+		"description": "import `useInRouterContext`.\n"
+	},
+
+	"Router useInRouterContext()": {
+		"prefix": ["useInRouterContext"],
+		"body": ["const ${1:inRouterContext} = useInRouterContext()"],
+		"description": "The `useInRouterContext` hooks returns `true` if the component is being rendered in the context of a `<Router>`, `false` otherwise. This can be useful for some 3rd-party extensions that need to know if they are being rendered in the context of a React Router app.\n"
+	}
+}

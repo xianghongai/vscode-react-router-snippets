@@ -1,0 +1,15 @@
+{
+	"import Router useOutletContext": {
+		"prefix": ["imruoc"],
+		"body": ["import { useOutletContext } from 'react-router-dom'"],
+		"description": "import `useOutletContext`.\n"
+	},
+
+	"Router useOutletContext()": {
+		"prefix": ["useOutletContext"],
+		"body": [
+			"const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useOutletContext()"
+		],
+		"description": "Often parent routes manage state or other values you want shared with child routes. You can create your own context provider if you like, but this is such a common situation that it's built-into `<Outlet />`.\n"
+	}
+}

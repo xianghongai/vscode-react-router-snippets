@@ -1,0 +1,18 @@
+{
+	"import Router <Link>": {
+		"prefix": ["imrl", "importLink"],
+		"body": ["import { Link } from 'react-router-dom'"],
+		"description": "import <Link>.\n"
+	},
+	"import Router <Link> (React Native)": {
+		"prefix": ["imrl", "importLink"],
+		"body": ["import { Link } from 'react-router-native'"],
+		"description": "import <Link> (React Native).\n"
+	},
+
+	"Router <Link>": {
+		"prefix": ["rl", "Link"],
+		"body": ["<Link to=\"${1:path}\">{${2:Text}}</Link>"],
+		"description": "A <Link> is an element that lets the user navigate to another page by clicking or tapping on it. In react-router-dom, a <Link> renders an accessible <a> element with a real href that points to the resource it's linking to.\n"
+	}
+}

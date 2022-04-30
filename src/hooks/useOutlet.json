@@ -1,0 +1,13 @@
+{
+	"import Router useOutlet": {
+		"prefix": ["imruo"],
+		"body": ["import { useOutlet } from 'react-router-dom'"],
+		"description": "import `useOutlet`.\n"
+	},
+
+	"Router useOutlet()": {
+		"prefix": ["useOutlet"],
+		"body": ["const outlet = useOutlet()"],
+		"description": "The `useOutlet` hook Returns the element for the child route at this level of the route hierarchy. This hook is used internally by <Outlet> to render child routes.\n"
+	}
+}

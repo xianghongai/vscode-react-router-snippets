@@ -1,0 +1,11 @@
+{
+	"Router StaticRouter": {
+		"prefix": ["StaticRouter"],
+		"body": [
+			"<StaticRouter location=\"/${2:path}\">",
+			"\t${3:<App />}",
+			"</StaticRouter>"
+		],
+		"description": "`<StaticRouter>` is used to render a React Router web app in node. Provide the current location via the `location` prop.\n<StaticRouter location> defaults to \"/\"\n"
+	}
+}
