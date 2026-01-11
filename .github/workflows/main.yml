@@ -1,34 +1,45 @@
+name: Publish VS Code Extension
+
 on:
-  # push:
-  #   branches: [ main ]
-  # pull_request:
-  #   branches: [ main ]
   push:
     tags:
-      - "*"
-
+      - 'v*'
   workflow_dispatch:
 
-name: Publish VS Code Extension — GitHub Action
 jobs:
   release:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
         with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
+          version: 10
 
-      - name: Install vsce
-        run: npm i -g vsce
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
 
-      - name: Install the dependencies
-        run: npm i
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check code quality
+        run: |
+          pnpm run format:check
+          pnpm run lint
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
-      - name: Publish
-        run: vsce publish -p ${{ secrets.VS_MARKETPLACE_TOKEN }}
+      - name: Verify package
+        run: |
+          ls -lh *.vsix
+          pnpm dlx @vscode/vsce ls
+
+      - name: Publish to VS Code Marketplace
+        run: pnpm dlx @vscode/vsce publish --no-dependencies -p ${{ secrets.VS_MARKETPLACE_TOKEN }}

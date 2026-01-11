@@ -1,0 +1,14 @@
+{
+	"import BrowserRouter": {
+		"prefix": ["imbr", "importBrowserRouter"],
+		"body": ["import { BrowserRouter } from 'react-router'"]
+	},
+	"BrowserRouter": {
+		"prefix": ["rr", "Router", "BrowserRouter"],
+		"body": [
+			"<BrowserRouter${1: basename=\"/${2:base}\"}>",
+			"\t${3:<App />}",
+			"</BrowserRouter>"
+		]
+	}
+}

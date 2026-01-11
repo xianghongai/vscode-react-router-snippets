@@ -1,0 +1,14 @@
+{
+	"import Router <NavLink>": {
+		"prefix": ["imrnl", "importNavLink"],
+		"body": ["import { NavLink } from 'react-router'"]
+	},
+	"Router <NavLink>": {
+		"prefix": ["rnl", "NavLink"],
+		"body": [
+			"<NavLink to=\"${1:path}\" className={({ isActive }) => isActive ? '${2:active}' : ''}>",
+			"\t${3:Text}",
+			"</NavLink>"
+		]
+	}
+}

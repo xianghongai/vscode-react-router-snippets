@@ -1,0 +1,14 @@
+{
+	"import MemoryRouter": {
+		"prefix": ["immr", "importMemoryRouter"],
+		"body": ["import { MemoryRouter } from 'react-router'"]
+	},
+	"MemoryRouter": {
+		"prefix": ["MemoryRouter"],
+		"body": [
+			"<MemoryRouter initialEntries={['${1:/}']}>",
+			"\t${2:<App />}",
+			"</MemoryRouter>"
+		]
+	}
+}

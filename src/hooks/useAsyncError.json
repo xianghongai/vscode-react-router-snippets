@@ -1,0 +1,10 @@
+{
+	"import useAsyncError": {
+		"prefix": ["imuae", "importUseAsyncError"],
+		"body": ["import { useAsyncError } from 'react-router'"]
+	},
+	"useAsyncError()": {
+		"prefix": ["useAsyncError"],
+		"body": ["const ${1:error} = useAsyncError()"]
+	}
+}

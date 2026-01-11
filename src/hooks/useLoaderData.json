@@ -1,0 +1,10 @@
+{
+	"import useLoaderData": {
+		"prefix": ["imuld"],
+		"body": ["import { useLoaderData } from 'react-router'"]
+	},
+	"useLoaderData()": {
+		"prefix": ["useLoaderData"],
+		"body": ["const ${1:data} = useLoaderData()"]
+	}
+}

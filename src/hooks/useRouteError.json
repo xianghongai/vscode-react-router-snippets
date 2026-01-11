@@ -1,0 +1,21 @@
+{
+	"import useRouteError": {
+		"prefix": ["imure"],
+		"body": [
+			"import { useRouteError, isRouteErrorResponse } from 'react-router'"
+		]
+	},
+	"useRouteError()": {
+		"prefix": ["useRouteError"],
+		"body": [
+			"const ${1:error} = useRouteError()",
+			"",
+			"if (isRouteErrorResponse(${1:error})) {",
+			"\t// ${1:error}.status, ${1:error}.statusText, ${1:error}.data",
+			"\treturn <div>Error: {${1:error}.statusText}</div>",
+			"}",
+			"",
+			"return <div>Unknown Error</div>"
+		]
+	}
+}

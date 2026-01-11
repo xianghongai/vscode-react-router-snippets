@@ -1,0 +1,10 @@
+{
+	"import redirect": {
+		"prefix": ["imrd", "importRedirect"],
+		"body": ["import { redirect } from 'react-router'"]
+	},
+	"redirect()": {
+		"prefix": ["redirect"],
+		"body": ["return redirect('${1:/path}')"]
+	}
+}

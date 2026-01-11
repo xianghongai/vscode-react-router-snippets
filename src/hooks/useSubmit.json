@@ -1,0 +1,13 @@
+{
+	"import useSubmit": {
+		"prefix": ["imusb"],
+		"body": ["import { useSubmit } from 'react-router'"]
+	},
+	"useSubmit()": {
+		"prefix": ["useSubmit"],
+		"body": [
+			"const ${1:submit} = useSubmit()",
+			"${1:submit}(${2:formData}, { method: '${3|post,get,put,patch,delete|}', action: '${4:/path}' })"
+		]
+	}
+}

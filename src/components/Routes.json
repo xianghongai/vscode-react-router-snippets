@@ -1,0 +1,15 @@
+{
+	"import Router <Routes>": {
+		"prefix": ["imrr"],
+		"body": ["import { Routes, Route } from 'react-router'"]
+	},
+	"Router <Routes>": {
+		"prefix": ["Routes"],
+		"body": [
+			"<Routes>",
+			"\t<Route path=\"${1:/}\" element={<${2:Home} />} />",
+			"\t<Route path=\"${3:about}\" element={<${4:About} />} />",
+			"</Routes>"
+		]
+	}
+}

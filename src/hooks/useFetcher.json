@@ -1,0 +1,15 @@
+{
+	"import useFetcher": {
+		"prefix": ["imuf"],
+		"body": ["import { useFetcher } from 'react-router'"]
+	},
+	"useFetcher()": {
+		"prefix": ["useFetcher"],
+		"body": [
+			"const ${1:fetcher} = useFetcher()",
+			"// ${1:fetcher}.Form, ${1:fetcher}.submit(), ${1:fetcher}.load()",
+			"// ${1:fetcher}.state: 'idle' | 'submitting' | 'loading'",
+			"// ${1:fetcher}.data"
+		]
+	}
+}
