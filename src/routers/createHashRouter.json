@@ -1,0 +1,22 @@
+{
+	"import createHashRouter": {
+		"prefix": ["imchr", "importCreateHashRouter"],
+		"body": ["import { createHashRouter } from 'react-router'"]
+	},
+	"createHashRouter": {
+		"prefix": ["createHashRouter"],
+		"body": [
+			"const ${1:router} = createHashRouter([",
+			"\t{",
+			"\t\tpath: '${2:/}',",
+			"\t\telement: <${3:Layout} />,",
+			"\t\tloader: ${4:loader},",
+			"\t\tchildren: [",
+			"\t\t\t{ index: true, element: <${5:Home} /> },",
+			"\t\t\t{ path: '${6:about}', element: <${7:About} /> }",
+			"\t\t]",
+			"\t}",
+			"])"
+		]
+	}
+}

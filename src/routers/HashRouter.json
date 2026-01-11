@@ -1,0 +1,14 @@
+{
+	"import HashRouter": {
+		"prefix": ["imhr", "importHashRouter"],
+		"body": ["import { HashRouter } from 'react-router'"]
+	},
+	"HashRouter": {
+		"prefix": ["rr", "Router", "HashRouter"],
+		"body": [
+			"<HashRouter${1: basename=\"/${2:base}\"}>",
+			"\t${3:<App />}",
+			"</HashRouter>"
+		]
+	}
+}

@@ -1,15 +1,10 @@
 {
-	"import Router useLinkClickHandler": {
-		"prefix": ["imrulch"],
-		"body": ["import { useLinkClickHandler } from 'react-router-dom'"],
-		"description": "import `useLinkClickHandler`.\n"
+	"import useLinkClickHandler": {
+		"prefix": ["imulch", "importUseLinkClickHandler"],
+		"body": ["import { useLinkClickHandler } from 'react-router'"]
 	},
-
-	"Router useLinkClickHandler()": {
+	"useLinkClickHandler()": {
 		"prefix": ["useLinkClickHandler"],
-		"body": [
-			"const ${3:handleClick} = useLinkClickHandler(${1:to}, ${2:options})"
-		],
-		"description": "The `useLinkClickHandler` hook returns a click event handler for navigation when building a custom `<Link>` in `react-router-dom`.\n"
+		"body": ["const ${1:handleClick} = useLinkClickHandler('${2:path}')"]
 	}
 }

@@ -1,0 +1,14 @@
+{
+	"import useRevalidator": {
+		"prefix": ["imurv"],
+		"body": ["import { useRevalidator } from 'react-router'"]
+	},
+	"useRevalidator()": {
+		"prefix": ["useRevalidator"],
+		"body": [
+			"const ${1:revalidator} = useRevalidator()",
+			"// ${1:revalidator}.state: 'idle' | 'loading'",
+			"// ${1:revalidator}.revalidate()"
+		]
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"import Router <Form>": {
+		"prefix": ["imrf", "importForm"],
+		"body": ["import { Form } from 'react-router'"]
+	},
+	"Router <Form>": {
+		"prefix": ["rf", "Form"],
+		"body": [
+			"<Form method=\"${1|post,get,put,patch,delete|}\" action=\"${2:/path}\">",
+			"\t${3:<input name=\"field\" />}",
+			"\t<button type=\"submit\">${4:Submit}</button>",
+			"</Form>"
+		]
+	}
+}

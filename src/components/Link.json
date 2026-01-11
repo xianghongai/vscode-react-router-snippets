@@ -1,0 +1,10 @@
+{
+	"import Router <Link>": {
+		"prefix": ["imrl", "importLink"],
+		"body": ["import { Link } from 'react-router'"]
+	},
+	"Router <Link>": {
+		"prefix": ["rl", "Link"],
+		"body": ["<Link to=\"${1:path}\">${2:Text}</Link>"]
+	}
+}

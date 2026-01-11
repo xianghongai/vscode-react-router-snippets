@@ -1,0 +1,15 @@
+{
+	"import matchPath": {
+		"prefix": ["immp", "importMatchPath"],
+		"body": ["import { matchPath } from 'react-router'"]
+	},
+	"matchPath()": {
+		"prefix": ["matchPath"],
+		"body": [
+			"const ${1:match} = matchPath(",
+			"\t{ path: '${2:/users/:id}', end: ${3:true}, caseSensitive: ${4:false} },",
+			"\t'${5:/users/123}'",
+			")"
+		]
+	}
+}

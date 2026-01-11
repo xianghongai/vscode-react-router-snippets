@@ -1,0 +1,10 @@
+{
+	"import Router <ScrollRestoration>": {
+		"prefix": ["imrsr", "importScrollRestoration"],
+		"body": ["import { ScrollRestoration } from 'react-router'"]
+	},
+	"Router <ScrollRestoration>": {
+		"prefix": ["ScrollRestoration"],
+		"body": ["<ScrollRestoration />"]
+	}
+}

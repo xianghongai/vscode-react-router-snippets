@@ -1,0 +1,10 @@
+{
+	"import Router <PrefetchPageLinks>": {
+		"prefix": ["imppl", "importPrefetchPageLinks"],
+		"body": ["import { PrefetchPageLinks } from 'react-router'"]
+	},
+	"Router <PrefetchPageLinks>": {
+		"prefix": ["PrefetchPageLinks"],
+		"body": ["<PrefetchPageLinks page=\"${1:path}\" />"]
+	}
+}

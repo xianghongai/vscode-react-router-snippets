@@ -1,0 +1,17 @@
+{
+	"import useBeforeUnload": {
+		"prefix": ["imubu", "importUseBeforeUnload"],
+		"body": ["import { useBeforeUnload } from 'react-router'"]
+	},
+	"useBeforeUnload()": {
+		"prefix": ["useBeforeUnload"],
+		"body": [
+			"useBeforeUnload(",
+			"\t(event) => {",
+			"\t\tevent.preventDefault()",
+			"\t\t${1:// Confirm before leaving}",
+			"\t}",
+			")"
+		]
+	}
+}

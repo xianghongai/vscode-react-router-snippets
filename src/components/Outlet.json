@@ -1,0 +1,10 @@
+{
+	"import Router <Outlet>": {
+		"prefix": ["imro", "importOutlet"],
+		"body": ["import { Outlet } from 'react-router'"]
+	},
+	"Router <Outlet>": {
+		"prefix": ["Outlet"],
+		"body": ["<Outlet />"]
+	}
+}

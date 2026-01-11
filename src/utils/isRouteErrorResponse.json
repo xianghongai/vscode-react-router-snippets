@@ -1,0 +1,15 @@
+{
+	"import isRouteErrorResponse": {
+		"prefix": ["imirer", "importIsRouteErrorResponse"],
+		"body": ["import { isRouteErrorResponse } from 'react-router'"]
+	},
+	"isRouteErrorResponse()": {
+		"prefix": ["isRouteErrorResponse"],
+		"body": [
+			"if (isRouteErrorResponse(${1:error})) {",
+			"\t// ${1:error}.status, ${1:error}.statusText, ${1:error}.data",
+			"\t${2:console.error(${1:error})}",
+			"}"
+		]
+	}
+}

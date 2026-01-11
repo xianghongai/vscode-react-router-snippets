@@ -1,0 +1,14 @@
+{
+	"import Router": {
+		"prefix": ["imr", "importRouter"],
+		"body": ["import { Router } from 'react-router'"]
+	},
+	"Router": {
+		"prefix": ["Router"],
+		"body": [
+			"<Router location={${1:location}} navigator={${2:navigator}}>",
+			"\t${3:<App />}",
+			"</Router>"
+		]
+	}
+}

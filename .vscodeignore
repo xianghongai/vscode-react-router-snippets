@@ -1,0 +1,32 @@
+# IDE
+.vscode/**
+.claude/**
+
+# CI/CD
+.github/**
+
+# Dependencies
+node_modules/**
+
+# Source files (only include compiled snippets)
+src/**
+
+# Config files
+.gitignore
+.editorconfig
+.npmrc
+biome.json
+
+# Build scripts
+generate-snippets.js
+
+# Lock files
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Documentation for development
+CLAUDE.md
+
+# Build artifacts
+*.vsix

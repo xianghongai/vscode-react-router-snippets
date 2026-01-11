@@ -1,0 +1,10 @@
+{
+	"import useAsyncValue": {
+		"prefix": ["imuav", "importUseAsyncValue"],
+		"body": ["import { useAsyncValue } from 'react-router'"]
+	},
+	"useAsyncValue()": {
+		"prefix": ["useAsyncValue"],
+		"body": ["const ${1:value} = useAsyncValue()"]
+	}
+}

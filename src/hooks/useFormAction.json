@@ -1,0 +1,10 @@
+{
+	"import useFormAction": {
+		"prefix": ["imufa", "importUseFormAction"],
+		"body": ["import { useFormAction } from 'react-router'"]
+	},
+	"useFormAction()": {
+		"prefix": ["useFormAction"],
+		"body": ["const ${1:action} = useFormAction('${2:path}')"]
+	}
+}

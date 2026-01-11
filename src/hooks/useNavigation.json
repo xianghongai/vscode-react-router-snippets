@@ -1,0 +1,14 @@
+{
+	"import useNavigation": {
+		"prefix": ["imunav"],
+		"body": ["import { useNavigation } from 'react-router'"]
+	},
+	"useNavigation()": {
+		"prefix": ["useNavigation"],
+		"body": [
+			"const ${1:navigation} = useNavigation()",
+			"// ${1:navigation}.state: 'idle' | 'submitting' | 'loading'",
+			"// ${1:navigation}.location, ${1:navigation}.formData"
+		]
+	}
+}
