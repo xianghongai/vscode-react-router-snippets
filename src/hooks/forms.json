@@ -1,0 +1,31 @@
+{
+	"import useSubmit": {
+		"prefix": ["imus", "importUseSubmit"],
+		"body": ["import { useSubmit } from 'react-router'"],
+		"description": "Submit a form programmatically.\n"
+	},
+	"useSubmit()": {
+		"prefix": ["useSubmit"],
+		"body": ["const submit = useSubmit()$0"],
+		"description": "Returns the function `<Form>` calls on submit, so you can trigger it yourself.\nUnlike a fetcher, this one navigates.\n"
+	},
+	"submit() on change": {
+		"prefix": ["submitOnChange"],
+		"body": [
+			"<Form onChange={(event) => submit(event.currentTarget, { replace: true })}>",
+			"\t$0",
+			"</Form>"
+		],
+		"description": "Submit as the user types or toggles — filter bars and search boxes.\n`replace: true` stops every keystroke from becoming a history entry.\n"
+	},
+	"import useFormAction": {
+		"prefix": ["imufa", "importUseFormAction"],
+		"body": ["import { useFormAction } from 'react-router'"],
+		"description": "Resolve the action URL for the current route.\n"
+	},
+	"useFormAction()": {
+		"prefix": ["useFormAction"],
+		"body": ["const ${1:action} = useFormAction('${2:}')$0"],
+		"description": "Resolves what a `<Form>`'s `action` would be here, following the same relative rules.\nFor building custom form components that must post to the right route.\n"
+	}
+}

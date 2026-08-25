@@ -1,0 +1,64 @@
+{
+	"Pattern: global loading indicator": {
+		"prefix": ["rrGlobalLoading"],
+		"body": [
+			"const navigation = useNavigation()",
+			"const isLoading = navigation.state === 'loading'",
+			"",
+			"return (",
+			"\t<>",
+			"\t\t{isLoading && <div className=\"${1:progress-bar}\" />}",
+			"\t\t<Outlet />$0",
+			"\t</>",
+			")"
+		],
+		"description": "A top-level progress bar driven by the pending navigation. Render it in the root layout.\n"
+	},
+	"Pattern: submit button pending state": {
+		"prefix": ["rrSubmitPending"],
+		"body": [
+			"const navigation = useNavigation()",
+			"const isSubmitting = navigation.state === 'submitting'",
+			"",
+			"return (",
+			"\t<Form method=\"post\">",
+			"\t\t$0",
+			"\t\t<button type=\"submit\" disabled={isSubmitting}>",
+			"\t\t\t{isSubmitting ? '${1:Saving...}' : '${2:Save}'}",
+			"\t\t</button>",
+			"\t</Form>",
+			")"
+		],
+		"description": "Disable the button and swap its label while the action runs, so double submits are impossible.\n"
+	},
+	"Pattern: per-item pending with fetchers": {
+		"prefix": ["rrItemPending"],
+		"body": [
+			"const fetchers = useFetchers()",
+			"const pendingIds = new Set(",
+			"\tfetchers",
+			"\t\t.filter((f) => f.state !== 'idle' && f.formData)",
+			"\t\t.map((f) => String(f.formData!.get('${1:id}'))),",
+			")$0"
+		],
+		"description": "Collect the ids of every in-flight fetcher so each row can show its own spinner.\nThe list-view counterpart to a single form's pending state.\n"
+	},
+	"Pattern: delayed spinner": {
+		"prefix": ["rrDelayedSpinner"],
+		"body": [
+			"const navigation = useNavigation()",
+			"const [showSpinner, setShowSpinner] = useState(false)",
+			"",
+			"useEffect(() => {",
+			"\tif (navigation.state === 'idle') {",
+			"\t\tsetShowSpinner(false)",
+			"\t\treturn",
+			"\t}",
+			"",
+			"\tconst timer = setTimeout(() => setShowSpinner(true), ${1:300})",
+			"\treturn () => clearTimeout(timer)",
+			"}, [navigation.state])$0"
+		],
+		"description": "Only show a spinner once the navigation is genuinely slow.\nFast transitions finish before the timer fires, avoiding a flash that reads as jank.\n"
+	}
+}

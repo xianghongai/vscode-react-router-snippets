@@ -1,0 +1,34 @@
+{
+	"import Meta / Links / Scripts": {
+		"prefix": ["imdoc", "importMetaLinks"],
+		"body": [
+			"import { Meta, Links, Scripts, ScrollRestoration } from 'react-router'"
+		],
+		"description": "The document components rendered by `root.tsx` in Framework mode.\n"
+	},
+	"Meta": {
+		"prefix": ["Meta"],
+		"body": ["<Meta />$0"],
+		"description": "Renders the tags returned by every matched route's `meta` export. Goes in `<head>`.\nWithout it, route-level `meta` has no effect.\n"
+	},
+	"Links": {
+		"prefix": ["Links"],
+		"body": ["<Links />$0"],
+		"description": "Renders the `<link>` tags from every matched route's `links` export. Goes in `<head>`.\n"
+	},
+	"Scripts": {
+		"prefix": ["Scripts"],
+		"body": ["<Scripts />$0"],
+		"description": "Renders the client bundle's script tags. Omit it for a JS-free document — forms and links still work through full page loads.\n"
+	},
+	"import PrefetchPageLinks": {
+		"prefix": ["imppl", "importPrefetchPageLinks"],
+		"body": ["import { PrefetchPageLinks } from 'react-router'"],
+		"description": "Prefetch another route's assets and data.\n"
+	},
+	"PrefetchPageLinks": {
+		"prefix": ["PrefetchPageLinks"],
+		"body": ["<PrefetchPageLinks page=\"${1:/path}\" />$0"],
+		"description": "Eagerly fetches the modules and loader data for a page.\nFor prefetching a route no link points at yet; `<Link prefetch>` covers the common case.\n"
+	}
+}

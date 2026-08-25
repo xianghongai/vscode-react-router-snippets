@@ -1,0 +1,54 @@
+{
+	"import useOutlet / useOutletContext": {
+		"prefix": ["imuo", "importUseOutlet"],
+		"body": ["import { useOutlet, useOutletContext } from 'react-router'"],
+		"description": "Access the child route element and the context passed to it.\n"
+	},
+	"useOutlet()": {
+		"prefix": ["useOutlet"],
+		"body": ["const ${1:outlet} = useOutlet()$0"],
+		"description": "The child route's element, or `null` when nothing matched.\nUse it when the layout must inspect or wrap the child — animations, or an empty state when there is no child.\n"
+	},
+	"useOutletContext()": {
+		"prefix": ["useOutletContext"],
+		"body": ["const ${1:context} = useOutletContext<${2:ContextType}>()$0"],
+		"description": "Reads the value a parent passed via `<Outlet context={...} />`.\nA lighter alternative to React context for parent-to-child-route data.\n"
+	},
+	"import useRoutes": {
+		"prefix": ["imur", "importUseRoutes"],
+		"body": ["import { useRoutes } from 'react-router'"],
+		"description": "Define routes as an object tree inside a component.\n"
+	},
+	"useRoutes()": {
+		"prefix": ["useRoutes"],
+		"body": [
+			"const element = useRoutes([",
+			"\t{ path: '${1:/}', element: <${2:Home} /> },",
+			"\t{ path: '${3:about}', element: <${4:About} /> },$0",
+			"])",
+			"",
+			"return element"
+		],
+		"description": "The hook form of `<Routes>`, taking plain objects instead of JSX.\nDeclarative mode only — it has no data loading.\n"
+	},
+	"import useRouteError": {
+		"prefix": ["imure", "importUseRouteError"],
+		"body": ["import { useRouteError } from 'react-router'"],
+		"description": "Read the error inside an error element.\n"
+	},
+	"useRouteError()": {
+		"prefix": ["useRouteError"],
+		"body": ["const error = useRouteError()$0"],
+		"description": "The thrown value, read from a route's `errorElement`.\nIn Framework mode the `ErrorBoundary` export receives `error` as a prop instead.\n"
+	},
+	"import useInRouterContext": {
+		"prefix": ["imuirc", "importUseInRouterContext"],
+		"body": ["import { useInRouterContext } from 'react-router'"],
+		"description": "Check whether a router is present above this component.\n"
+	},
+	"useInRouterContext()": {
+		"prefix": ["useInRouterContext"],
+		"body": ["const ${1:inRouter} = useInRouterContext()$0"],
+		"description": "True when rendered inside a router.\nFor library components that must work with or without one.\n"
+	}
+}

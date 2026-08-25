@@ -1,0 +1,104 @@
+{
+	"import createBrowserRouter": {
+		"prefix": ["imcbr", "importCreateBrowserRouter"],
+		"body": ["import { createBrowserRouter } from 'react-router'"],
+		"description": "Data mode router using the History API.\n"
+	},
+	"createBrowserRouter()": {
+		"prefix": ["createBrowserRouter"],
+		"body": [
+			"const ${1:router} = createBrowserRouter([",
+			"\t{",
+			"\t\tpath: '${2:/}',",
+			"\t\tElement: <${3:Layout} />,",
+			"\t\terrorElement: <${4:ErrorPage} />,",
+			"\t\tchildren: [",
+			"\t\t\t{ index: true, Component: ${5:Home}, loader: ${6:homeLoader} },",
+			"\t\t\t{ path: '${7:about}', Component: ${8:About} },$0",
+			"\t\t],",
+			"\t},",
+			"])"
+		],
+		"description": "The standard Data mode router. Pass the tree to `<RouterProvider router={router} />`.\nUse `Component`/`ErrorBoundary` (component refs) or `element`/`errorElement` (JSX) — not both for the same slot.\n"
+	},
+	"createHashRouter()": {
+		"prefix": ["createHashRouter"],
+		"body": [
+			"const ${1:router} = createHashRouter([",
+			"\t{ path: '${2:/}', Component: ${3:Root} },$0",
+			"])"
+		],
+		"description": "Stores the location in the URL hash. For static hosts that cannot rewrite all paths to index.html.\n"
+	},
+	"createMemoryRouter()": {
+		"prefix": ["createMemoryRouter"],
+		"body": [
+			"const ${1:router} = createMemoryRouter(",
+			"\t[{ path: '${2:/}', Component: ${3:Root} }],",
+			"\t{ initialEntries: ['${4:/}'], initialIndex: ${5:0} },",
+			")$0"
+		],
+		"description": "Keeps history in memory. The router of choice for tests and non-browser environments.\n"
+	},
+	"import createRoutesFromElements": {
+		"prefix": ["imcrfe", "importCreateRoutesFromElements"],
+		"body": ["import { createRoutesFromElements } from 'react-router'"],
+		"description": "Build a route array from JSX `<Route>` elements.\n"
+	},
+	"createRoutesFromElements()": {
+		"prefix": ["createRoutesFromElements"],
+		"body": [
+			"const ${1:router} = createBrowserRouter(",
+			"\tcreateRoutesFromElements(",
+			"\t\t<Route path=\"${2:/}\" Component={${3:Layout}}>",
+			"\t\t\t<Route index Component={${4:Home}} />",
+			"\t\t\t<Route path=\"${5:about}\" Component={${6:About}} />$0",
+			"\t\t</Route>,",
+			"\t),",
+			")"
+		],
+		"description": "Declare Data mode routes as JSX instead of objects. Handy when migrating from a `<Routes>` tree.\n"
+	},
+	"import createStaticHandler": {
+		"prefix": ["imcsh", "importCreateStaticHandler"],
+		"body": [
+			"import { createStaticHandler, createStaticRouter } from 'react-router'"
+		],
+		"description": "Server-side data loading for a custom SSR setup.\n"
+	},
+	"createStaticHandler()": {
+		"prefix": ["createStaticHandler"],
+		"body": [
+			"const { query, dataRoutes } = createStaticHandler(${1:routes})",
+			"const ${2:context} = await query(${3:request})$0"
+		],
+		"description": "Runs loaders/actions on the server for a request, producing the context an SSR render needs.\nOnly for hand-rolled SSR — Framework mode does this for you.\n"
+	},
+	"createStaticRouter()": {
+		"prefix": ["createStaticRouter"],
+		"body": [
+			"const ${1:router} = createStaticRouter(${2:dataRoutes}, ${3:context})$0"
+		],
+		"description": "Builds the router that `<StaticRouterProvider>` renders on the server.\n"
+	},
+	"import createRoutesStub": {
+		"prefix": ["imcrs", "importCreateRoutesStub"],
+		"body": ["import { createRoutesStub } from 'react-router'"],
+		"description": "Test helper that renders components needing router context.\n"
+	},
+	"createRoutesStub()": {
+		"prefix": ["createRoutesStub", "rrTestStub"],
+		"body": [
+			"const Stub = createRoutesStub([",
+			"\t{",
+			"\t\tpath: '${1:/}',",
+			"\t\tComponent: ${2:ComponentUnderTest},",
+			"\t\tloader: () => ({ ${3:key}: ${4:value} }),",
+			"\t},",
+			"])",
+			"",
+			"render(<Stub initialEntries={['${5:/}']} />)$0"
+		],
+		"description": "Renders a component with real router context, stubbed loaders and actions.\nThe supported way to test components that call `useLoaderData()`, `<Form>` or the navigation hooks.\n"
+	}
+}

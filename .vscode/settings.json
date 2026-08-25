@@ -1,7 +1,4 @@
 {
-  "[json]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
   "search.exclude": {
     "**/snippets": true
   }

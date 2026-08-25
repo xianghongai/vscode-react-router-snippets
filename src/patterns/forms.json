@@ -1,0 +1,77 @@
+{
+	"Pattern: form with validation errors": {
+		"prefix": ["rrFormValidation"],
+		"body": [
+			"export async function action({ request }: Route.ActionArgs) {",
+			"\tconst formData = await request.formData()",
+			"\tconst ${1:title} = String(formData.get('${1:title}') ?? '')",
+			"",
+			"\tconst errors: Record<string, string> = {}",
+			"\tif (!${1:title}) errors.${1:title} = '${2:This field is required}'",
+			"",
+			"\tif (Object.keys(errors).length) {",
+			"\t\treturn data({ errors }, { status: 400 })",
+			"\t}",
+			"",
+			"\tawait ${3:save}({ ${1:title} })",
+			"\treturn redirect('${4:/}')",
+			"}",
+			"",
+			"export default function ${5:Component}({ actionData }: Route.ComponentProps) {",
+			"\treturn (",
+			"\t\t<Form method=\"post\">",
+			"\t\t\t<input name=\"${1:title}\" aria-invalid={Boolean(actionData?.errors?.${1:title})} />",
+			"\t\t\t{actionData?.errors?.${1:title} && <p>{actionData.errors.${1:title}}</p>}",
+			"\t\t\t<button type=\"submit\">${6:Save}</button>",
+			"\t\t</Form>",
+			"\t)$0",
+			"}"
+		],
+		"description": "Server-side validation round trip: return errors with a 400, render them from `actionData`, redirect on success.\nWorks without JS, and `aria-invalid` keeps it accessible.\n"
+	},
+	"Pattern: optimistic UI": {
+		"prefix": ["rrOptimistic"],
+		"body": [
+			"const fetcher = useFetcher()",
+			"",
+			"// While the mutation is in flight, trust the submitted value.",
+			"const ${1:value} = fetcher.formData",
+			"\t? fetcher.formData.get('${2:field}') === 'true'",
+			"\t: ${3:serverValue}",
+			"",
+			"return (",
+			"\t<fetcher.Form method=\"post\">",
+			"\t\t<input type=\"hidden\" name=\"${2:field}\" value={String(!${1:value})} />",
+			"\t\t<button type=\"submit\">{${1:value} ? '${4:On}' : '${5:Off}'}</button>",
+			"\t</fetcher.Form>",
+			")$0"
+		],
+		"description": "Render the pending submission's value instead of the server's, so the UI responds instantly.\n`fetcher.formData` holds what was submitted; when it clears, the revalidated server value takes over — and a failure reverts on its own.\n"
+	},
+	"Pattern: optimistic list item": {
+		"prefix": ["rrOptimisticList"],
+		"body": [
+			"const fetchers = useFetchers()",
+			"",
+			"const pendingItems = fetchers",
+			"\t.filter((f) => f.formData?.get('intent') === '${1:create}')",
+			"\t.map((f) => ({ id: `pending-\\${f.key}`, ${2:title}: String(f.formData!.get('${2:title}')) }))",
+			"",
+			"const items = [...${3:loaderData.items}, ...pendingItems]$0"
+		],
+		"description": "Append not-yet-saved items to the list so a new row appears immediately.\nEach fetcher has a stable `key`, usable as a temporary React key.\n"
+	},
+	"Pattern: reset form after submit": {
+		"prefix": ["rrFormReset"],
+		"body": [
+			"const fetcher = useFetcher()",
+			"const formRef = useRef<HTMLFormElement>(null)",
+			"const isDone = fetcher.state === 'idle' && fetcher.data != null",
+			"",
+			"useEffect(() => {",
+			"\tif (isDone) formRef.current?.reset()",
+			"}, [isDone])$0"
+		],
+		"description": "Clear the inputs once the submission completes — the usual need for an \"add another\" form.\nA fetcher does not navigate, so the form is not remounted and keeps its values otherwise.\n"
+	}
+}
