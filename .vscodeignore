@@ -1,32 +1,19 @@
-# IDE
-.vscode/**
-.claude/**
+# 全部排除，再按需放行
+# Exclude everything, then allow-list what ships.
+#
+# 这是一个纯 snippets 扩展，没有运行时依赖，产物只有 snippets/ 与几个元文件。
+# 白名单写法可确保新增的根文件默认不会被打进包。
+**
 
-# CI/CD
-.github/**
+# ── 扩展本体 / Extension ──────────
+!package.json
+!snippets/**
 
-# Dependencies
-node_modules/**
-
-# Source files (only include compiled snippets)
-src/**
-
-# Config files
-.gitignore
-.editorconfig
-.npmrc
-biome.json
-
-# Build scripts
-generate-snippets.js
-
-# Lock files
-pnpm-lock.yaml
-yarn.lock
-package-lock.json
-
-# Documentation for development
-CLAUDE.md
-
-# Build artifacts
-*.vsix
+# ── Marketplace 展示 / Listing ────
+# README 内的相对图片链接会被 vsce 重写为 GitHub raw URL
+# （./art/assets/x.png → https://github.com/<owner>/<repo>/raw/HEAD/art/assets/x.png）
+# 因此 art/assets/ 无需打包，只保留 package.json 的 icon 字段所引用的图标。
+!README.md
+!CHANGELOG.md
+!LICENSE
+!art/icon.png

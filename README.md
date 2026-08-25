@@ -95,10 +95,10 @@ When you use component snippets (like `Link`, `Form`), VS Code will automaticall
 
 ```javascript
 // 输入 / Type: imrl
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 // 输入 / Type: imrf
-import { Form } from 'react-router'
+import { Form } from 'react-router';
 ```
 
 #### 2. 使用导航组件 Use Navigation Components
@@ -117,10 +117,10 @@ import { Form } from 'react-router'
 
 ```javascript
 // 输入 / Type: useLoaderData
-const data = useLoaderData()
+const data = useLoaderData();
 
 // 输入 / Type: useFetcher
-const fetcher = useFetcher()
+const fetcher = useFetcher();
 // fetcher.Form, fetcher.submit(), fetcher.load()
 // fetcher.state, fetcher.data
 ```
@@ -157,10 +157,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'about', element: <About /> }
-    ]
-  }
-])
+      { path: 'about', element: <About /> },
+    ],
+  },
+]);
 ```
 
 #### 5. 表单提交 Form Submission
@@ -187,38 +187,47 @@ const router = createBrowserRouter([
 
   - Import: `imrl`, `importLink`
   - Usage: `rl`, `Link`
+
 - **NavLink** - 带激活状态的导航 / Navigation with active state
 
   - Import: `imrnl`, `importNavLink`
   - Usage: `rnl`, `NavLink`
+
 - **Navigate** - 声明式导航 / Declarative navigation
 
   - Import: `imrn`, `importNavigate`
   - Usage: `Navigate`
+
 - **Outlet** - 嵌套路由出口 / Nested route outlet
 
   - Import: `imro`, `importOutlet`
   - Usage: `Outlet`
+
 - **Route** - 路由配置 / Route definition
 
   - Import: `imrr`
   - Usage: `Route`
+
 - **Routes** - 路由容器 / Routes container
 
   - Import: `imrr`
   - Usage: `Routes`
+
 - **Form** 🆕 - 表单提交（路由集成）/ Form with routing integration
 
   - Import: `imrf`, `importForm`
   - Usage: `rf`, `Form`
+
 - **Await** 🆕 - 异步数据等待 / Async data resolution
 
   - Import: `imaw`, `importAwait`
   - Usage: `Await`
+
 - **ScrollRestoration** 🆕 - 滚动位置恢复 / Scroll position restoration
 
   - Import: `imrsr`, `importScrollRestoration`
   - Usage: `ScrollRestoration`
+
 - **PrefetchPageLinks** 🆕 - 页面预加载 / Page prefetching
 
   - Import: `imppl`, `importPrefetchPageLinks`
@@ -234,22 +243,27 @@ const router = createBrowserRouter([
 
   - Import: `imun`, `importUseNavigate`
   - Usage: `useNavigate`
+
 - **useLocation** - 当前位置信息 / Current location
 
   - Import: `imul`, `importUseLocation`
   - Usage: `useLocation`
+
 - **useParams** - 路由参数 / URL parameters
 
   - Import: `imup`, `importUseParams`
   - Usage: `useParams`
+
 - **useSearchParams** - 查询参数 / Query parameters
 
   - Import: `imusp`, `importUseSearchParams`
   - Usage: `useSearchParams`
+
 - **useHref** - 生成 href / Generate href
 
   - Import: `imuh`, `importUseHref`
   - Usage: `useHref`
+
 - **useResolvedPath** - 解析路径 / Resolve path
 
   - Import: `imurp`, `importUseResolvedPath`
@@ -261,30 +275,37 @@ const router = createBrowserRouter([
 
   - Import: `imuld`
   - Usage: `useLoaderData`
+
 - **useActionData** 🆕 - 表单提交结果 / Form action result
 
   - Import: `imuad`
   - Usage: `useActionData`
+
 - **useFetcher** 🆕 - 独立数据获取 / Independent data fetching
 
   - Import: `imuf`
   - Usage: `useFetcher`
+
 - **useNavigation** 🆕 - 导航状态 / Navigation state
 
   - Import: `imunav`
   - Usage: `useNavigation`
+
 - **useRevalidator** 🆕 - 手动重新验证 / Manual revalidation
 
   - Import: `imurv`
   - Usage: `useRevalidator`
+
 - **useRouteError** 🆕 - 路由错误处理 / Route error handling
 
   - Import: `imure`
   - Usage: `useRouteError`
+
 - **useSubmit** 🆕 - 编程式表单提交 / Programmatic form submission
 
   - Import: `imusb`
   - Usage: `useSubmit`
+
 - **useRouteLoaderData** 🆕 - 父路由数据访问 / Parent route data access
 
   - Import: `imurld`
@@ -296,14 +317,17 @@ const router = createBrowserRouter([
 
   - Import: `imum`, `importUseMatch`
   - Usage: `useMatch`
+
 - **useMatches** 🆕 - 所有匹配的路由 / All matched routes
 
   - Import: `imums`, `importUseMatches`
   - Usage: `useMatches`
+
 - **useRoutes** - 动态路由配置 / Dynamic route config
 
   - Import: `imur`, `importUseRoutes`
   - Usage: `useRoutes`
+
 - **useInRouterContext** - 路由上下文检查 / Router context check
 
   - Import: `imuirc`, `importUseInRouterContext`
@@ -315,6 +339,7 @@ const router = createBrowserRouter([
 
   - Import: `imuo`, `importUseOutlet`
   - Usage: `useOutlet`
+
 - **useOutletContext** - 出口上下文共享 / Outlet context sharing
 
   - Import: `imuoc`, `importUseOutletContext`
@@ -326,26 +351,32 @@ const router = createBrowserRouter([
 
   - Import: `imunt`, `importUseNavigationType`
   - Usage: `useNavigationType`
+
 - **useLinkClickHandler** - 自定义链接点击 / Custom link click handler
 
   - Import: `imulch`, `importUseLinkClickHandler`
   - Usage: `useLinkClickHandler`
+
 - **useFetchers** 🆕 - 所有活跃的 fetcher / All active fetchers
 
   - Import: `imufs`, `importUseFetchers`
   - Usage: `useFetchers`
+
 - **useFormAction** 🆕 - 表单提交地址 / Form action URL
 
   - Import: `imufa`, `importUseFormAction`
   - Usage: `useFormAction`
+
 - **useAsyncValue** 🆕 - Await 组件的异步值 / Async value from Await
 
   - Import: `imuav`, `importUseAsyncValue`
   - Usage: `useAsyncValue`
+
 - **useAsyncError** 🆕 - Await 组件的异步错误 / Async error from Await
 
   - Import: `imuae`, `importUseAsyncError`
   - Usage: `useAsyncError`
+
 - **useBeforeUnload** 🆕 - 页面卸载前确认 / Before unload confirmation
 
   - Import: `imubu`, `importUseBeforeUnload`
@@ -361,18 +392,22 @@ const router = createBrowserRouter([
 
   - Import: `imbr`, `importBrowserRouter`
   - Usage: `rr`, `Router`, `BrowserRouter`
+
 - **HashRouter** - Hash 路由 / Hash-based router
 
   - Import: `imhr`, `importHashRouter`
   - Usage: `rr`, `Router`, `HashRouter`
+
 - **MemoryRouter** - 内存路由（测试用）/ Memory router (for testing)
 
   - Import: `immr`, `importMemoryRouter`
   - Usage: `MemoryRouter`
+
 - **StaticRouter** - 静态路由（测试用）/ Static router (for testing)
 
   - Import: `imsr`, `importStaticRouter`
   - Usage: `StaticRouter`
+
 - **Router** - 基础路由器 / Base router
 
   - Import: `imr`, `importRouter`
@@ -384,14 +419,17 @@ const router = createBrowserRouter([
 
   - Import: `imrp`, `importRouterProvider`
   - Usage: `RouterProvider`
+
 - **createBrowserRouter** 🆕 - 创建浏览器路由（支持 loader/action）/ Create browser router with loader/action
 
   - Import: `imcbr`, `importCreateBrowserRouter`
   - Usage: `createBrowserRouter`
+
 - **createHashRouter** 🆕 - 创建 Hash 路由（支持 loader/action）/ Create hash router with loader/action
 
   - Import: `imchr`, `importCreateHashRouter`
   - Usage: `createHashRouter`
+
 - **createMemoryRouter** 🆕 - 创建内存路由（支持 loader/action）/ Create memory router with loader/action
 
   - Import: `imcmr`, `importCreateMemoryRouter`
@@ -405,18 +443,22 @@ const router = createBrowserRouter([
 
   - Import: `imrd`, `importRedirect`
   - Usage: `redirect`
+
 - **generatePath** - 根据参数生成路径 / Generate path with params
 
   - Import: `imgp`, `importGeneratePath`
   - Usage: `generatePath`
+
 - **matchPath** - 判断路径是否匹配 / Check if path matches
 
   - Import: `immp`, `importMatchPath`
   - Usage: `matchPath`
+
 - **createSearchParams** - 创建查询参数 / Create search params
 
   - Import: `imcsp`, `importCreateSearchParams`
   - Usage: `createSearchParams`
+
 - **isRouteErrorResponse** 🆕 - 错误类型判断 / Check error type
 
   - Import: `imirer`, `importIsRouteErrorResponse`
@@ -495,9 +537,11 @@ Although v7 introduces data loading APIs, they complement rather than replace li
   - 统一导入路径为 `'react-router'` / Unified import from `'react-router'`
   - 新增数据加载、表单处理、错误处理 API / New data loading, form, and error handling APIs
   - 精简片段格式，移除冗余描述 / Simplified format, removed redundant descriptions
+
 - **v6.0.0** - React Router 6 支持 / React Router 6 support
 
   - [v6 分支](https://github.com/xianghongai/vscode-react-router-snippets/tree/v6) / [v6 Branch](https://github.com/xianghongai/vscode-react-router-snippets/tree/v6)
+
 - **v5.0.0** - React Router 5 支持 / React Router 5 support
 
   - [v5 分支](https://github.com/xianghongai/vscode-react-router-snippets/tree/v5) / [v5 Branch](https://github.com/xianghongai/vscode-react-router-snippets/tree/v5)

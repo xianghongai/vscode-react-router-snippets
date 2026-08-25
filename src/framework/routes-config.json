@@ -1,0 +1,69 @@
+{
+	"import routes config helpers": {
+		"prefix": ["imroutes", "importRouteConfig"],
+		"body": [
+			"import { type RouteConfig, route, index, layout, prefix } from '@react-router/dev/routes'"
+		],
+		"description": "Helpers for `app/routes.ts`, the Framework mode route manifest.\n"
+	},
+	"routes.ts config": {
+		"prefix": ["routesConfig", "rrRoutes"],
+		"body": [
+			"import { type RouteConfig, route, index, layout } from '@react-router/dev/routes'",
+			"",
+			"export default [",
+			"\tindex('routes/${1:home}.tsx'),",
+			"\troute('${2:about}', 'routes/${2:about}.tsx'),$0",
+			"] satisfies RouteConfig"
+		],
+		"description": "`app/routes.ts` — the route manifest for Framework mode.\nThe default export must satisfy `RouteConfig`.\n"
+	},
+	"routes: index()": {
+		"prefix": ["index", "rrIndex"],
+		"body": ["index('routes/${1:home}.tsx'),$0"],
+		"description": "The route rendered at the parent's exact path. An index route has no path of its own.\n"
+	},
+	"routes: route()": {
+		"prefix": ["route", "rrRoute"],
+		"body": ["route('${1:path}', 'routes/${2:file}.tsx'),$0"],
+		"description": "A path segment mapped to a route module.\nPass a fourth argument (array) for nested children.\n"
+	},
+	"routes: route() with children": {
+		"prefix": ["routeChildren", "rrRouteChildren"],
+		"body": [
+			"route('${1:path}', 'routes/${2:file}.tsx', [",
+			"\tindex('routes/${3:child-index}.tsx'),",
+			"\troute('${4:child}', 'routes/${5:child}.tsx'),$0",
+			"]),"
+		],
+		"description": "Nested routes. The parent renders an `<Outlet />` for its children.\n"
+	},
+	"routes: layout()": {
+		"prefix": ["layout", "rrLayoutRoute"],
+		"body": [
+			"layout('routes/${1:layout}.tsx', [",
+			"\tindex('routes/${2:home}.tsx'),$0",
+			"]),"
+		],
+		"description": "Wraps children in a layout component without adding a path segment.\nUse it for shared chrome (sidebars, auth shells) that should not appear in the URL.\n"
+	},
+	"routes: prefix()": {
+		"prefix": ["prefix", "rrPrefix"],
+		"body": [
+			"...prefix('${1:admin}', [",
+			"\tindex('routes/${1:admin}/${2:dashboard}.tsx'),$0",
+			"]),"
+		],
+		"description": "Prepends a path segment to a set of routes without introducing a layout component.\nSpread it into the array — it returns a list, not a single route.\n"
+	},
+	"routes: dynamic segment": {
+		"prefix": ["routeParam", "rrRouteParam"],
+		"body": ["route('${1:items}/:${2:id}', 'routes/${1:items}/detail.tsx'),$0"],
+		"description": "`:param` captures a URL segment, readable as `params.${2:id}` in the loader and component.\nAppend `?` (`:id?`) to make it optional.\n"
+	},
+	"routes: splat route": {
+		"prefix": ["routeSplat", "rrSplat"],
+		"body": ["route('${1:files}/*', 'routes/${1:files}/catch-all.tsx'),$0"],
+		"description": "`*` matches the rest of the URL, available as `params['*']`.\nA bare `route('*', ...)` at the top level is the usual 404 handler.\n"
+	}
+}

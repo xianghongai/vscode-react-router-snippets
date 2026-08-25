@@ -1,0 +1,110 @@
+{
+	"import useLoaderData": {
+		"prefix": ["imuld", "importUseLoaderData"],
+		"body": ["import { useLoaderData } from 'react-router'"],
+		"description": "Read the current route's loader data.\n"
+	},
+	"useLoaderData()": {
+		"prefix": ["useLoaderData"],
+		"body": ["const ${1:data} = useLoaderData<typeof loader>()$0"],
+		"description": "Returns the data from this route's loader.\nIn Framework mode prefer the `loaderData` prop — it is typed without the generic.\n"
+	},
+	"import useActionData": {
+		"prefix": ["imuad", "importUseActionData"],
+		"body": ["import { useActionData } from 'react-router'"],
+		"description": "Read the current route's action result.\n"
+	},
+	"useActionData()": {
+		"prefix": ["useActionData"],
+		"body": ["const ${1:actionData} = useActionData<typeof action>()$0"],
+		"description": "Returns the action's return value after a submission, or `undefined` before one.\nThe usual home for validation errors rendered next to a form.\n"
+	},
+	"import useRouteLoaderData": {
+		"prefix": ["imurld", "importUseRouteLoaderData"],
+		"body": ["import { useRouteLoaderData } from 'react-router'"],
+		"description": "Read another route's loader data by route id.\n"
+	},
+	"useRouteLoaderData()": {
+		"prefix": ["useRouteLoaderData"],
+		"body": ["const ${1:data} = useRouteLoaderData('${2:root}')$0"],
+		"description": "Reads loader data from any *currently matched* route, addressed by its id.\nThe standard way for a deep component to reach the root loader's data (the logged-in user, say) without prop drilling.\n"
+	},
+	"import useFetcher": {
+		"prefix": ["imuf", "importUseFetcher"],
+		"body": ["import { useFetcher } from 'react-router'"],
+		"description": "Call loaders and actions without navigating.\n"
+	},
+	"useFetcher()": {
+		"prefix": ["useFetcher"],
+		"body": ["const ${1:fetcher} = useFetcher()$0"],
+		"description": "Submits to actions and loads from loaders without changing the URL.\nUse it for anything that should not create a history entry — likes, newsletter forms, inline edits.\n"
+	},
+	"useFetcher() with Form": {
+		"prefix": ["fetcherForm"],
+		"body": [
+			"const ${1:fetcher} = useFetcher()",
+			"const busy = ${1:fetcher}.state !== 'idle'",
+			"",
+			"return (",
+			"\t<${1:fetcher}.Form method=\"post\" action=\"${2:/path}\">",
+			"\t\t$0",
+			"\t\t<button type=\"submit\" disabled={busy}>",
+			"\t\t\t{busy ? '${3:Saving...}' : '${4:Save}'}",
+			"\t\t</button>",
+			"\t</${1:fetcher}.Form>",
+			")"
+		],
+		"description": "A form that submits without navigation, with the button disabled while in flight.\n"
+	},
+	"fetcher.submit()": {
+		"prefix": ["fetcherSubmit"],
+		"body": [
+			"${1:fetcher}.submit({ ${2:key}: ${3:value} }, { method: '${4|post,put,patch,delete|}', action: '${5:/path}' })$0"
+		],
+		"description": "Submit programmatically, without a form element.\n"
+	},
+	"fetcher.load()": {
+		"prefix": ["fetcherLoad"],
+		"body": ["${1:fetcher}.load('${2:/path}')$0"],
+		"description": "Call a route's loader on demand — type-ahead search, lazy panels, polling.\n"
+	},
+	"import useFetchers": {
+		"prefix": ["imufs", "importUseFetchers"],
+		"body": ["import { useFetchers } from 'react-router'"],
+		"description": "Observe every in-flight fetcher on the page.\n"
+	},
+	"useFetchers()": {
+		"prefix": ["useFetchers"],
+		"body": ["const ${1:fetchers} = useFetchers()$0"],
+		"description": "All active fetchers, without their `Form`/`submit`/`load` methods.\nUse it for global busy indicators, or to aggregate pending mutations into optimistic UI.\n"
+	},
+	"import useRevalidator": {
+		"prefix": ["imurv", "importUseRevalidator"],
+		"body": ["import { useRevalidator } from 'react-router'"],
+		"description": "Re-run the loaders of the current page.\n"
+	},
+	"useRevalidator()": {
+		"prefix": ["useRevalidator"],
+		"body": [
+			"const ${1:revalidator} = useRevalidator()",
+			"$0",
+			"${1:revalidator}.revalidate()"
+		],
+		"description": "Refetch all loaders for the current match tree without navigating.\nFor external triggers — window focus, a websocket event, a timer. Actions revalidate on their own.\n"
+	},
+	"import useAsyncValue / useAsyncError": {
+		"prefix": ["imuav", "importUseAsyncValue"],
+		"body": ["import { useAsyncValue, useAsyncError } from 'react-router'"],
+		"description": "Read the resolved value or the rejection inside `<Await>`.\n"
+	},
+	"useAsyncValue()": {
+		"prefix": ["useAsyncValue"],
+		"body": ["const ${1:value} = useAsyncValue()$0"],
+		"description": "The resolved value of the nearest `<Await>`. Call it from a child of `<Await>`, not from the route component.\n"
+	},
+	"useAsyncError()": {
+		"prefix": ["useAsyncError"],
+		"body": ["const ${1:error} = useAsyncError()$0"],
+		"description": "The rejection reason of the nearest `<Await>`. Read it from the component passed as `errorElement`.\n"
+	}
+}

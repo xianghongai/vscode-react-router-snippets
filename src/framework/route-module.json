@@ -1,0 +1,205 @@
+{
+	"Route Module: default component": {
+		"prefix": ["rrComponent", "routeComponent"],
+		"body": [
+			"import type { Route } from './+types/${1:route-name}'",
+			"",
+			"export default function ${2:RouteName}({ loaderData }: Route.ComponentProps) {",
+			"\treturn (",
+			"\t\t<div>",
+			"\t\t\t$0",
+			"\t\t</div>",
+			"\t)",
+			"}"
+		],
+		"description": "The route's default export renders when the path matches.\nIt receives `loaderData`, `actionData`, `params` and `matches` as props — no `useLoaderData()` needed in Framework mode.\nTypes come from the generated `./+types/<route>` module.\n"
+	},
+	"Route Module: loader (server)": {
+		"prefix": ["loader", "rrLoader"],
+		"body": [
+			"export async function loader({ params, request }: Route.LoaderArgs) {",
+			"\t$0",
+			"\treturn { ${1:data} }",
+			"}"
+		],
+		"description": "Runs on the server before the route renders. Server-only — the code is removed from the browser bundle.\nReturn a plain object; it reaches the component as `loaderData`.\n"
+	},
+	"Route Module: clientLoader": {
+		"prefix": ["clientLoader", "rrClientLoader"],
+		"body": [
+			"export async function clientLoader({ params, request }: Route.ClientLoaderArgs) {",
+			"\t$0",
+			"\treturn { ${1:data} }",
+			"}"
+		],
+		"description": "Runs in the browser. Use it for client-only data, or alongside `loader` to cache/augment server data.\nSet `clientLoader.hydrate = true` to also run it on the initial hydration.\n"
+	},
+	"Route Module: clientLoader with server loader": {
+		"prefix": ["clientLoaderServer", "rrClientLoaderServer"],
+		"body": [
+			"export async function clientLoader({ serverLoader }: Route.ClientLoaderArgs) {",
+			"\tconst serverData = await serverLoader()",
+			"\t$0",
+			"\treturn { ...serverData }",
+			"}",
+			"",
+			"clientLoader.hydrate = true as const"
+		],
+		"description": "`serverLoader()` calls this route's server `loader` from the client.\n`hydrate = true` makes the client loader run during hydration as well — pair it with a `HydrateFallback`.\n"
+	},
+	"Route Module: action (server)": {
+		"prefix": ["action", "rrAction"],
+		"body": [
+			"export async function action({ request, params }: Route.ActionArgs) {",
+			"\tconst formData = await request.formData()",
+			"\t$0",
+			"\treturn { ${1:ok}: true }",
+			"}"
+		],
+		"description": "Handles non-GET requests (form submissions). Server-only.\nAfter it resolves, all loaders on the page revalidate automatically.\n"
+	},
+	"Route Module: clientAction": {
+		"prefix": ["clientAction", "rrClientAction"],
+		"body": [
+			"export async function clientAction({ request, serverAction }: Route.ClientActionArgs) {",
+			"\t$0",
+			"\treturn await serverAction()",
+			"}"
+		],
+		"description": "Browser-side action. `serverAction()` delegates to this route's server `action`.\n"
+	},
+	"Route Module: meta": {
+		"prefix": ["meta", "rrMeta"],
+		"body": [
+			"export function meta({ data }: Route.MetaArgs) {",
+			"\treturn [",
+			"\t\t{ title: '${1:Page title}' },",
+			"\t\t{ name: 'description', content: '${2:Page description}' },$0",
+			"\t]",
+			"}"
+		],
+		"description": "Returns the `<meta>` and `<title>` tags for this route, rendered by the `<Meta />` component in root.\nIn React Router v8 the `data` argument is replaced by `loaderData`.\n"
+	},
+	"Route Module: links": {
+		"prefix": ["links", "rrLinks"],
+		"body": [
+			"export function links(): Route.LinkDescriptors {",
+			"\treturn [",
+			"\t\t{ rel: '${1|stylesheet,preload,icon,preconnect|}', href: ${2:href} },$0",
+			"\t]",
+			"}"
+		],
+		"description": "Returns `<link>` descriptors, rendered by the `<Links />` component in root.\nUse it for stylesheets, preloads and icons scoped to this route.\n"
+	},
+	"Route Module: headers": {
+		"prefix": ["headers", "rrHeaders"],
+		"body": [
+			"export function headers({ loaderHeaders, actionHeaders, parentHeaders }: Route.HeadersArgs) {",
+			"\treturn {",
+			"\t\t'Cache-Control': '${1:max-age=300, s-maxage=3600}',$0",
+			"\t}",
+			"}"
+		],
+		"description": "HTTP headers for the document response of this route. Server-only.\nOnly the leaf-most route's `headers` is used unless parents are merged explicitly.\n"
+	},
+	"Route Module: ErrorBoundary": {
+		"prefix": ["ErrorBoundary", "rrErrorBoundary"],
+		"body": [
+			"export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {",
+			"\tif (isRouteErrorResponse(error)) {",
+			"\t\treturn (",
+			"\t\t\t<div>",
+			"\t\t\t\t<h1>{error.status} {error.statusText}</h1>",
+			"\t\t\t\t<p>{error.data}</p>",
+			"\t\t\t</div>",
+			"\t\t)",
+			"\t}",
+			"",
+			"\treturn <div><h1>Error</h1><p>{error instanceof Error ? error.message : 'Unknown error'}</p></div>$0",
+			"}"
+		],
+		"description": "Renders in place of the route when its loader, action or component throws.\nRequires `import { isRouteErrorResponse } from 'react-router'` to tell thrown Responses from real errors.\n"
+	},
+	"Route Module: HydrateFallback": {
+		"prefix": ["HydrateFallback", "rrHydrateFallback"],
+		"body": [
+			"export function HydrateFallback() {",
+			"\treturn <div>${1:Loading...}</div>$0",
+			"}"
+		],
+		"description": "Shown during the initial hydration while a `clientLoader` with `hydrate = true` runs.\nOnly applies to the first render — later navigations use `useNavigation()` instead.\n"
+	},
+	"Route Module: shouldRevalidate": {
+		"prefix": ["shouldRevalidate", "rrShouldRevalidate"],
+		"body": [
+			"export function shouldRevalidate({",
+			"\tcurrentUrl,",
+			"\tnextUrl,",
+			"\tformMethod,",
+			"\tdefaultShouldRevalidate,",
+			"}: Route.ShouldRevalidateArgs) {",
+			"\t$0",
+			"\treturn defaultShouldRevalidate",
+			"}"
+		],
+		"description": "Opt this route's loader out of revalidation after actions or navigations.\nReturn `false` to keep the existing `loaderData`. Use sparingly — stale data is the usual bug.\n"
+	},
+	"Route Module: middleware": {
+		"prefix": ["middleware", "rrMiddleware"],
+		"body": [
+			"export const middleware: Route.MiddlewareFunction[] = [",
+			"\tasync ({ context, request }, next) => {",
+			"\t\t$1",
+			"\t\tconst response = await next()",
+			"\t\t$0",
+			"\t\treturn response",
+			"\t},",
+			"]"
+		],
+		"description": "Runs on the server before and after the loaders/actions below it. Use for auth, logging and response post-processing.\nCalling `next()` continues down the chain. Requires the `v8_middleware` future flag.\n"
+	},
+	"Route Module: clientMiddleware": {
+		"prefix": ["clientMiddleware", "rrClientMiddleware"],
+		"body": [
+			"export const clientMiddleware: Route.ClientMiddlewareFunction[] = [",
+			"\tasync ({ context }, next) => {",
+			"\t\t$1",
+			"\t\tawait next()$0",
+			"\t},",
+			"]"
+		],
+		"description": "Browser-side middleware, running around client loaders and actions.\nRequires the `v8_middleware` future flag.\n"
+	},
+	"Route Module: handle": {
+		"prefix": ["handle", "rrHandle"],
+		"body": [
+			"export const handle = {",
+			"\t${1:breadcrumb}: '${2:Label}',$0",
+			"}"
+		],
+		"description": "Arbitrary per-route data, readable from any component via `useMatches()`.\nThe usual use is breadcrumbs — see the `rr-breadcrumbs` snippet.\n"
+	},
+	"Route Module: Layout (root)": {
+		"prefix": ["Layout", "rrLayout"],
+		"body": [
+			"export function Layout({ children }: { children: React.ReactNode }) {",
+			"\treturn (",
+			"\t\t<html lang=\"${1:en}\">",
+			"\t\t\t<head>",
+			"\t\t\t\t<meta charSet=\"utf-8\" />",
+			"\t\t\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />",
+			"\t\t\t\t<Meta />",
+			"\t\t\t\t<Links />",
+			"\t\t\t</head>",
+			"\t\t\t<body>",
+			"\t\t\t\t{children}$0",
+			"\t\t\t\t<ScrollRestoration />",
+			"\t\t\t\t<Scripts />",
+			"\t\t\t</body>",
+			"\t\t</html>",
+			"\t)",
+			"}"
+		],
+		"description": "Wraps every route, including error states. Defined in `root.tsx`.\nIt must render the document shell — `<Meta />`, `<Links />`, `<ScrollRestoration />` and `<Scripts />`.\n"
+	}
+}

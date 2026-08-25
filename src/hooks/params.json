@@ -1,0 +1,57 @@
+{
+	"import useParams": {
+		"prefix": ["imup", "importUseParams"],
+		"body": ["import { useParams } from 'react-router'"],
+		"description": "Read dynamic segments from the URL.\n"
+	},
+	"useParams()": {
+		"prefix": ["useParams"],
+		"body": ["const { ${1:id} } = useParams()$0"],
+		"description": "Returns the dynamic segments of the matched path.\nValues are `string | undefined` — even a required segment is optional to TypeScript. In Framework mode the `params` prop is precisely typed instead.\n"
+	},
+	"import useSearchParams": {
+		"prefix": ["imusp", "importUseSearchParams"],
+		"body": ["import { useSearchParams } from 'react-router'"],
+		"description": "Read and write the query string.\n"
+	},
+	"useSearchParams()": {
+		"prefix": ["useSearchParams"],
+		"body": ["const [searchParams, setSearchParams] = useSearchParams()$0"],
+		"description": "`useState`-like access to the query string, backed by the URL.\n`searchParams` is a `URLSearchParams`; setting it triggers a navigation.\n"
+	},
+	"useSearchParams() read": {
+		"prefix": ["searchParamsGet"],
+		"body": ["const ${1:query} = searchParams.get('${2:q}') ?? '${3:}'$0"],
+		"description": "Read one parameter. `get()` returns `null` when absent, so supply a default.\n"
+	},
+	"useSearchParams() set": {
+		"prefix": ["searchParamsSet"],
+		"body": [
+			"setSearchParams((prev) => {",
+			"\tprev.set('${1:q}', ${2:value})",
+			"\treturn prev",
+			"}, { replace: ${3|true,false|} })$0"
+		],
+		"description": "Update one parameter while preserving the rest.\nThe functional form avoids clobbering params other components own. `replace: true` keeps filter tweaks out of history.\n"
+	},
+	"import useMatch": {
+		"prefix": ["imum", "importUseMatch"],
+		"body": ["import { useMatch } from 'react-router'"],
+		"description": "Match the current location against a pattern.\n"
+	},
+	"useMatch()": {
+		"prefix": ["useMatch"],
+		"body": ["const ${1:match} = useMatch('${2:/items/:id}')$0"],
+		"description": "Returns the match (with params) when the current URL matches the pattern, otherwise `null`.\nFor active styling prefer `<NavLink>`, which handles it for you.\n"
+	},
+	"import useMatches": {
+		"prefix": ["imums", "importUseMatches"],
+		"body": ["import { useMatches } from 'react-router'"],
+		"description": "Read every matched route on the page.\n"
+	},
+	"useMatches()": {
+		"prefix": ["useMatches"],
+		"body": ["const matches = useMatches()$0"],
+		"description": "All currently matched routes, each with `id`, `pathname`, `params`, `data` and `handle`.\nCombined with each route's `handle` export, this is how breadcrumbs are built.\nIn React Router v8 `data` is replaced by `loaderData`.\n"
+	}
+}

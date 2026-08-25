@@ -1,0 +1,118 @@
+{
+	"import RouterProvider": {
+		"prefix": ["imrp", "importRouterProvider"],
+		"body": ["import { RouterProvider } from 'react-router/dom'"],
+		"description": "Data mode provider for browser apps.\nImport it from `react-router/dom` — that build integrates with `flushSync` and view transitions. The one exported from `react-router` targets non-DOM renderers.\n"
+	},
+	"RouterProvider": {
+		"prefix": ["RouterProvider"],
+		"body": ["<RouterProvider router={${1:router}} />$0"],
+		"description": "Renders a router created by `createBrowserRouter` and friends. Replaces `<BrowserRouter>` in Data mode.\n"
+	},
+	"Data mode entry": {
+		"prefix": ["rrDataEntry", "dataModeSetup"],
+		"body": [
+			"import { createBrowserRouter } from 'react-router'",
+			"import { RouterProvider } from 'react-router/dom'",
+			"import { createRoot } from 'react-dom/client'",
+			"",
+			"const router = createBrowserRouter([",
+			"\t{",
+			"\t\tpath: '/',",
+			"\t\tComponent: ${1:Layout},",
+			"\t\tErrorBoundary: ${2:ErrorPage},",
+			"\t\tchildren: [",
+			"\t\t\t{ index: true, Component: ${3:Home}, loader: ${4:homeLoader} },$0",
+			"\t\t],",
+			"\t},",
+			"])",
+			"",
+			"createRoot(document.getElementById('root')!).render(",
+			"\t<RouterProvider router={router} />,",
+			")"
+		],
+		"description": "Complete Data mode setup — router definition plus mount. The mode to pick when you want loaders and actions without the Framework build.\n"
+	},
+	"import BrowserRouter": {
+		"prefix": ["imbr", "importBrowserRouter"],
+		"body": ["import { BrowserRouter } from 'react-router'"],
+		"description": "Declarative mode router using the History API.\n"
+	},
+	"BrowserRouter": {
+		"prefix": ["BrowserRouter"],
+		"body": ["<BrowserRouter>", "\t$0", "</BrowserRouter>"],
+		"description": "Declarative mode only — no loaders, actions or pending states.\nFor data features use `createBrowserRouter` + `<RouterProvider>`.\n"
+	},
+	"import HashRouter": {
+		"prefix": ["imhr", "importHashRouter"],
+		"body": ["import { HashRouter } from 'react-router'"],
+		"description": "Declarative router storing the location in the URL hash.\n"
+	},
+	"HashRouter": {
+		"prefix": ["HashRouter"],
+		"body": ["<HashRouter>", "\t$0", "</HashRouter>"],
+		"description": "Keeps the location after `#`. For static hosts that cannot rewrite every path to index.html.\n"
+	},
+	"import MemoryRouter": {
+		"prefix": ["immr", "importMemoryRouter"],
+		"body": ["import { MemoryRouter } from 'react-router'"],
+		"description": "Router keeping history in memory.\n"
+	},
+	"MemoryRouter": {
+		"prefix": ["MemoryRouter"],
+		"body": [
+			"<MemoryRouter initialEntries={['${1:/}']} initialIndex={${2:0}}>",
+			"\t$0",
+			"</MemoryRouter>"
+		],
+		"description": "No URL involved — the router of choice for tests and React Native.\n"
+	},
+	"import StaticRouter": {
+		"prefix": ["imsr", "importStaticRouter"],
+		"body": ["import { StaticRouter } from 'react-router'"],
+		"description": "Declarative router for server rendering.\n"
+	},
+	"StaticRouter": {
+		"prefix": ["StaticRouter"],
+		"body": ["<StaticRouter location={${1:url}}>", "\t$0", "</StaticRouter>"],
+		"description": "Renders a fixed location on the server. Declarative mode SSR only — no data loading.\n"
+	},
+	"import StaticRouterProvider": {
+		"prefix": ["imsrp", "importStaticRouterProvider"],
+		"body": ["import { StaticRouterProvider } from 'react-router'"],
+		"description": "Server counterpart of `RouterProvider` for Data mode SSR.\n"
+	},
+	"StaticRouterProvider": {
+		"prefix": ["StaticRouterProvider"],
+		"body": [
+			"<StaticRouterProvider router={${1:router}} context={${2:context}} />$0"
+		],
+		"description": "Renders a static router built by `createStaticRouter`, using the context from `createStaticHandler().query()`.\nThe Data mode SSR pair — Framework mode handles this itself.\n"
+	},
+	"import ServerRouter": {
+		"prefix": ["imsvr", "importServerRouter"],
+		"body": ["import { ServerRouter } from 'react-router'"],
+		"description": "Framework mode server renderer.\n"
+	},
+	"ServerRouter": {
+		"prefix": ["ServerRouter"],
+		"body": [
+			"<ServerRouter context={${1:routerContext}} url={${2:request.url}} />$0"
+		],
+		"description": "Renders the matched routes on the server. Used inside `entry.server.tsx`.\n"
+	},
+	"import Router": {
+		"prefix": ["imrouter", "importRouter"],
+		"body": ["import { Router } from 'react-router'"],
+		"description": "Low-level router primitive.\n"
+	},
+	"Router": {
+		"prefix": ["Router"],
+		"body": [
+			"<Router location={${1:location}} navigator={${2:navigator}}>",
+			"\t$0",
+			"</Router>"
+		],
+		"description": "The primitive the other routers build on. Only reach for it when implementing a custom history integration.\n"
+	}
+}
