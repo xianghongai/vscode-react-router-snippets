@@ -1,6 +1,6 @@
 {
 	"Pattern: global loading indicator": {
-		"prefix": ["rrGlobalLoading"],
+		"prefix": ["rGlobalLoading"],
 		"body": [
 			"const navigation = useNavigation()",
 			"const isLoading = navigation.state === 'loading'",
@@ -15,7 +15,7 @@
 		"description": "A top-level progress bar driven by the pending navigation. Render it in the root layout.\n"
 	},
 	"Pattern: submit button pending state": {
-		"prefix": ["rrSubmitPending"],
+		"prefix": ["rSubmitPending"],
 		"body": [
 			"const navigation = useNavigation()",
 			"const isSubmitting = navigation.state === 'submitting'",
@@ -32,7 +32,7 @@
 		"description": "Disable the button and swap its label while the action runs, so double submits are impossible.\n"
 	},
 	"Pattern: per-item pending with fetchers": {
-		"prefix": ["rrItemPending"],
+		"prefix": ["rItemPending"],
 		"body": [
 			"const fetchers = useFetchers()",
 			"const pendingIds = new Set(",
@@ -44,7 +44,7 @@
 		"description": "Collect the ids of every in-flight fetcher so each row can show its own spinner.\nThe list-view counterpart to a single form's pending state.\n"
 	},
 	"Pattern: delayed spinner": {
-		"prefix": ["rrDelayedSpinner"],
+		"prefix": ["rDelayedSpinner"],
 		"body": [
 			"const navigation = useNavigation()",
 			"const [showSpinner, setShowSpinner] = useState(false)",

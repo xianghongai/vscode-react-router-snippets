@@ -1,6 +1,6 @@
 {
 	"root.tsx skeleton": {
-		"prefix": ["rrRoot", "rootRoute"],
+		"prefix": ["rRoot", "rootRoute"],
 		"body": [
 			"import {",
 			"\tLinks,",
@@ -52,10 +52,10 @@
 			"\t)",
 			"}$0"
 		],
-		"description": "Complete `app/root.tsx` for Framework mode: document shell, `<Outlet />` and a root error boundary.\n`Layout` also wraps the error state, so the shell keeps rendering when a route throws.\n"
+		"description": "**Framework mode.** Complete `app/root.tsx` for Framework mode: document shell, `<Outlet />` and a root error boundary.\n`Layout` also wraps the error state, so the shell keeps rendering when a route throws.\n"
 	},
 	"entry.client.tsx": {
-		"prefix": ["rrEntryClient", "entryClient"],
+		"prefix": ["rEntryClient", "entryClient"],
 		"body": [
 			"import { startTransition, StrictMode } from 'react'",
 			"import { hydrateRoot } from 'react-dom/client'",
@@ -70,10 +70,10 @@
 			"\t)",
 			"})$0"
 		],
-		"description": "`app/entry.client.tsx` — the browser entry. Only needed when customizing hydration; Framework mode supplies a default.\n`HydratedRouter` comes from `react-router/dom`, not the root package.\n"
+		"description": "**Framework mode.** `app/entry.client.tsx` — the browser entry. Only needed when customizing hydration; Framework mode supplies a default.\n`HydratedRouter` comes from `react-router/dom`, not the root package.\n"
 	},
 	"entry.server.tsx": {
-		"prefix": ["rrEntryServer", "entryServer"],
+		"prefix": ["rEntryServer", "entryServer"],
 		"body": [
 			"import { renderToReadableStream } from 'react-dom/server'",
 			"import { ServerRouter, type EntryContext } from 'react-router'",
@@ -95,20 +95,18 @@
 			"\t})",
 			"}$0"
 		],
-		"description": "`app/entry.server.tsx` — server rendering entry. Only needed when customizing the SSR response.\n`<ServerRouter />` renders the matched routes on the server.\n"
+		"description": "**Framework mode.** `app/entry.server.tsx` — server rendering entry. Only needed when customizing the SSR response.\n`<ServerRouter />` renders the matched routes on the server.\n"
 	},
 	"react-router.config.ts": {
-		"prefix": ["rrConfig", "reactRouterConfig"],
+		"prefix": ["rConfig", "reactRouterConfig"],
 		"body": [
 			"import type { Config } from '@react-router/dev/config'",
 			"",
 			"export default {",
 			"\tssr: ${1|true,false|},",
-			"\tfuture: {",
-			"\t\tv8_middleware: ${2|true,false|},",
-			"\t},$0",
+			"\tsplitRouteModules: ${2|true,false,\"enforce\"|},$0",
 			"} satisfies Config"
 		],
-		"description": "Framework mode build config. `ssr: false` produces a SPA build.\nFuture flags opt into the next major's behavior ahead of time.\n"
+		"description": "**Framework mode.** Framework mode build config. `ssr: false` produces a SPA build.\n`splitRouteModules` code-splits each route's client exports; it graduated from a future flag to a top-level option in v8.\nv8 ships with no future flags — the v7 `v8_*` flags are now the default behavior.\n"
 	}
 }

@@ -1,0 +1,51 @@
+{
+	"import Routes / Route": {
+		"prefix": ["imroutes2", "importRoutes"],
+		"body": ["import { Routes, Route } from 'react-router'"],
+		"description": "**Declarative mode.** Route matching by JSX.\n"
+	},
+	"Routes": {
+		"prefix": ["Routes", "rs"],
+		"body": [
+			"<Routes>",
+			"\t<Route path=\"${1:/}\" element={<${2:Layout} />}>",
+			"\t\t<Route index element={<${3:Home} />} />",
+			"\t\t<Route path=\"${4:about}\" element={<${5:About} />} />$0",
+			"\t</Route>",
+			"</Routes>"
+		],
+		"description": "**Declarative mode.** Picks the best match among its `<Route>` children.\nNo loaders, actions or pending UI.\n"
+	},
+	"Route": {
+		"prefix": ["Route", "rt"],
+		"body": ["<Route path=\"${1:path}\" element={<${2:Component} />} />$0"],
+		"description": "**Declarative mode.** One route. Nest `<Route>` elements to build layouts, and render an `<Outlet />` in the parent.\n"
+	},
+	"Route index": {
+		"prefix": ["RouteIndex"],
+		"body": ["<Route index element={<${1:Home} />} />$0"],
+		"description": "**Declarative mode.** Renders at the parent's exact path. An index route takes no `path` of its own.\n"
+	},
+	"Route 404": {
+		"prefix": ["Route404", "rCatchAll"],
+		"body": ["<Route path=\"*\" element={<${1:NotFound} />} />$0"],
+		"description": "**Declarative mode.** Catch-all for unmatched URLs. Put it last, at the top level.\n"
+	},
+	"import useRoutes": {
+		"prefix": ["imur", "importUseRoutes"],
+		"body": ["import { useRoutes } from 'react-router'"],
+		"description": "**Declarative mode.** Define routes as an object tree inside a component.\n"
+	},
+	"useRoutes()": {
+		"prefix": ["useRoutes", "ur"],
+		"body": [
+			"const element = useRoutes([",
+			"\t{ path: '${1:/}', element: <${2:Home} /> },",
+			"\t{ path: '${3:about}', element: <${4:About} /> },$0",
+			"])",
+			"",
+			"return element"
+		],
+		"description": "**Declarative mode.** The hook form of `<Routes>`, taking plain objects instead of JSX.\nNo data loading.\n"
+	}
+}

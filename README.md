@@ -1,571 +1,339 @@
-<p align="center">
-  <h1 align="center">React Router 7 Snippets for VS Code</h1>
-  <p align="center">React Router 7 代码片段扩展</p>
-</p>
+# React Router 8 Snippets for VS Code
 
-<p align="center">
+React Router 8 代码片段扩展
+
+<p>
   <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-react-router-snippets">
-    <img src="https://img.shields.io/visual-studio-marketplace/v/nicholashsiang.vscode-react-router-snippets?style=flat-square&label=VS%20Code%20Marketplace&logo=visual-studio-code" alt="Visual Studio Marketplace Version">
+    <img src="https://vsmarketplacebadges.dev/version/nicholashsiang.vscode-react-router-snippets.svg?style=flat-square&label=VS%20Code%20Marketplace&logo=visual-studio-code" alt="Visual Studio Marketplace Version">
   </a>
   <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-react-router-snippets">
-    <img src="https://img.shields.io/visual-studio-marketplace/d/nicholashsiang.vscode-react-router-snippets?style=flat-square&label=Downloads" alt="Downloads">
+    <img src="https://vsmarketplacebadges.dev/downloads-short/nicholashsiang.vscode-react-router-snippets.svg?style=flat-square&label=Downloads" alt="Downloads">
   </a>
   <a href="https://marketplace.visualstudio.com/items?itemName=nicholashsiang.vscode-react-router-snippets">
-    <img src="https://img.shields.io/visual-studio-marketplace/r/nicholashsiang.vscode-react-router-snippets?style=flat-square&label=Rating" alt="Rating">
+    <img src="https://vsmarketplacebadges.dev/rating-short/nicholashsiang.vscode-react-router-snippets.svg?style=flat-square&label=Rating" alt="Rating">
   </a>
   <a href="https://github.com/xianghongai/vscode-react-router-snippets/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/xianghongai/vscode-react-router-snippets?style=flat-square" alt="License">
   </a>
 </p>
 
-<p align="center">
-  <b>Code snippets for React Router v7 - 51 snippets covering components, hooks, routers, and utilities</b><br>
-  <b>专为 React Router v7 设计的代码片段 - 包含 51 个组件、Hooks、路由器和工具函数片段</b>
-</p>
+Snippets for React Router 8 — Framework mode, Data mode, Declarative mode, and the patterns in between.
+
+React Router 8 代码片段 —— 覆盖 Framework / Data / Declarative 三种模式与常见开发场景。
 
 ---
 
-## ✨ 特性 Features
+## 版本对应 Versions
 
-- ✅ **聚焦路由核心** / Focus on routing essentials - 只包含路由导航、参数、数据加载相关 API
-- ✅ **完整 v7 支持** / Full v7 support - 包含所有 v7 新增的数据加载和表单处理 API
-- ✅ **简洁高效** / Clean & efficient - 移除冗余描述，精简片段格式
-- ✅ **统一导入** / Unified imports - 所有导入统一使用 `'react-router'`
-- ✅ **助记命名** / Mnemonic naming - `im` + 缩写的直观命名规则
-- ✅ **与 TanStack Query 共存** / Works with TanStack Query - 数据 API 互补，各有适用场景
+| 扩展版本 | React Router | 分支   |
+| -------- | ------------ | ------ |
+| `8.x`    | 8.x          | `main` |
+| `7.x`    | 7.x          | `v7`   |
 
-### 🆕 v7 新特性 What's New in v7
+v8 移除了 `react-router-dom` 包，本扩展所有片段统一从 `react-router` 导入；`RouterProvider` 与 `HydratedRouter` 来自 `react-router/dom`。
 
-- **数据加载** / Data Loading: `useLoaderData`, `useActionData`, `useFetcher`, `useNavigation`
-- **表单处理** / Form Handling: `<Form>`, `useSubmit`, `useFormAction`
-- **错误处理** / Error Handling: `useRouteError`, `isRouteErrorResponse`
-- **新路由器** / New Routers: `RouterProvider`, `createBrowserRouter`
-- **导入路径** / Import Path: 从 `'react-router'` 统一导入（不再使用 `'react-router-dom'`）
+React Router 8 要求 `node@22.22+`、`react@19.2.7+`，Framework 模式还需 `vite@7+`。
 
 ---
 
-## 📦 安装 Installation
+## Prefix design
 
-### Via VS Code Marketplace
+Prefixes follow three deliberate patterns:
 
-1. 打开 VS Code / Open VS Code
-2. 按 `Ctrl+P` / `Cmd+P` 打开快速打开面板 / Press to open Quick Open
-3. 输入 `ext install nicholashsiang.vscode-react-router-snippets`
-4. 按回车安装 / Press Enter to install
+1. **The API name is the prefix** — `useLoaderData`, `NavLink`, `loader`, `meta`. Unlike a language-level construct such as try/catch, a router API name _is_ the code you are about to write, so there is nothing to translate: type what you mean and it triggers. This is the discovery path — you never need to learn a mapping first.
+2. **Hard abbreviation for high-frequency APIs only** — components take `r` + initials (`rl` = Link, `rnl` = NavLink, `rf` = Form), hooks drop `use` and take initials (`un` = useNavigate, `uld` = useLoaderData, `unav` = useNavigation). Both forms coexist on the same snippet, so the short code is an optimization you grow into rather than a prerequisite. Only frequently-typed APIs get one — abbreviating all of them would trade one memorization burden for another.
+3. **Families share a stem, variants extend it** — `navigate` / `navigateReplace` / `navigateBack` / `navigateRelative`; `Link` / `LinkPrefetch` / `LinkState`. Type the stem to get the whole family in the completion list and pick from it, instead of recalling which suffix you need. Scenario snippets that have no API name of their own live under `r` + a scenario name (`rAuthGuard`, `rPagination`), since `r` is the entry point to everything router-related. Import statements are split out under `im` + abbreviation (`imuld`), so completing an import never competes with completing a call.
 
-### Via Command Line
+The goal is that a prefix "just works" without recall: either it is the API name you already intended to type, or it is a short code for something you type every day, or it is the family stem that shows you the options.
 
-```bash
-code --install-extension nicholashsiang.vscode-react-router-snippets
-```
+前缀遵循三种刻意区分的模式：
+
+1. **API 名本身就是前缀**——`useLoaderData`、`NavLink`、`loader`、`meta`。与 try/catch 这类语言构造不同，路由 API 的名字**就是**最终要写下的代码，中间没有翻译环节：想写什么就打什么。这是发现路径，无需先记住一套映射关系。
+2. **只给高频 API 配硬缩写**——组件用 `r` + 首字母（`rl` = Link、`rnl` = NavLink、`rf` = Form），Hook 去掉 `use` 后取首字母（`un` = useNavigate、`uld` = useLoaderData、`unav` = useNavigation）。两种形式挂在同一条片段上，所以短码是"用熟之后的提速手段"，而不是上手门槛。只有天天要打的 API 才有——全都配缩写等于把一种记忆负担换成另一种。
+3. **同族共用词干，变体在其后扩展**——`navigate` / `navigateReplace` / `navigateBack` / `navigateRelative`；`Link` / `LinkPrefetch` / `LinkState`。打出词干就能在补全列表里看到整族备选并从中挑，不必去回忆该用哪个后缀。没有对应 API 名的场景片段挂在 `r` + 场景名下（`rAuthGuard`、`rPagination`），因为 `r` 是所有路由相关内容的入口。import 语句单独放在 `im` + 缩写下（`imuld`），这样补全 import 时不会和补全调用语句互相干扰。
+
+目标是让"打出前缀就能触发"这件事不依赖回忆：要么它本就是待输入的 API 名，要么是高频操作的短码，要么是能摊开全部备选项的词干
 
 ---
 
-## 🚀 快速开始 Quick Start
+## 从哪一层开始 Picking a Mode
 
-只需输入片段的 **prefix**（前缀），然后按 `Tab` 或 `Enter` 即可插入代码。
+三种模式**层层递进**，上层是下层的超集：
 
-Just type a snippet **prefix** and press `Tab` or `Enter` to insert the code.
-
-### 💡 使用提示 Usage Tips
-
-**大部分情况下不需要手动输入 import 语句！**
-
-Most of the time you don't need to manually type import statements!
-
-当你使用组件代码片段（如 `Link`、`Form`）后，VS Code 会自动检测缺失的导入：
-
-1. 组件下方会显示波浪线
-2. 按 `Ctrl+.` (Windows/Linux) 或 `Cmd+.` (Mac) 触发快速修复
-3. 选择 "Add import from 'react-router'" 即可自动添加导入
-
-When you use component snippets (like `Link`, `Form`), VS Code will automatically detect missing imports:
-
-1. A wavy line appears under the component
-2. Press `Ctrl+.` (Windows/Linux) or `Cmd+.` (Mac) for Quick Fix
-3. Select "Add import from 'react-router'" to auto-add the import
-
-> 如果你更喜欢先导入再使用，也可以使用 Import 片段（如 `imrl`、`imrf`）。
->
-> If you prefer importing first, you can still use Import snippets (like `imrl`, `imrf`).
-
-### 常见场景示例 Common Use Cases
-
-#### 1. 导入组件 Import Components
-
-```javascript
-// 输入 / Type: imrl
-import { Link } from 'react-router';
-
-// 输入 / Type: imrf
-import { Form } from 'react-router';
+```
+Declarative  只做路由匹配
+    ↓  + 数据流（loader / action / pending 状态）
+Data         路由表移出 React，渲染前就能取数据
+    ↓  + 约定式路由与构建集成（typegen / 代码分割 / SSR）
+Framework    开箱即用的全栈方案
 ```
 
-#### 2. 使用导航组件 Use Navigation Components
+三种都支持客户端 / SSR / 静态生成，**区别只在于希望自行掌控多少**：
 
-```jsx
-// 输入 / Type: Link
-<Link to="path">Text</Link>
+| 适用场景                                                 | 模式            |
+| -------------------------------------------------------- | --------------- |
+| 想要开箱即用的全栈方案，或正从 Next.js / Remix 迁过来    | **Framework**   |
+| 想要数据加载和表单提交，但打包、数据层、服务端要自己掌控 | **Data**        |
+| 只需要页面跳转，数据用自己的方案                         | **Declarative** |
 
-// 输入 / Type: NavLink
-<NavLink to="path" className={({ isActive }) => isActive ? 'active' : ''}>
-  Text
-</NavLink>
+拿不准就从 Declarative 开始 —— 往上升级时，已写的 `Link`、`useNavigate` 这些完全不用改。
+
+> 详见官方 [Picking a Mode](https://reactrouter.com/start/modes)
+
+---
+
+## 逐层上手 Getting Started
+
+输入 prefix 按 `Tab` 展开，`Tab` 继续跳到下一个占位符。下面按模式逐层加码，每层只展示**这一层新增的东西**。
+
+### 第 1 层 · Declarative — 只做路由
+
+路由写在 JSX 里，数据自己取（`useEffect`、TanStack Query 等）。
+
+```tsx
+// rbr + rs + rt — 声明路由表
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="products/:id" element={<Product />} />
+    </Route>
+  </Routes>
+</BrowserRouter>
+
+// ro — 父路由里渲染子路由
+<Outlet />
 ```
 
-#### 3. 使用 v7 数据加载 Use v7 Data Loading
+跳转与取参 —— **这一套在三种模式里完全相同**：
 
-```javascript
-// 输入 / Type: useLoaderData
-const data = useLoaderData();
+```tsx
+// rl / rnl — 链接跳转，优先用它而不是 useNavigate
+<Link to="/products">商品</Link>
+<NavLink to="/products" className={({ isActive }) => (isActive ? 'active' : '')}>商品</NavLink>
 
-// 输入 / Type: useFetcher
-const fetcher = useFetcher();
-// fetcher.Form, fetcher.submit(), fetcher.load()
-// fetcher.state, fetcher.data
+// un + navigate — 代码里跳转
+const navigate = useNavigate()
+navigate('/products')                      // navigate
+navigate('/products', { replace: true })   // navigateReplace，登录后用它
+
+// up / usp — 路径参数、查询参数
+const { id } = useParams()
+const [searchParams, setSearchParams] = useSearchParams()
 ```
 
-#### 4. 创建路由器 Create Routers
+### 第 2 层 · Data — 加上数据流
 
-> **💡 提示：大部分项目使用文件系统路由**
->
-> Most projects use file-system routing
->
-> 在现代 React Router 应用中，推荐使用基于文件系统的路由方案，无需手动创建路由配置。
->
-> In modern React Router apps, file-system based routing is recommended, eliminating the need for manual route configuration.
->
-> **文件系统路由方案 File-System Routing Solutions:**
->
-> - [vite-plugin-pages](https://github.com/hannoeru/vite-plugin-pages)
-> - [generouted](https://github.com/oedotme/generouted) - 自动路由生成 / Automatic route generation
-> - [Vite Plugin React Router](https://github.com/remix-run/react-router/tree/dev/packages/react-router-dev) - Vite 集成 / Vite integration
-> - [React Router v7 (官方支持)](https://reactrouter.com/start/framework/routing) - Official built-in support
->
-> **何时使用手动配置 When to use manual configuration:**
->
-> - 旧项目迁移 / Legacy project migration
-> - 完全自定义控制 / Full custom control
+把路由表移到 React 渲染之外，React Router 就能在组件渲染**之前**取好数据，于是有了 loader、action 和 pending 状态。
 
-```javascript
-// 输入 / Type: createBrowserRouter
+```tsx
+// cbr + rp — 路由表移出 JSX
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Layout />,
-    loader: loader,
-    errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <Home /> },
-      { path: 'about', element: <About /> },
-    ],
+    path: '/products/:id',
+    Component: Product,
+    loader: productLoader,
+    action: productAction,
+    ErrorBoundary: ErrorPage,
   },
-]);
+])
+
+<RouterProvider router={router} />
 ```
 
-#### 5. 表单提交 Form Submission
+```tsx
+// uld — 组件直接拿到数据，不用 useEffect + loading state
+const { product } = useLoaderData()
 
-```jsx
-// 输入 / Type: Form
-<Form method="post" action="/path">
-  <input name="field" />
-  <button type="submit">Submit</button>
+// rf — 提交到 action，无 JS 也能工作；提交完成后 loader 自动重新加载
+<Form method="post">
+  <input name="name" />
+  <button type="submit">保存</button>
 </Form>
+
+// unav — 加载/提交中状态，用来禁用按钮或显示进度条
+const navigation = useNavigation()
+const isSubmitting = navigation.state === 'submitting'
+
+// uf — 不触发导航的提交（点赞、内联编辑）
+const fetcher = useFetcher()
+```
+
+错误处理也在这一层出现：
+
+```tsx
+// rNotFoundLoader — loader 里抛 404，而不是返回 null
+throw new Response('Not Found', { status: 404 });
+
+// ure + irer — 在 errorElement 里读取并判定
+const error = useRouteError();
+if (isRouteErrorResponse(error)) {
+  /* error.status / error.data */
+}
+```
+
+### 第 3 层 · Framework — 加上约定与构建
+
+路由表变成独立文件，每个路由模块用**约定式导出**，类型自动生成，代码分割和 SSR 由构建接管。上一层的 `useLoaderData`、`Form`、`useNavigation` 依然可用。
+
+```ts
+// routesConfig — app/routes.ts，路由清单独立成文件
+export default [
+  index('routes/home.tsx'),
+  route('products/:id', 'routes/product.tsx'),
+] satisfies RouteConfig;
+```
+
+```tsx
+// loader + rComponent — 约定式导出，类型由 ./+types 自动生成
+export async function loader({ params }: Route.LoaderArgs) {
+  return { product: await getProduct(params.id) };
+}
+
+export default function Product({ loaderData }: Route.ComponentProps) {
+  return <h1>{loaderData.product.name}</h1>; // 类型精确，无需 useLoaderData
+}
+
+// action / meta / ErrorBoundary — 同一个文件里的其他约定导出
+export async function action({ request }: Route.ActionArgs) {}
+export function meta({ loaderData }: Route.MetaArgs) {}
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {}
+```
+
+```tsx
+// rRoot — app/root.tsx 的文档骨架
+<html>
+  <head>
+    <Meta />
+    <Links />
+  </head>
+  <body>
+    {children}
+    <ScrollRestoration />
+    <Scripts />
+  </body>
+</html>
+```
+
+### 跨层 · 常见场景
+
+不属于某一层，Data 和 Framework 模式都能用：
+
+```tsx
+// rAuthGuard — 在 loader 里拦截，未登录不渲染也不取数据
+export async function loader({ url, request }: Route.LoaderArgs) {
+  const user = await getUser(request);
+  if (!user) throw redirect(`/login?redirectTo=${url.pathname}${url.search}`);
+  return { user };
+}
+```
+
+其余见下方 `patterns/`：表单校验、乐观更新、面包屑、分页等。
+
+---
+
+## 片段索引 Snippet Index
+
+源码目录与模式一一对应，一进来就知道哪些是公共的、哪些是某层专属的：
+
+```
+src/
+  1.shared/       三种模式都能用
+  2.declarative/  Declarative 引入的
+  3.data/         Data 在上一层之上引入的
+  4.framework/    Framework 在上一层之上引入的
+  5.patterns/     串起多个 API 的场景片段
+```
+
+### `1.shared/` — 三种模式通用
+
+| Prefix                                                     | 说明                         |
+| ---------------------------------------------------------- | ---------------------------- |
+| `Link` `rl` / `NavLink` `rnl`                              | 跳转链接 / 带激活态的链接    |
+| `LinkPrefetch` `LinkViewTransition`                        | 预取、视图过渡               |
+| `Outlet` `ro` / `Navigate` `rn`                            | 子路由出口 / 声明式跳转      |
+| `useNavigate` `un` / `useLocation` `ul`                    | 取得跳转函数 / 当前位置      |
+| `navigate` `navigateReplace` `navigateBack`                | 跳转、替换历史、返回         |
+| `navigateState` `navigateRelative` `navigatePreventScroll` | 带状态、相对路径、保持滚动   |
+| `useParams` `up` / `useSearchParams` `usp`                 | 路径参数 / 查询参数          |
+| `useMatch` `um` / `useMatches` `ums`                       | 路径匹配 / 全部匹配路由      |
+| `useBlocker` `ub` `blockerConfirm`                         | 拦截导航（未保存提醒）       |
+| `href` `generatePath` `matchPath`                          | 类型安全路径、路径拼接与匹配 |
+
+### `2.declarative/` — Declarative 引入
+
+| Prefix                                                            | 说明               |
+| ----------------------------------------------------------------- | ------------------ |
+| `BrowserRouter` `rbr` / `HashRouter` `rhr` / `MemoryRouter` `rmr` | 三种 Router        |
+| `Routes` `rs` / `Route` `rt`                                      | JSX 路由表         |
+| `RouteIndex` `Route404`                                           | 索引路由、兜底路由 |
+| `useRoutes` `ur`                                                  | 对象形式的路由表   |
+
+### `3.data/` — Data 引入（Framework 同样使用）
+
+| Prefix                                                | 说明                      |
+| ----------------------------------------------------- | ------------------------- |
+| `createBrowserRouter` `cbr` / `RouterProvider` `rp`   | Data 模式的 Router 与挂载 |
+| `rDataEntry`                                          | 完整启动代码              |
+| `useLoaderData` `uld` / `useActionData` `uad`         | 读取 loader / action 数据 |
+| `Form` `rf` / `useSubmit` `us`                        | 提交到 action 的表单      |
+| `useFetcher` `uf` `fetcherForm`                       | 不触发导航的提交与加载    |
+| `useNavigation` `unav` `navigationBusy`               | 导航中状态                |
+| `Await` `ra` / `rDefer`                               | 流式渲染慢数据            |
+| `data` `rdata` / `redirect` `rd` / `replace`          | 返回数据、重定向          |
+| `useRouteError` `ure` / `isRouteErrorResponse` `irer` | 错误读取与判定            |
+| `RouteLazy`                                           | 路由级代码分割            |
+
+### `4.framework/` — Framework 引入
+
+| Prefix                                                    | 说明                                    |
+| --------------------------------------------------------- | --------------------------------------- |
+| `rRoot`                                                   | 完整的 `root.tsx`                       |
+| `rComponent`                                              | 路由默认导出，带 `Route.ComponentProps` |
+| `loader` / `action`                                       | 服务端数据加载与提交                    |
+| `clientLoader` / `clientAction`                           | 浏览器端对应物                          |
+| `meta` / `links` / `headers`                              | 文档元信息与响应头                      |
+| `ErrorBoundary` `reb` / `HydrateFallback` `rhf`           | 错误与水合回退                          |
+| `middleware` / `shouldRevalidate` / `handle`              | 中间件、重验证控制、路由附加数据        |
+| `routesConfig` `route` `index` `layout` `prefix`          | `routes.ts` 路由清单                    |
+| `Meta` `rm` / `Links` `rlk` / `Scripts` `rsc`             | `root.tsx` 中的文档组件                 |
+| `createCookie` `createCookieSessionStorage` `sessionRead` | Cookie 与 Session                       |
+| `createContext` `contextGet` `contextSet`                 | 中间件上下文                            |
+| `rConfig` `rEntryClient` `rEntryServer`                   | 构建配置与自定义入口                    |
+
+### `5.patterns/` — 高频场景
+
+| Prefix                                                     | 说明                         |
+| ---------------------------------------------------------- | ---------------------------- |
+| `rAuthGuard` `rRequireUser` `rLoginAction` `rLogoutAction` | 认证守卫与登录登出           |
+| `rFormValidation` `rOptimistic` `rFormReset`               | 表单校验、乐观更新           |
+| `rGlobalLoading` `rSubmitPending` `rDelayedSpinner`        | 各粒度的加载状态             |
+| `rErrorBoundaryFull` `rNotFoundLoader`                     | 错误边界与 404               |
+| `rBreadcrumbs` `rSearchParams` `rPagination` `rTabs`       | 面包屑、搜索、分页、Tab 路由 |
+
+---
+
+## 使用建议 Notes
+
+**只做路由，不做数据获取。** 片段覆盖的是路由导航、参数、以及 React Router 自带的 loader/action 数据流。服务端状态管理（缓存、失效、轮询）可继续用 TanStack Query 等库，两者职责不重叠。
+
+**Framework 模式优先用 props 而非 Hook。** 路由组件从 `Route.ComponentProps` 拿到的 `loaderData` 是精确类型化的，比 `useLoaderData<typeof loader>()` 更可靠。片段两种都提供。
+
+**推荐配置**（让片段在补全列表中优先显示）：
+
+```json
+"editor.snippetSuggestions": "top"
 ```
 
 ---
 
-## 📚 API 参考 API Reference
+## 相关链接 Links
 
-共 51 个代码片段，按 4 大类别组织 / 51 snippets organized in 4 categories
+- [React Router 官方文档](https://reactrouter.com/)
+- [v7 → v8 升级指南](https://reactrouter.com/upgrading/v7)
+- [问题反馈 Issues](https://github.com/xianghongai/vscode-react-router-snippets/issues)
+- [更新日志 Changelog](./CHANGELOG.md)
 
-### 🧩 Components (10)
+## License
 
-基础导航、路由配置和 v7 新增组件 / Navigation, routing, and new v7 components
-
-- **Link** - 基础导航链接 / Basic navigation link
-
-  - Import: `imrl`, `importLink`
-  - Usage: `rl`, `Link`
-
-- **NavLink** - 带激活状态的导航 / Navigation with active state
-
-  - Import: `imrnl`, `importNavLink`
-  - Usage: `rnl`, `NavLink`
-
-- **Navigate** - 声明式导航 / Declarative navigation
-
-  - Import: `imrn`, `importNavigate`
-  - Usage: `Navigate`
-
-- **Outlet** - 嵌套路由出口 / Nested route outlet
-
-  - Import: `imro`, `importOutlet`
-  - Usage: `Outlet`
-
-- **Route** - 路由配置 / Route definition
-
-  - Import: `imrr`
-  - Usage: `Route`
-
-- **Routes** - 路由容器 / Routes container
-
-  - Import: `imrr`
-  - Usage: `Routes`
-
-- **Form** 🆕 - 表单提交（路由集成）/ Form with routing integration
-
-  - Import: `imrf`, `importForm`
-  - Usage: `rf`, `Form`
-
-- **Await** 🆕 - 异步数据等待 / Async data resolution
-
-  - Import: `imaw`, `importAwait`
-  - Usage: `Await`
-
-- **ScrollRestoration** 🆕 - 滚动位置恢复 / Scroll position restoration
-
-  - Import: `imrsr`, `importScrollRestoration`
-  - Usage: `ScrollRestoration`
-
-- **PrefetchPageLinks** 🆕 - 页面预加载 / Page prefetching
-
-  - Import: `imppl`, `importPrefetchPageLinks`
-  - Usage: `PrefetchPageLinks`
-
-### 🪝 Hooks (27)
-
-路由导航、数据加载和状态管理 / Routing, data loading, and state management
-
-#### 核心导航 Core Navigation (6)
-
-- **useNavigate** - 编程式导航 / Programmatic navigation
-
-  - Import: `imun`, `importUseNavigate`
-  - Usage: `useNavigate`
-
-- **useLocation** - 当前位置信息 / Current location
-
-  - Import: `imul`, `importUseLocation`
-  - Usage: `useLocation`
-
-- **useParams** - 路由参数 / URL parameters
-
-  - Import: `imup`, `importUseParams`
-  - Usage: `useParams`
-
-- **useSearchParams** - 查询参数 / Query parameters
-
-  - Import: `imusp`, `importUseSearchParams`
-  - Usage: `useSearchParams`
-
-- **useHref** - 生成 href / Generate href
-
-  - Import: `imuh`, `importUseHref`
-  - Usage: `useHref`
-
-- **useResolvedPath** - 解析路径 / Resolve path
-
-  - Import: `imurp`, `importUseResolvedPath`
-  - Usage: `useResolvedPath`
-
-#### v7 数据加载 v7 Data Loading (8)
-
-- **useLoaderData** 🆕 - 路由级数据加载 / Route-level data loading
-
-  - Import: `imuld`
-  - Usage: `useLoaderData`
-
-- **useActionData** 🆕 - 表单提交结果 / Form action result
-
-  - Import: `imuad`
-  - Usage: `useActionData`
-
-- **useFetcher** 🆕 - 独立数据获取 / Independent data fetching
-
-  - Import: `imuf`
-  - Usage: `useFetcher`
-
-- **useNavigation** 🆕 - 导航状态 / Navigation state
-
-  - Import: `imunav`
-  - Usage: `useNavigation`
-
-- **useRevalidator** 🆕 - 手动重新验证 / Manual revalidation
-
-  - Import: `imurv`
-  - Usage: `useRevalidator`
-
-- **useRouteError** 🆕 - 路由错误处理 / Route error handling
-
-  - Import: `imure`
-  - Usage: `useRouteError`
-
-- **useSubmit** 🆕 - 编程式表单提交 / Programmatic form submission
-
-  - Import: `imusb`
-  - Usage: `useSubmit`
-
-- **useRouteLoaderData** 🆕 - 父路由数据访问 / Parent route data access
-
-  - Import: `imurld`
-  - Usage: `useRouteLoaderData`
-
-#### 路由匹配 Route Matching (4)
-
-- **useMatch** - 路径匹配 / Path matching
-
-  - Import: `imum`, `importUseMatch`
-  - Usage: `useMatch`
-
-- **useMatches** 🆕 - 所有匹配的路由 / All matched routes
-
-  - Import: `imums`, `importUseMatches`
-  - Usage: `useMatches`
-
-- **useRoutes** - 动态路由配置 / Dynamic route config
-
-  - Import: `imur`, `importUseRoutes`
-  - Usage: `useRoutes`
-
-- **useInRouterContext** - 路由上下文检查 / Router context check
-
-  - Import: `imuirc`, `importUseInRouterContext`
-  - Usage: `useInRouterContext`
-
-#### Outlet 相关 Outlet Related (2)
-
-- **useOutlet** - 获取出口组件 / Get outlet element
-
-  - Import: `imuo`, `importUseOutlet`
-  - Usage: `useOutlet`
-
-- **useOutletContext** - 出口上下文共享 / Outlet context sharing
-
-  - Import: `imuoc`, `importUseOutletContext`
-  - Usage: `useOutletContext`
-
-#### 辅助功能 Utilities (7)
-
-- **useNavigationType** - 导航类型 / Navigation type (POP/PUSH/REPLACE)
-
-  - Import: `imunt`, `importUseNavigationType`
-  - Usage: `useNavigationType`
-
-- **useLinkClickHandler** - 自定义链接点击 / Custom link click handler
-
-  - Import: `imulch`, `importUseLinkClickHandler`
-  - Usage: `useLinkClickHandler`
-
-- **useFetchers** 🆕 - 所有活跃的 fetcher / All active fetchers
-
-  - Import: `imufs`, `importUseFetchers`
-  - Usage: `useFetchers`
-
-- **useFormAction** 🆕 - 表单提交地址 / Form action URL
-
-  - Import: `imufa`, `importUseFormAction`
-  - Usage: `useFormAction`
-
-- **useAsyncValue** 🆕 - Await 组件的异步值 / Async value from Await
-
-  - Import: `imuav`, `importUseAsyncValue`
-  - Usage: `useAsyncValue`
-
-- **useAsyncError** 🆕 - Await 组件的异步错误 / Async error from Await
-
-  - Import: `imuae`, `importUseAsyncError`
-  - Usage: `useAsyncError`
-
-- **useBeforeUnload** 🆕 - 页面卸载前确认 / Before unload confirmation
-
-  - Import: `imubu`, `importUseBeforeUnload`
-  - Usage: `useBeforeUnload`
-
-### 🌐 Routers (9)
-
-传统路由器和 v7 数据路由器 / Traditional and v7 data routers
-
-#### 传统路由器 Traditional Routers (5)
-
-- **BrowserRouter** - HTML5 History API 路由 / HTML5 History API router
-
-  - Import: `imbr`, `importBrowserRouter`
-  - Usage: `rr`, `Router`, `BrowserRouter`
-
-- **HashRouter** - Hash 路由 / Hash-based router
-
-  - Import: `imhr`, `importHashRouter`
-  - Usage: `rr`, `Router`, `HashRouter`
-
-- **MemoryRouter** - 内存路由（测试用）/ Memory router (for testing)
-
-  - Import: `immr`, `importMemoryRouter`
-  - Usage: `MemoryRouter`
-
-- **StaticRouter** - 静态路由（测试用）/ Static router (for testing)
-
-  - Import: `imsr`, `importStaticRouter`
-  - Usage: `StaticRouter`
-
-- **Router** - 基础路由器 / Base router
-
-  - Import: `imr`, `importRouter`
-  - Usage: `Router`
-
-#### v7 数据路由器 v7 Data Routers (4)
-
-- **RouterProvider** 🆕 - v7 路由提供者 / v7 router provider
-
-  - Import: `imrp`, `importRouterProvider`
-  - Usage: `RouterProvider`
-
-- **createBrowserRouter** 🆕 - 创建浏览器路由（支持 loader/action）/ Create browser router with loader/action
-
-  - Import: `imcbr`, `importCreateBrowserRouter`
-  - Usage: `createBrowserRouter`
-
-- **createHashRouter** 🆕 - 创建 Hash 路由（支持 loader/action）/ Create hash router with loader/action
-
-  - Import: `imchr`, `importCreateHashRouter`
-  - Usage: `createHashRouter`
-
-- **createMemoryRouter** 🆕 - 创建内存路由（支持 loader/action）/ Create memory router with loader/action
-
-  - Import: `imcmr`, `importCreateMemoryRouter`
-  - Usage: `createMemoryRouter`
-
-### 🛠️ Utils (5)
-
-路由工具函数 / Routing utility functions
-
-- **redirect** 🆕 - 重定向（loader/action 中使用）/ Redirect in loader/action
-
-  - Import: `imrd`, `importRedirect`
-  - Usage: `redirect`
-
-- **generatePath** - 根据参数生成路径 / Generate path with params
-
-  - Import: `imgp`, `importGeneratePath`
-  - Usage: `generatePath`
-
-- **matchPath** - 判断路径是否匹配 / Check if path matches
-
-  - Import: `immp`, `importMatchPath`
-  - Usage: `matchPath`
-
-- **createSearchParams** - 创建查询参数 / Create search params
-
-  - Import: `imcsp`, `importCreateSearchParams`
-  - Usage: `createSearchParams`
-
-- **isRouteErrorResponse** 🆕 - 错误类型判断 / Check error type
-
-  - Import: `imirer`, `importIsRouteErrorResponse`
-  - Usage: `isRouteErrorResponse`
-
----
-
-## 📖 Prefix 命名规则 Naming Convention
-
-所有片段前缀遵循直观的助记规则 / All snippet prefixes follow intuitive mnemonic rules:
-
-### Import 语句 Import Statements
-
-- **`im`** - Import 的缩写 / Abbreviation for "import"
-- **`imr`** - Import Router 相关 / Import Router related
-- **`imu`** - Import Use (Hook) / Import hook (use*)
-- **`imc`** - Import Create (工具函数) / Import create (utility)
-
-**示例 Examples**:
-
-- `imrl` = **im**port **R**outer **L**ink
-- `imun` = **im**port **u**se**N**avigate
-- `imuld` = **im**port **u**se**L**oader**D**ata
-- `imcbr` = **im**port **c**reate**B**rowser**R**outer
-
-### 使用语句 Usage Statements
-
-直接使用组件或 Hook 名称，或使用简短别名 / Use component/hook name directly or short aliases:
-
-**示例 Examples**:
-
-- `Link` → `<Link to="path">Text</Link>`
-- `rl` → 同上（Router Link 的缩写）/ Same as above (short for Router Link)
-- `useNavigate` → `const navigate = useNavigate()`
-- `Form` → `<Form method="post">...</Form>`
-
----
-
-## 🎯 设计理念 Design Philosophy
-
-### 聚焦路由核心 Focus on Routing
-
-- ✅ 包含：路由导航、参数、匹配、数据加载
-- ✅ Include: Routing, navigation, params, matching, data loading
-- ❌ 排除：SSR 专用组件（Scripts、Meta）、会话管理
-- ❌ Exclude: SSR-only components (Scripts, Meta), session management
-
-### 与数据获取库共存 Works with Data Libraries
-
-虽然 v7 引入了数据加载 API，但它们与 TanStack Query 等库互补而非替代：
-
-Although v7 introduces data loading APIs, they complement rather than replace libraries like TanStack Query:
-
-- **React Router 数据 API**: 与路由生命周期深度集成，简化表单提交和导航
-- **React Router Data APIs**: Deep integration with routing lifecycle, simplified forms
-- **TanStack Query**: 通用数据获取、缓存、乐观更新
-- **TanStack Query**: General data fetching, caching, optimistic updates
-
-两者可以在同一项目中和谐共存 / Both can coexist harmoniously in the same project.
-
----
-
-## 🔗 相关链接 Related Links
-
-- [React Router 官方文档](https://reactrouter.com/) / [React Router Official Docs](https://reactrouter.com/)
-- [React Router v7 升级指南](https://reactrouter.com/upgrading/v6) / [v7 Upgrade Guide](https://reactrouter.com/upgrading/v6)
-- [React Router v7 发布博客](https://remix.run/blog/react-router-v7) / [v7 Release Blog](https://remix.run/blog/react-router-v7)
-
----
-
-## 📝 版本历史 Version History
-
-- **v7.0.0** (2026) - React Router 7 完整支持 / Full React Router 7 support
-
-  - 51 个代码片段，覆盖所有常用 API / 51 snippets covering all common APIs
-  - 统一导入路径为 `'react-router'` / Unified import from `'react-router'`
-  - 新增数据加载、表单处理、错误处理 API / New data loading, form, and error handling APIs
-  - 精简片段格式，移除冗余描述 / Simplified format, removed redundant descriptions
-
-- **v6.0.0** - React Router 6 支持 / React Router 6 support
-
-  - [v6 分支](https://github.com/xianghongai/vscode-react-router-snippets/tree/v6) / [v6 Branch](https://github.com/xianghongai/vscode-react-router-snippets/tree/v6)
-
-- **v5.0.0** - React Router 5 支持 / React Router 5 support
-
-  - [v5 分支](https://github.com/xianghongai/vscode-react-router-snippets/tree/v5) / [v5 Branch](https://github.com/xianghongai/vscode-react-router-snippets/tree/v5)
-
----
-
-## 🤝 贡献 Contributing
-
-欢迎贡献！如果你发现问题或有改进建议：
-
-Contributions welcome! If you find issues or have suggestions:
-
-1. [提交 Issue](https://github.com/xianghongai/vscode-react-router-snippets/issues) / [Open an Issue](https://github.com/xianghongai/vscode-react-router-snippets/issues)
-2. [提交 Pull Request](https://github.com/xianghongai/vscode-react-router-snippets/pulls) / [Submit a Pull Request](https://github.com/xianghongai/vscode-react-router-snippets/pulls)
-
----
-
-## 📄 License
-
-MIT License © [Nicholas Hsiang](https://github.com/xianghongai)
-
----
-
-<p align="center">
-  Made with ❤️ for the React Router community<br>
-  为 React Router 社区用心打造
-</p>
+[MIT](./LICENSE)

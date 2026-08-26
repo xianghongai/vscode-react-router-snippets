@@ -1,6 +1,6 @@
 {
 	"Pattern: full ErrorBoundary": {
-		"prefix": ["rrErrorBoundaryFull"],
+		"prefix": ["rErrorBoundaryFull"],
 		"body": [
 			"export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {",
 			"\tif (isRouteErrorResponse(error)) {",
@@ -31,7 +31,7 @@
 		"description": "Handles all three cases: a thrown `Response` (with a 404 branch), a real `Error`, and anything else.\nStack traces stay behind a DEV check so they never reach production output.\n"
 	},
 	"Pattern: 404 from a loader": {
-		"prefix": ["rrNotFoundLoader"],
+		"prefix": ["rNotFoundLoader"],
 		"body": [
 			"const ${1:item} = await ${2:getItem}(params.${3:id})",
 			"",
@@ -42,12 +42,12 @@
 		"description": "Throw a 404 when the record is missing, instead of returning `null` and null-checking in the component.\nThe nearest `ErrorBoundary` renders, and the status is correct for crawlers and monitoring.\n"
 	},
 	"Pattern: catch-all 404 route": {
-		"prefix": ["rrRoute404"],
+		"prefix": ["rRoute404"],
 		"body": ["route('*', 'routes/${1:not-found}.tsx'),$0"],
 		"description": "Framework mode catch-all. Put it last in `routes.ts`.\n"
 	},
 	"Pattern: error boundary in Data mode route": {
-		"prefix": ["rrErrorElement"],
+		"prefix": ["rErrorElement"],
 		"body": [
 			"{",
 			"\tpath: '${1:path}',",

@@ -4,9 +4,19 @@ All notable changes to the **React Router Snippets** extension are documented in
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Each entry lists only the headline change per release — see git history/tags for full detail.
 
+## [8.0.0] - 2026-08-25
+
+Targets React Router 8.3.0.
+
+- `loader` and `action` now receive the normalized `url` (and `pattern`) directly — the auth-guard and pagination patterns no longer construct `new URL(request.url)`
+- `meta` and `useMatches()` read `loaderData`; the `data` field was removed in v8
+- Middleware is on by default — dropped the future-flag caveats
+- `react-router.config.ts` ships no future flags; `splitRouteModules` is now a top-level option
+- Snippet set otherwise unchanged: v8 has the same 83 public exports as 7.18.2
+
 ## [7.1.0] - 2026-08-25
 
-Targets React Router 7.18.2. Grew from 102 to 235 snippets.
+Targets React Router 7.18.2. Grew from 102 to 235 snippets. (Maintained on the `v7` branch.)
 
 - Added Framework mode, previously absent entirely: route module exports (`loader`, `clientLoader`, `action`, `clientAction`, `meta`, `links`, `headers`, `ErrorBoundary`, `HydrateFallback`, `shouldRevalidate`, `middleware`, `handle`, `Layout`), `routes.ts` config helpers, `root.tsx` / `entry.*` skeletons, and the `Route.*` typegen types
 - Added the 32 missing exports — `data`, `href`, `replace`, `redirectDocument`, `createRoutesStub`, `matchRoutes`, `createContext`, `useBlocker`, `useViewTransitionState`, `Meta`/`Links`/`Scripts`, the cookie and session helpers, and more

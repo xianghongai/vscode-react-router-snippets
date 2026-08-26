@@ -1,0 +1,46 @@
+{
+	"import Route types": {
+		"prefix": ["imRoute", "importRouteTypes"],
+		"body": ["import type { Route } from './+types/${1:route-name}'"],
+		"description": "**Framework mode.** Generated per-route types. Run `react-router typegen` (or start the dev server) to produce `./+types/<route>`.\nThe file name must match the route module's own file name.\n"
+	},
+	"Route.ComponentProps": {
+		"prefix": ["RouteComponentProps"],
+		"body": [
+			"{ loaderData, actionData, params, matches }: Route.ComponentProps"
+		],
+		"description": "**Framework mode.** Props the route's default export receives. Everything is typed from this route's own loader and action.\n"
+	},
+	"Route.LoaderArgs": {
+		"prefix": ["RouteLoaderArgs"],
+		"body": ["{ params, url, request, context }: Route.LoaderArgs"],
+		"description": "**Framework mode.** Arguments to a server `loader`. `params` is typed from the route's path segments.\n`url` is the normalized `URL`; `pattern` holds the un-interpolated route pattern.\n"
+	},
+	"Route.ClientLoaderArgs": {
+		"prefix": ["RouteClientLoaderArgs"],
+		"body": ["{ params, request, serverLoader }: Route.ClientLoaderArgs"],
+		"description": "**Framework mode.** Arguments to a `clientLoader`. `serverLoader()` fetches this route's server loader data.\n"
+	},
+	"Route.ActionArgs": {
+		"prefix": ["RouteActionArgs"],
+		"body": ["{ params, url, request, context }: Route.ActionArgs"],
+		"description": "**Framework mode.** Arguments to a server `action`. Read the submission with `await request.formData()`.\n"
+	},
+	"Route.ClientActionArgs": {
+		"prefix": ["RouteClientActionArgs"],
+		"body": ["{ params, request, serverAction }: Route.ClientActionArgs"],
+		"description": "**Framework mode.** Arguments to a `clientAction`. `serverAction()` delegates to this route's server action.\n"
+	},
+	"Route.MetaArgs": {
+		"prefix": ["RouteMetaArgs"],
+		"body": ["{ loaderData, params, matches }: Route.MetaArgs"],
+		"description": "**Framework mode.** Arguments to `meta`. Use `loaderData` — the `data` field was removed in v8.\n"
+	},
+	"Route.ErrorBoundaryProps": {
+		"prefix": ["RouteErrorBoundaryProps"],
+		"body": [
+			"{ error, params, loaderData, actionData }: Route.ErrorBoundaryProps"
+		],
+		"description": "**Framework mode.** Props an `ErrorBoundary` export receives. `error` is `unknown` — narrow it with `isRouteErrorResponse`.\n"
+	}
+}
