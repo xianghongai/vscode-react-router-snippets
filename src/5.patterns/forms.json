@@ -1,6 +1,6 @@
 {
 	"Pattern: form with validation errors": {
-		"prefix": ["rrFormValidation"],
+		"prefix": ["rFormValidation"],
 		"body": [
 			"export async function action({ request }: Route.ActionArgs) {",
 			"\tconst formData = await request.formData()",
@@ -30,7 +30,7 @@
 		"description": "Server-side validation round trip: return errors with a 400, render them from `actionData`, redirect on success.\nWorks without JS, and `aria-invalid` keeps it accessible.\n"
 	},
 	"Pattern: optimistic UI": {
-		"prefix": ["rrOptimistic"],
+		"prefix": ["rOptimistic"],
 		"body": [
 			"const fetcher = useFetcher()",
 			"",
@@ -49,7 +49,7 @@
 		"description": "Render the pending submission's value instead of the server's, so the UI responds instantly.\n`fetcher.formData` holds what was submitted; when it clears, the revalidated server value takes over — and a failure reverts on its own.\n"
 	},
 	"Pattern: optimistic list item": {
-		"prefix": ["rrOptimisticList"],
+		"prefix": ["rOptimisticList"],
 		"body": [
 			"const fetchers = useFetchers()",
 			"",
@@ -62,7 +62,7 @@
 		"description": "Append not-yet-saved items to the list so a new row appears immediately.\nEach fetcher has a stable `key`, usable as a temporary React key.\n"
 	},
 	"Pattern: reset form after submit": {
-		"prefix": ["rrFormReset"],
+		"prefix": ["rFormReset"],
 		"body": [
 			"const fetcher = useFetcher()",
 			"const formRef = useRef<HTMLFormElement>(null)",

@@ -1,88 +1,88 @@
 {
-	"name": "vscode-react-router-snippets",
-	"publisher": "NicholasHsiang",
-	"displayName": "React Router Snippets",
-	"description": "Code snippets for React Router v7",
-	"version": "7.1.0",
-	"icon": "art/icon.png",
-	"type": "module",
-	"packageManager": "pnpm@11.23.0",
-	"engines": {
-		"vscode": "^1.0.0",
-		"node": ">=24"
-	},
-	"categories": [
-		"Snippets"
-	],
-	"keywords": [
-		"React",
-		"React Router",
-		"React Router 7",
-		"React Snippets"
-	],
-	"galleryBanner": {
-		"color": "#ffffff",
-		"theme": "dark"
-	},
-	"author": {
-		"name": "Nicholas Hsiang",
-		"url": "https://github.com/xianghongai"
-	},
-	"license": "MIT",
-	"homepage": "https://github.com/xianghongai/vscode-react-router-snippets/",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/xianghongai/vscode-react-router-snippets"
-	},
-	"bugs": {
-		"url": "https://github.com/xianghongai/vscode-react-router-snippets/issues"
-	},
-	"sponsor": {
-		"url": "https://github.com/sponsors/xianghongai"
-	},
-	"qna": "marketplace",
-	"badges": [
-		{
-			"url": "https://img.shields.io/badge/React%20Router-7-blue",
-			"href": "https://reactrouter.com/",
-			"description": "React Router 7"
-		}
-	],
-	"contributes": {
-		"snippets": [
-			{
-				"language": "javascript",
-				"path": "./snippets/javascript.json"
-			},
-			{
-				"language": "javascriptreact",
-				"path": "./snippets/javascript.json"
-			},
-			{
-				"language": "typescript",
-				"path": "./snippets/javascript.json"
-			},
-			{
-				"language": "typescriptreact",
-				"path": "./snippets/javascript.json"
-			}
-		]
-	},
-	"scripts": {
-		"clean": "rimraf *.vsix snippets/*",
-		"format": "prettier --write --cache .",
-		"dev": "nodemon --watch src -e json -x 'pnpm run prebuild'",
-		"prebuild": "node main.js",
-		"vscode:prepublish": "node main.js",
-		"build": "vsce package",
-		"publish": "vsce publish"
-	},
-	"devDependencies": {
-		"@types/node": "^24.13.3",
-		"@vscode/vsce": "^3.9.2",
-		"glob": "^13.0.6",
-		"nodemon": "^3.1.14",
-		"prettier": "^3.9.6",
-		"rimraf": "^6.1.2"
-	}
+  "name": "vscode-react-router-snippets",
+  "publisher": "NicholasHsiang",
+  "displayName": "React Router Snippets",
+  "description": "Code snippets for React Router v7",
+  "version": "8.0.0",
+  "icon": "art/icon.png",
+  "type": "module",
+  "packageManager": "pnpm@11.23.0",
+  "engines": {
+    "vscode": "^1.0.0",
+    "node": ">=24"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "keywords": [
+    "React",
+    "React Router",
+    "React Router 7",
+    "React Snippets"
+  ],
+  "galleryBanner": {
+    "color": "#ffffff",
+    "theme": "dark"
+  },
+  "author": {
+    "name": "Nicholas Hsiang",
+    "url": "https://github.com/xianghongai"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/xianghongai/vscode-react-router-snippets/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xianghongai/vscode-react-router-snippets"
+  },
+  "bugs": {
+    "url": "https://github.com/xianghongai/vscode-react-router-snippets/issues"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/xianghongai"
+  },
+  "qna": "marketplace",
+  "badges": [
+    {
+      "url": "https://img.shields.io/badge/React%20Router-7-blue",
+      "href": "https://reactrouter.com/",
+      "description": "React Router 7"
+    }
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/javascript.json"
+      }
+    ]
+  },
+  "scripts": {
+    "clean": "rimraf *.vsix snippets/*",
+    "format": "prettier --write --cache .",
+    "dev": "nodemon --watch src -e json -x 'pnpm run prebuild'",
+    "prebuild": "node main.js",
+    "vscode:prepublish": "node main.js",
+    "build": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@vscode/vsce": "^3.9.2",
+    "glob": "^13.0.6",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.9.6",
+    "rimraf": "^6.1.2"
+  }
 }

@@ -1,0 +1,46 @@
+{
+	"import Meta / Links / Scripts": {
+		"prefix": ["imdoc", "importMetaLinks"],
+		"body": [
+			"import { Meta, Links, Scripts, ScrollRestoration } from 'react-router'"
+		],
+		"description": "**Framework mode.** The document components rendered by `root.tsx`.\n"
+	},
+	"Meta": {
+		"prefix": ["Meta", "rm"],
+		"body": ["<Meta />$0"],
+		"description": "**Framework mode.** Renders the tags returned by every matched route's `meta` export. Goes in `<head>`.\nWithout it, route-level `meta` has no effect.\n"
+	},
+	"Links": {
+		"prefix": ["Links", "rlk"],
+		"body": ["<Links />$0"],
+		"description": "**Framework mode.** Renders the `<link>` tags from every matched route's `links` export. Goes in `<head>`.\n"
+	},
+	"Scripts": {
+		"prefix": ["Scripts", "rsc"],
+		"body": ["<Scripts />$0"],
+		"description": "**Framework mode.** Renders the client bundle's script tags. Omit it for a JS-free document — forms and links still work through full page loads.\n"
+	},
+	"import PrefetchPageLinks": {
+		"prefix": ["imppl", "importPrefetchPageLinks"],
+		"body": ["import { PrefetchPageLinks } from 'react-router'"],
+		"description": "**Framework mode.** Prefetch another route's assets and data.\n"
+	},
+	"PrefetchPageLinks": {
+		"prefix": ["PrefetchPageLinks"],
+		"body": ["<PrefetchPageLinks page=\"${1:/path}\" />$0"],
+		"description": "**Framework mode.** Eagerly fetches the modules and loader data for a page.\nFor prefetching a route no link points at yet; `<Link prefetch>` covers the common case.\n"
+	},
+	"import ServerRouter": {
+		"prefix": ["imsvr", "importServerRouter"],
+		"body": ["import { ServerRouter } from 'react-router'"],
+		"description": "**Framework mode.** Server renderer.\n"
+	},
+	"ServerRouter": {
+		"prefix": ["ServerRouter"],
+		"body": [
+			"<ServerRouter context={${1:routerContext}} url={${2:request.url}} />$0"
+		],
+		"description": "**Framework mode.** Renders the matched routes on the server. Used inside `entry.server.tsx`.\n"
+	}
+}

@@ -1,0 +1,78 @@
+{
+	"import Form": {
+		"prefix": ["imform", "importForm"],
+		"body": ["import { Form } from 'react-router'"],
+		"description": "**Framework / Data mode.** Form that submits to a route action.\n"
+	},
+	"Form": {
+		"prefix": ["Form", "rf"],
+		"body": [
+			"<Form method=\"${1|post,put,patch,delete,get|}\">",
+			"\t$0",
+			"\t<button type=\"submit\">${2:Submit}</button>",
+			"</Form>"
+		],
+		"description": "**Framework / Data mode.** Submits to the current route's `action` without a full page reload.\nWorks without JS as a plain HTML form — the progressive-enhancement baseline.\n"
+	},
+	"Form with action": {
+		"prefix": ["FormAction"],
+		"body": [
+			"<Form method=\"post\" action=\"${1:/path}\">",
+			"\t$0",
+			"\t<button type=\"submit\">${2:Submit}</button>",
+			"</Form>"
+		],
+		"description": "**Framework / Data mode.** Targets another route's action. Omit `action` to post to the closest route.\n"
+	},
+	"Form with intent buttons": {
+		"prefix": ["FormIntent"],
+		"body": [
+			"<Form method=\"post\">",
+			"\t<button type=\"submit\" name=\"intent\" value=\"${1:update}\">${2:Update}</button>",
+			"\t<button type=\"submit\" name=\"intent\" value=\"${3:delete}\">${4:Delete}</button>$0",
+			"</Form>"
+		],
+		"description": "**Framework / Data mode.** Several operations through one action: read `formData.get('intent')` and branch.\nA submit button's `name`/`value` is included only when that button triggers the submit.\n"
+	},
+	"import Await": {
+		"prefix": ["imawait", "importAwait"],
+		"body": ["import { Await } from 'react-router'"],
+		"description": "**Framework / Data mode.** Render a promise streamed from a loader.\n"
+	},
+	"Await": {
+		"prefix": ["Await", "ra"],
+		"body": [
+			"<Suspense fallback={<${1:Skeleton} />}>",
+			"\t<Await resolve={${2:promise}} errorElement={<${3:ErrorFallback} />}>",
+			"\t\t{(${4:value}) => $0}",
+			"\t</Await>",
+			"</Suspense>"
+		],
+		"description": "**Framework / Data mode.** Renders a promise returned (not awaited) by a loader, so the page streams in while slow data resolves.\nMust sit inside `<Suspense>`. The child can be a render function or a component calling `useAsyncValue()`.\n"
+	},
+	"loader returning a promise (streaming)": {
+		"prefix": ["rDefer", "loaderStream"],
+		"body": [
+			"export async function loader({ params }: Route.LoaderArgs) {",
+			"\tconst ${1:critical} = await ${2:getCritical}(params.${3:id})",
+			"\tconst ${4:slow} = ${5:getSlow}(params.${3:id})",
+			"",
+			"\treturn { ${1:critical}, ${4:slow} }$0",
+			"}"
+		],
+		"description": "**Framework mode.** Await what the page needs immediately, return the rest as an un-awaited promise and render it through `<Await>`.\nReplaces the deprecated `defer()` — a bare promise in the returned object is streamed automatically.\n"
+	},
+	"Route lazy": {
+		"prefix": ["RouteLazy", "rLazyRoute"],
+		"body": [
+			"{",
+			"\tpath: '${1:path}',",
+			"\tlazy: async () => {",
+			"\t\tconst { ${2:Component}, ${3:loader} } = await import('${4:./routes/route}')",
+			"\t\treturn { Component: ${2:Component}, loader: ${3:loader} }",
+			"\t},",
+			"}$0"
+		],
+		"description": "**Data mode.** Code-splits a Data mode route: the component *and* its loader are fetched on first visit.\nUnlike `React.lazy`, this also defers the loader, so the route's data code stays out of the initial bundle.\n"
+	}
+}

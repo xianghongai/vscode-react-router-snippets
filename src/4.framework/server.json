@@ -1,0 +1,138 @@
+{
+	"import createContext": {
+		"prefix": ["imcc", "importCreateContext"],
+		"body": ["import { createContext } from 'react-router'"],
+		"description": "Type-safe context for loaders, actions and middleware. Not React's `createContext`.\n"
+	},
+	"createContext()": {
+		"prefix": ["createContext", "rCreateContext"],
+		"body": [
+			"export const ${1:userContext} = createContext<${2:User | null}>(${3:null})$0"
+		],
+		"description": "Creates a typed key for passing values through the request lifecycle.\nRead and written with `context.get(key)` / `context.set(key, value)` — a default value makes reads safe before it is set.\n"
+	},
+	"context.get() in loader": {
+		"prefix": ["contextGet"],
+		"body": ["const ${1:user} = context.get(${2:userContext})$0"],
+		"description": "Read a value a middleware placed into the request context.\n"
+	},
+	"context.set() in middleware": {
+		"prefix": ["contextSet"],
+		"body": ["context.set(${1:userContext}, ${2:value})$0"],
+		"description": "Store a value for the loaders and actions further down the chain.\n"
+	},
+	"import RouterContextProvider": {
+		"prefix": ["imrcp", "importRouterContextProvider"],
+		"body": ["import { RouterContextProvider } from 'react-router'"],
+		"description": "Container for context values, returned from a custom server's `getLoadContext`.\n"
+	},
+	"RouterContextProvider()": {
+		"prefix": ["RouterContextProvider"],
+		"body": [
+			"const context = new RouterContextProvider()",
+			"context.set(${1:dbContext}, ${2:getDb()})",
+			"return context$0"
+		],
+		"description": "Build the load context in a custom server.\nWith the middleware flag on, `getLoadContext` must return this instead of a plain object.\n"
+	},
+	"import cookie helpers": {
+		"prefix": ["imcookie", "importCreateCookie"],
+		"body": ["import { createCookie } from 'react-router'"],
+		"description": "**Framework mode.** Server-side cookie helper.\n"
+	},
+	"createCookie()": {
+		"prefix": ["createCookie"],
+		"body": [
+			"export const ${1:prefs} = createCookie('${2:prefs}', {",
+			"\tmaxAge: ${3:604800},",
+			"\thttpOnly: true,",
+			"\tsecure: true,",
+			"\tsameSite: 'lax',",
+			"\tsecrets: [${4:process.env.COOKIE_SECRET!}],",
+			"})$0"
+		],
+		"description": "**Framework mode.** A signed, typed cookie. Parse with `await cookie.parse(request.headers.get('Cookie'))`, write with `await cookie.serialize(value)`.\n"
+	},
+	"cookie parse / serialize": {
+		"prefix": ["cookieParse"],
+		"body": [
+			"const ${1:value} = (await ${2:prefs}.parse(request.headers.get('Cookie'))) || {}",
+			"$0",
+			"return data(${3:result}, {",
+			"\theaders: { 'Set-Cookie': await ${2:prefs}.serialize(${1:value}) },",
+			"})"
+		],
+		"description": "**Framework mode.** Read a cookie in a loader and write it back on the response.\n"
+	},
+	"import createCookieSessionStorage": {
+		"prefix": ["imcss", "importCreateCookieSessionStorage"],
+		"body": ["import { createCookieSessionStorage } from 'react-router'"],
+		"description": "**Framework mode.** Session storage backed by a cookie.\n"
+	},
+	"createCookieSessionStorage()": {
+		"prefix": ["createCookieSessionStorage"],
+		"body": [
+			"export const { getSession, commitSession, destroySession } = createCookieSessionStorage({",
+			"\tcookie: {",
+			"\t\tname: '${1:__session}',",
+			"\t\thttpOnly: true,",
+			"\t\tsecure: true,",
+			"\t\tsameSite: 'lax',",
+			"\t\tpath: '/',",
+			"\t\tsecrets: [${2:process.env.SESSION_SECRET!}],",
+			"\t},",
+			"})$0"
+		],
+		"description": "**Framework mode.** The usual session setup: the whole session lives in a signed cookie, so no server store is needed.\nSize is capped at ~4kb — keep only ids in it.\n"
+	},
+	"session read / commit": {
+		"prefix": ["sessionRead", "rSession"],
+		"body": [
+			"const session = await getSession(request.headers.get('Cookie'))",
+			"const ${1:userId} = session.get('${2:userId}')",
+			"$0",
+			"return data(${3:result}, {",
+			"\theaders: { 'Set-Cookie': await commitSession(session) },",
+			"})"
+		],
+		"description": "**Framework mode.** Read a session in a loader/action and persist any changes with `commitSession`.\nEvery mutation needs the `Set-Cookie` header, or the change is lost.\n"
+	},
+	"session flash message": {
+		"prefix": ["sessionFlash"],
+		"body": [
+			"session.flash('${1:message}', '${2:Saved successfully}')",
+			"",
+			"return redirect('${3:/path}', {",
+			"\theaders: { 'Set-Cookie': await commitSession(session) },",
+			"})$0"
+		],
+		"description": "**Framework mode.** A value read exactly once, then removed — the standard post-redirect toast.\nRead it with `session.get('message')` in the next loader.\n"
+	},
+	"createMemorySessionStorage()": {
+		"prefix": ["createMemorySessionStorage"],
+		"body": [
+			"export const { getSession, commitSession, destroySession } = createMemorySessionStorage({",
+			"\tcookie: { name: '${1:__session}', secrets: [${2:'dev-secret'}] },",
+			"})$0"
+		],
+		"description": "**Framework mode.** Keeps sessions in memory. For tests and local development only — everything is lost on restart, and it does not survive multiple processes.\n"
+	},
+	"createSessionStorage()": {
+		"prefix": ["createSessionStorage"],
+		"body": [
+			"export const { getSession, commitSession, destroySession } = createSessionStorage({",
+			"\tcookie: { name: '${1:__session}', secrets: [${2:process.env.SESSION_SECRET!}] },",
+			"\tasync createData(data, expires) { $3 },",
+			"\tasync readData(id) { $4 },",
+			"\tasync updateData(id, data, expires) { $5 },",
+			"\tasync deleteData(id) { $6 },",
+			"})$0"
+		],
+		"description": "**Framework mode.** Custom-backed sessions — the cookie holds only an id, the data lives in your store (DB, Redis, KV).\nUse this when sessions exceed the cookie size limit or must be revocable server-side.\n"
+	},
+	"isCookie() / isSession()": {
+		"prefix": ["isCookie"],
+		"body": ["isCookie(${1:value})$0"],
+		"description": "**Framework mode.** Type guards for the cookie and session objects. Mostly useful inside libraries and adapters.\n"
+	}
+}

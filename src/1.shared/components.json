@@ -5,7 +5,7 @@
 		"description": "Client-side navigation link.\n"
 	},
 	"Link": {
-		"prefix": ["Link"],
+		"prefix": ["Link", "rl"],
 		"body": ["<Link to=\"${1:/path}\">${2:Label}</Link>$0"],
 		"description": "Renders an `<a>` that navigates without a full reload.\nAlways prefer it over `useNavigate` for anything the user clicks — it stays keyboard- and screen-reader-friendly, and works without JS.\n"
 	},
@@ -34,7 +34,7 @@
 		"description": "Link that knows whether it is active.\n"
 	},
 	"NavLink": {
-		"prefix": ["NavLink"],
+		"prefix": ["NavLink", "rnl"],
 		"body": [
 			"<NavLink",
 			"\tto=\"${1:/path}\"",
@@ -74,7 +74,7 @@
 		"description": "Redirect by rendering an element.\n"
 	},
 	"Navigate": {
-		"prefix": ["Navigate"],
+		"prefix": ["Navigate", "rn"],
 		"body": ["<Navigate to=\"${1:/path}\" replace />$0"],
 		"description": "Navigates as a side effect of rendering.\nIn Data or Framework mode prefer `redirect()` in a loader — it runs before rendering and avoids the flash.\n"
 	},
@@ -84,7 +84,7 @@
 		"description": "Placeholder for child routes.\n"
 	},
 	"Outlet": {
-		"prefix": ["Outlet"],
+		"prefix": ["Outlet", "ro"],
 		"body": ["<Outlet />$0"],
 		"description": "Where a parent route renders its matched child. A layout route without one renders nothing for its children.\n"
 	},
@@ -99,7 +99,7 @@
 		"description": "Restore scroll position across navigations.\n"
 	},
 	"ScrollRestoration": {
-		"prefix": ["ScrollRestoration"],
+		"prefix": ["ScrollRestoration", "rsr"],
 		"body": ["<ScrollRestoration />$0"],
 		"description": "Emulates the browser's scroll restoration for client-side navigation. Render it once, near the root.\nPass `getKey` to share a scroll position across paths.\n"
 	}

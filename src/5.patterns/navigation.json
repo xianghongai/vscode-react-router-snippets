@@ -1,6 +1,6 @@
 {
 	"Pattern: breadcrumbs": {
-		"prefix": ["rrBreadcrumbs"],
+		"prefix": ["rBreadcrumbs"],
 		"body": [
 			"// In each route module:",
 			"// export const handle = { breadcrumb: 'Label' }",
@@ -23,7 +23,7 @@
 		"description": "Breadcrumbs from the matched route tree: each route exports `handle.breadcrumb`, the layout reads them via `useMatches()`.\nNo central config to keep in sync — a route carries its own label.\n"
 	},
 	"Pattern: search with URL state": {
-		"prefix": ["rrSearchParams", "rrFilter"],
+		"prefix": ["rSearchParams", "rFilter"],
 		"body": [
 			"const [searchParams, setSearchParams] = useSearchParams()",
 			"const q = searchParams.get('q') ?? ''",
@@ -40,10 +40,9 @@
 		"description": "Keep search state in the URL so it survives reloads and can be shared.\n`replace: true` keeps each keystroke out of history; `defaultValue` (not `value`) leaves the input uncontrolled so typing stays smooth.\n"
 	},
 	"Pattern: pagination": {
-		"prefix": ["rrPagination"],
+		"prefix": ["rPagination"],
 		"body": [
-			"export async function loader({ request }: Route.LoaderArgs) {",
-			"\tconst url = new URL(request.url)",
+			"export async function loader({ url }: Route.LoaderArgs) {",
 			"\tconst page = Number(url.searchParams.get('page') ?? '1')",
 			"\tconst perPage = ${1:20}",
 			"",
@@ -55,7 +54,7 @@
 		"description": "Page number lives in the query string, so every page is linkable and the Back button works.\nRead it in the loader — the data is fetched before render, with no client-side loading state to manage.\n"
 	},
 	"Pattern: tab navigation": {
-		"prefix": ["rrTabs"],
+		"prefix": ["rTabs"],
 		"body": [
 			"<nav>",
 			"\t<NavLink to=\"${1:tab-a}\" className={({ isActive }) => (isActive ? '${2:active}' : '')}>",
