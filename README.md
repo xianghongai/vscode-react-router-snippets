@@ -19,7 +19,7 @@ React Router 8 代码片段扩展
 
 Snippets for React Router 8 — Framework mode, Data mode, Declarative mode, and the patterns in between.
 
-React Router 8 代码片段 —— 覆盖 Framework / Data / Declarative 三种模式与常见开发场景。
+React Router 8 代码片段：覆盖 Framework / Data / Declarative 三种模式与常见开发场景。
 
 ---
 
@@ -48,9 +48,9 @@ The goal is that a prefix "just works" without recall: either it is the API name
 
 前缀遵循三种刻意区分的模式：
 
-1. **API 名本身就是前缀**——`useLoaderData`、`NavLink`、`loader`、`meta`。与 try/catch 这类语言构造不同，路由 API 的名字**就是**最终要写下的代码，中间没有翻译环节：想写什么就打什么。这是发现路径，无需先记住一套映射关系。
-2. **只给高频 API 配硬缩写**——组件用 `r` + 首字母（`rl` = Link、`rnl` = NavLink、`rf` = Form），Hook 去掉 `use` 后取首字母（`un` = useNavigate、`uld` = useLoaderData、`unav` = useNavigation）。两种形式挂在同一条片段上，所以短码是"用熟之后的提速手段"，而不是上手门槛。只有天天要打的 API 才有——全都配缩写等于把一种记忆负担换成另一种。
-3. **同族共用词干，变体在其后扩展**——`navigate` / `navigateReplace` / `navigateBack` / `navigateRelative`；`Link` / `LinkPrefetch` / `LinkState`。打出词干就能在补全列表里看到整族备选并从中挑，不必去回忆该用哪个后缀。没有对应 API 名的场景片段挂在 `r` + 场景名下（`rAuthGuard`、`rPagination`），因为 `r` 是所有路由相关内容的入口。import 语句单独放在 `im` + 缩写下（`imuld`），这样补全 import 时不会和补全调用语句互相干扰。
+1. **API 名本身就是前缀**：`useLoaderData`、`NavLink`、`loader`、`meta`。与 try/catch 这类语言构造不同，路由 API 的名字**就是**最终要写下的代码，中间没有翻译环节：想写什么就打什么。这是发现路径，无需先记住一套映射关系。
+2. **只给高频 API 配硬缩写**：组件用 `r` + 首字母（`rl` = Link、`rnl` = NavLink、`rf` = Form），Hook 去掉 `use` 后取首字母（`un` = useNavigate、`uld` = useLoaderData、`unav` = useNavigation）。两种形式挂在同一条片段上，所以短码是"用熟之后的提速手段"，而不是上手门槛。只有天天要打的 API 才有，全都配缩写等于把一种记忆负担换成另一种。
+3. **同族共用词干，变体在其后扩展**：`navigate` / `navigateReplace` / `navigateBack` / `navigateRelative`；`Link` / `LinkPrefetch` / `LinkState`。打出词干就能在补全列表里看到整族备选并从中挑，不必去回忆该用哪个后缀。没有对应 API 名的场景片段挂在 `r` + 场景名下（`rAuthGuard`、`rPagination`），因为 `r` 是所有路由相关内容的入口。import 语句单独放在 `im` + 缩写下（`imuld`），这样补全 import 时不会和补全调用语句互相干扰。
 
 目标是让"打出前缀就能触发"这件事不依赖回忆：要么它本就是待输入的 API 名，要么是高频操作的短码，要么是能摊开全部备选项的词干
 
@@ -76,7 +76,7 @@ Framework    开箱即用的全栈方案
 | 想要数据加载和表单提交，但打包、数据层、服务端要自己掌控 | **Data**        |
 | 只需要页面跳转，数据用自己的方案                         | **Declarative** |
 
-拿不准就从 Declarative 开始 —— 往上升级时，已写的 `Link`、`useNavigate` 这些完全不用改。
+拿不准就从 Declarative 开始，往上升级时，已写的 `Link`、`useNavigate` 这些完全不用改。
 
 > 详见官方 [Picking a Mode](https://reactrouter.com/start/modes)
 
@@ -105,7 +105,7 @@ Framework    开箱即用的全栈方案
 <Outlet />
 ```
 
-跳转与取参 —— **这一套在三种模式里完全相同**：
+跳转与取参，**这一套在三种模式里完全相同**：
 
 ```tsx
 // rl / rnl — 链接跳转，优先用它而不是 useNavigate
