@@ -2,117 +2,134 @@
 	"import useOutlet / useOutletContext": {
 		"prefix": ["imuo", "importUseOutlet"],
 		"body": ["import { useOutlet, useOutletContext } from 'react-router'"],
-		"description": "Access the child route element and the context passed to it.\n"
+		"description": "Access the child route element and the context passed to it.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useOutlet()": {
 		"prefix": ["useOutlet"],
 		"body": ["const ${1:outlet} = useOutlet()$0"],
-		"description": "The child route's element, or `null` when nothing matched.\nUse it when the layout must inspect or wrap the child — animations, or an empty state when there is no child.\n"
+		"description": "The child route's element, or `null` when nothing matched.\nUse it when the layout must inspect or wrap the child — animations, or an empty state when there is no child.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useOutletContext()": {
 		"prefix": ["useOutletContext"],
 		"body": ["const ${1:context} = useOutletContext<${2:ContextType}>()$0"],
-		"description": "Reads the value a parent passed via `<Outlet context={...} />`.\nA lighter alternative to React context for parent-to-child-route data.\n"
+		"description": "Reads the value a parent passed via `<Outlet context={...} />`.\nA lighter alternative to React context for parent-to-child-route data.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useInRouterContext": {
 		"prefix": ["imuirc", "importUseInRouterContext"],
 		"body": ["import { useInRouterContext } from 'react-router'"],
-		"description": "Check whether a router is present above this component.\n"
+		"description": "Check whether a router is present above this component.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useInRouterContext()": {
 		"prefix": ["useInRouterContext"],
 		"body": ["const ${1:inRouter} = useInRouterContext()$0"],
-		"description": "True when rendered inside a router.\nFor library components that must work with or without one.\n"
+		"description": "True when rendered inside a router.\nFor library components that must work with or without one.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useNavigate": {
 		"prefix": ["imun", "importUseNavigate"],
 		"body": ["import { useNavigate } from 'react-router'"],
-		"description": "Navigate imperatively.\n"
+		"description": "Navigate imperatively.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useNavigate()": {
 		"prefix": ["useNavigate", "un"],
 		"body": ["const navigate = useNavigate()$0"],
-		"description": "Returns a function that changes the location.\nPrefer `<Link>` or `<Form>` where possible — they work without JS and are accessible by default.\n"
+		"description": "Returns a function that changes the location.\nPrefer `<Link>` or `<Form>` where possible — they work without JS and are accessible by default.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"navigate()": {
 		"prefix": ["navigate"],
 		"body": ["navigate('${1:/path}')$0"],
-		"description": "Go to a path. The plain form covers most cases.\nPrefer `<Link>` when the user clicks something — it works without JS and is keyboard accessible.\n"
+		"description": "Go to a path. The plain form covers most cases.\nPrefer `<Link>` when the user clicks something — it works without JS and is keyboard accessible.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"navigate(), replace": {
 		"prefix": ["navigateReplace"],
 		"body": ["navigate('${1:/path}', { replace: true })$0"],
-		"description": "Replace the current history entry instead of pushing a new one.\nUse it after login or a redirect, so Back does not return the user to the page they just left.\n"
+		"description": "Replace the current history entry instead of pushing a new one.\nUse it after login or a redirect, so Back does not return the user to the page they just left.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"navigate(), with state": {
 		"prefix": ["navigateState"],
-		"body": [
-			"navigate('${1:/path}', { state: { ${2:from}: ${3:location.pathname} } })$0"
-		],
-		"description": "Attach data to the history entry, read it with `useLocation().state`.\nNot part of the URL — it is lost on reload and cannot be shared or bookmarked.\n"
+		"body": ["navigate('${1:/path}', { state: { ${2:from}: ${3:location.pathname} } })$0"],
+		"description": "Attach data to the history entry, read it with `useLocation().state`.\nNot part of the URL — it is lost on reload and cannot be shared or bookmarked.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"navigate(-1)": {
 		"prefix": ["navigateBack"],
 		"body": ["navigate(-1)$0"],
-		"description": "Go back one entry. Numbers move through history like `history.go(n)`.\nThere may be nothing to go back to (a fresh tab) — for a reliable \"up\" link use a real path.\n"
+		"description": "Go back one entry. Numbers move through history like `history.go(n)`.\nThere may be nothing to go back to (a fresh tab) — for a reliable \"up\" link use a real path.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"navigate(), relative": {
 		"prefix": ["navigateRelative"],
 		"body": ["navigate('${1:..}', { relative: '${2|route,path|}' })$0"],
-		"description": "Navigate relative to the current route. `'route'` (default) walks the route hierarchy; `'path'` walks URL segments.\nThe two differ inside nested layouts — pick `'path'` when you mean the URL literally.\n"
+		"description": "Navigate relative to the current route. `'route'` (default) walks the route hierarchy; `'path'` walks URL segments.\nThe two differ inside nested layouts — pick `'path'` when you mean the URL literally.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"navigate(), viewTransition": {
 		"prefix": ["navigateTransition"],
 		"body": ["navigate('${1:/path}', { viewTransition: true })$0"],
-		"description": "Wrap the navigation in `document.startViewTransition()`.\nPair with `useViewTransitionState()` to name the elements that should morph.\n"
+		"description": "Wrap the navigation in `document.startViewTransition()`.\nPair with `useViewTransitionState()` to name the elements that should morph.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"navigate(), keep scroll position": {
 		"prefix": ["navigatePreventScroll"],
 		"body": ["navigate('${1:/path}', { preventScrollReset: true })$0"],
-		"description": "Skip resetting scroll to the top. For pagination, tab switches and filter changes where the user should stay put.\n"
+		"description": "Skip resetting scroll to the top. For pagination, tab switches and filter changes where the user should stay put.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useNavigation": {
 		"prefix": ["imunav", "importUseNavigation"],
 		"body": ["import { useNavigation } from 'react-router'"],
-		"description": "Observe the pending navigation.\n"
+		"description": "Observe the pending navigation.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useNavigation()": {
 		"prefix": ["useNavigation", "unav"],
 		"body": ["const navigation = useNavigation()$0"],
-		"description": "Describes any navigation in flight: `state` is `'idle' | 'loading' | 'submitting'`, plus `location`, `formData` and `formMethod`.\nThe basis of global loading bars and pending UI.\n"
+		"description": "Describes any navigation in flight: `state` is `'idle' | 'loading' | 'submitting'`, plus `location`, `formData` and `formMethod`.\nThe basis of global loading bars and pending UI.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useNavigation() busy flag": {
 		"prefix": ["navigationBusy"],
-		"body": [
-			"const navigation = useNavigation()",
-			"const ${1:isBusy} = navigation.state !== 'idle'$0"
-		],
-		"description": "A single flag covering both loading and submitting.\n"
+		"body": ["const navigation = useNavigation()", "const ${1:isBusy} = navigation.state !== 'idle'$0"],
+		"description": "A single flag covering both loading and submitting.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useLocation": {
 		"prefix": ["imul", "importUseLocation"],
 		"body": ["import { useLocation } from 'react-router'"],
-		"description": "Read the current location.\n"
+		"description": "Read the current location.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useLocation()": {
 		"prefix": ["useLocation", "ul"],
 		"body": ["const location = useLocation()$0"],
-		"description": "The current `{ pathname, search, hash, state, key }`.\nRe-renders the component on every navigation — read it only where you need it.\n"
+		"description": "The current `{ pathname, search, hash, state, key }`.\nRe-renders the component on every navigation — read it only where you need it.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useNavigationType": {
 		"prefix": ["imunt", "importUseNavigationType"],
 		"body": ["import { useNavigationType } from 'react-router'"],
-		"description": "How the user arrived at this location.\n"
+		"description": "How the user arrived at this location.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useNavigationType()": {
 		"prefix": ["useNavigationType"],
 		"body": ["const ${1:navigationType} = useNavigationType()$0"],
-		"description": "`'PUSH' | 'REPLACE' | 'POP'`. `POP` means back/forward — useful for deciding whether to restore scroll or animation state.\n"
+		"description": "`'PUSH' | 'REPLACE' | 'POP'`. `POP` means back/forward — useful for deciding whether to restore scroll or animation state.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useBlocker": {
 		"prefix": ["imub", "importUseBlocker"],
 		"body": ["import { useBlocker } from 'react-router'"],
-		"description": "Block in-app navigation conditionally.\n"
+		"description": "Block in-app navigation conditionally.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useBlocker()": {
 		"prefix": ["useBlocker", "ub"],
@@ -122,7 +139,8 @@
 			"\t\t${1:isDirty} && currentLocation.pathname !== nextLocation.pathname,",
 			")$0"
 		],
-		"description": "Interrupts a client-side navigation so you can confirm it.\nThe blocker's `state` is `'unblocked' | 'blocked' | 'proceeding'`; call `blocker.proceed()` or `blocker.reset()`.\nOnly blocks in-app navigation — closing the tab needs `useBeforeUnload`.\n"
+		"description": "Interrupts a client-side navigation so you can confirm it.\nThe blocker's `state` is `'unblocked' | 'blocked' | 'proceeding'`; call `blocker.proceed()` or `blocker.reset()`.\nOnly blocks in-app navigation — closing the tab needs `useBeforeUnload`.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useBlocker() with confirm UI": {
 		"prefix": ["blockerConfirm", "rUnsavedChanges"],
@@ -141,88 +159,98 @@
 			"\t)",
 			"}$0"
 		],
-		"description": "The unsaved-changes guard: block the navigation, then let the user confirm or cancel.\n"
+		"description": "The unsaved-changes guard: block the navigation, then let the user confirm or cancel.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useBeforeUnload": {
 		"prefix": ["imubu", "importUseBeforeUnload"],
 		"body": ["import { useBeforeUnload } from 'react-router'"],
-		"description": "Run something before the document unloads.\n"
+		"description": "Run something before the document unloads.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useBeforeUnload()": {
 		"prefix": ["useBeforeUnload"],
-		"body": [
-			"useBeforeUnload(",
-			"\tuseCallback((event) => {",
-			"\t\t${1:event.preventDefault()}$0",
-			"\t}, []),",
-			")"
-		],
-		"description": "Wraps the `beforeunload` event — covers closing the tab or a full reload, which `useBlocker` cannot.\nMemoize the callback, or the listener is re-registered on every render.\n"
+		"body": ["useBeforeUnload(", "\tuseCallback((event) => {", "\t\t${1:event.preventDefault()}$0", "\t}, []),", ")"],
+		"description": "Wraps the `beforeunload` event — covers closing the tab or a full reload, which `useBlocker` cannot.\nMemoize the callback, or the listener is re-registered on every render.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useViewTransitionState": {
 		"prefix": ["imuvts", "importUseViewTransitionState"],
 		"body": ["import { useViewTransitionState } from 'react-router'"],
-		"description": "Detect an active view transition to a given path.\n"
+		"description": "Detect an active view transition to a given path.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useViewTransitionState()": {
 		"prefix": ["useViewTransitionState"],
 		"body": ["const isTransitioning = useViewTransitionState('${1:/path}')$0"],
-		"description": "True while a view transition to that path is running.\nUse it to apply `viewTransitionName` to the element that should morph — pair with `<Link viewTransition>`.\n"
+		"description": "True while a view transition to that path is running.\nUse it to apply `viewTransitionName` to the element that should morph — pair with `<Link viewTransition>`.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useHref": {
 		"prefix": ["imuh", "importUseHref"],
 		"body": ["import { useHref } from 'react-router'"],
-		"description": "Resolve a `to` value into an href string.\n"
+		"description": "Resolve a `to` value into an href string.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useHref()": {
 		"prefix": ["useHref"],
 		"body": ["const ${1:href} = useHref('${2:to}')$0"],
-		"description": "Resolves a `to` against the current location and basename, the way `<Link>` does internally.\nUse it when rendering a plain `<a>` that must respect the router's basename.\n"
+		"description": "Resolves a `to` against the current location and basename, the way `<Link>` does internally.\nUse it when rendering a plain `<a>` that must respect the router's basename.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useResolvedPath": {
 		"prefix": ["imurp", "importUseResolvedPath"],
 		"body": ["import { useResolvedPath } from 'react-router'"],
-		"description": "Resolve a relative `to` against the current location.\n"
+		"description": "Resolve a relative `to` against the current location.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useResolvedPath()": {
 		"prefix": ["useResolvedPath"],
 		"body": ["const ${1:path} = useResolvedPath('${2:to}')$0"],
-		"description": "Returns the resolved `{ pathname, search, hash }` for a relative `to`.\n"
+		"description": "Returns the resolved `{ pathname, search, hash }` for a relative `to`.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useLinkClickHandler": {
 		"prefix": ["imulch", "importUseLinkClickHandler"],
 		"body": ["import { useLinkClickHandler } from 'react-router'"],
-		"description": "Build a custom link component.\n"
+		"description": "Build a custom link component.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useLinkClickHandler()": {
 		"prefix": ["useLinkClickHandler"],
 		"body": ["const handleClick = useLinkClickHandler('${1:to}')$0"],
-		"description": "The click handler `<Link>` uses — honors modifier keys, target and replace.\nFor wrapping a design-system anchor while keeping correct link behavior.\n"
+		"description": "The click handler `<Link>` uses — honors modifier keys, target and replace.\nFor wrapping a design-system anchor while keeping correct link behavior.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useParams": {
 		"prefix": ["imup", "importUseParams"],
 		"body": ["import { useParams } from 'react-router'"],
-		"description": "Read dynamic segments from the URL.\n"
+		"description": "Read dynamic segments from the URL.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useParams()": {
 		"prefix": ["useParams", "up"],
 		"body": ["const { ${1:id} } = useParams()$0"],
-		"description": "Returns the dynamic segments of the matched path.\nValues are `string | undefined` — even a required segment is optional to TypeScript. In Framework mode the `params` prop is precisely typed instead.\n"
+		"description": "Returns the dynamic segments of the matched path.\nValues are `string | undefined` — even a required segment is optional to TypeScript. In Framework mode the `params` prop is precisely typed instead.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useSearchParams": {
 		"prefix": ["imusp", "importUseSearchParams"],
 		"body": ["import { useSearchParams } from 'react-router'"],
-		"description": "Read and write the query string.\n"
+		"description": "Read and write the query string.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useSearchParams()": {
 		"prefix": ["useSearchParams", "usp"],
 		"body": ["const [searchParams, setSearchParams] = useSearchParams()$0"],
-		"description": "`useState`-like access to the query string, backed by the URL.\n`searchParams` is a `URLSearchParams`; setting it triggers a navigation.\n"
+		"description": "`useState`-like access to the query string, backed by the URL.\n`searchParams` is a `URLSearchParams`; setting it triggers a navigation.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useSearchParams() read": {
 		"prefix": ["searchParamsGet"],
 		"body": ["const ${1:query} = searchParams.get('${2:q}') ?? '${3:}'$0"],
-		"description": "Read one parameter. `get()` returns `null` when absent, so supply a default.\n"
+		"description": "Read one parameter. `get()` returns `null` when absent, so supply a default.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useSearchParams() set": {
 		"prefix": ["searchParamsSet"],
@@ -232,26 +260,31 @@
 			"\treturn prev",
 			"}, { replace: ${3|true,false|} })$0"
 		],
-		"description": "Update one parameter while preserving the rest.\nThe functional form avoids clobbering params other components own. `replace: true` keeps filter tweaks out of history.\n"
+		"description": "Update one parameter while preserving the rest.\nThe functional form avoids clobbering params other components own. `replace: true` keeps filter tweaks out of history.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useMatch": {
 		"prefix": ["imum", "importUseMatch"],
 		"body": ["import { useMatch } from 'react-router'"],
-		"description": "Match the current location against a pattern.\n"
+		"description": "Match the current location against a pattern.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useMatch()": {
 		"prefix": ["useMatch", "um"],
 		"body": ["const ${1:match} = useMatch('${2:/items/:id}')$0"],
-		"description": "Returns the match (with params) when the current URL matches the pattern, otherwise `null`.\nFor active styling prefer `<NavLink>`, which handles it for you.\n"
+		"description": "Returns the match (with params) when the current URL matches the pattern, otherwise `null`.\nFor active styling prefer `<NavLink>`, which handles it for you.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useMatches": {
 		"prefix": ["imums", "importUseMatches"],
 		"body": ["import { useMatches } from 'react-router'"],
-		"description": "Read every matched route on the page.\n"
+		"description": "Read every matched route on the page.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useMatches()": {
 		"prefix": ["useMatches", "ums"],
 		"body": ["const matches = useMatches()$0"],
-		"description": "All currently matched routes, each with `id`, `pathname`, `params`, `loaderData` and `handle`.\nCombined with each route's `handle` export, this is how breadcrumbs are built.\nThe `data` field was removed in v8 — read `loaderData` instead.\n"
+		"description": "All currently matched routes, each with `id`, `pathname`, `params`, `loaderData` and `handle`.\nCombined with each route's `handle` export, this is how breadcrumbs are built.\nThe `data` field was removed in v8 — read `loaderData` instead.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

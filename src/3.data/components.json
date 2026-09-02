@@ -2,7 +2,8 @@
 	"import Form": {
 		"prefix": ["imform", "importForm"],
 		"body": ["import { Form } from 'react-router'"],
-		"description": "**Framework / Data mode.** Form that submits to a route action.\n"
+		"description": "**Framework / Data mode.** Form that submits to a route action.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Form": {
 		"prefix": ["Form", "rf"],
@@ -12,7 +13,8 @@
 			"\t<button type=\"submit\">${2:Submit}</button>",
 			"</Form>"
 		],
-		"description": "**Framework / Data mode.** Submits to the current route's `action` without a full page reload.\nWorks without JS as a plain HTML form — the progressive-enhancement baseline.\n"
+		"description": "**Framework / Data mode.** Submits to the current route's `action` without a full page reload.\nWorks without JS as a plain HTML form — the progressive-enhancement baseline.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Form with action": {
 		"prefix": ["FormAction"],
@@ -22,7 +24,8 @@
 			"\t<button type=\"submit\">${2:Submit}</button>",
 			"</Form>"
 		],
-		"description": "**Framework / Data mode.** Targets another route's action. Omit `action` to post to the closest route.\n"
+		"description": "**Framework / Data mode.** Targets another route's action. Omit `action` to post to the closest route.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Form with intent buttons": {
 		"prefix": ["FormIntent"],
@@ -32,12 +35,14 @@
 			"\t<button type=\"submit\" name=\"intent\" value=\"${3:delete}\">${4:Delete}</button>$0",
 			"</Form>"
 		],
-		"description": "**Framework / Data mode.** Several operations through one action: read `formData.get('intent')` and branch.\nA submit button's `name`/`value` is included only when that button triggers the submit.\n"
+		"description": "**Framework / Data mode.** Several operations through one action: read `formData.get('intent')` and branch.\nA submit button's `name`/`value` is included only when that button triggers the submit.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import Await": {
 		"prefix": ["imawait", "importAwait"],
 		"body": ["import { Await } from 'react-router'"],
-		"description": "**Framework / Data mode.** Render a promise streamed from a loader.\n"
+		"description": "**Framework / Data mode.** Render a promise streamed from a loader.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Await": {
 		"prefix": ["Await", "ra"],
@@ -48,7 +53,8 @@
 			"\t</Await>",
 			"</Suspense>"
 		],
-		"description": "**Framework / Data mode.** Renders a promise returned (not awaited) by a loader, so the page streams in while slow data resolves.\nMust sit inside `<Suspense>`. The child can be a render function or a component calling `useAsyncValue()`.\n"
+		"description": "**Framework / Data mode.** Renders a promise returned (not awaited) by a loader, so the page streams in while slow data resolves.\nMust sit inside `<Suspense>`. The child can be a render function or a component calling `useAsyncValue()`.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"loader returning a promise (streaming)": {
 		"prefix": ["rDefer", "loaderStream"],
@@ -60,7 +66,8 @@
 			"\treturn { ${1:critical}, ${4:slow} }$0",
 			"}"
 		],
-		"description": "**Framework mode.** Await what the page needs immediately, return the rest as an un-awaited promise and render it through `<Await>`.\nReplaces the deprecated `defer()` — a bare promise in the returned object is streamed automatically.\n"
+		"description": "**Framework mode.** Await what the page needs immediately, return the rest as an un-awaited promise and render it through `<Await>`.\nReplaces the deprecated `defer()` — a bare promise in the returned object is streamed automatically.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route lazy": {
 		"prefix": ["RouteLazy", "rLazyRoute"],
@@ -73,6 +80,7 @@
 			"\t},",
 			"}$0"
 		],
-		"description": "**Data mode.** Code-splits a Data mode route: the component *and* its loader are fetched on first visit.\nUnlike `React.lazy`, this also defers the loader, so the route's data code stays out of the initial bundle.\n"
+		"description": "**Data mode.** Code-splits a Data mode route: the component *and* its loader are fetched on first visit.\nUnlike `React.lazy`, this also defers the loader, so the route's data code stays out of the initial bundle.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

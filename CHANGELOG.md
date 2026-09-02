@@ -4,6 +4,12 @@ All notable changes to the **React Router Snippets** extension are documented in
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Each entry lists only the headline change per release — see git history/tags for full detail.
 
+## [8.0.1] - 2026-09-02
+
+- No snippet changes.
+- Snippets now ship as a single `.code-snippets` file, each declaring its own languages; which snippet reaches which language is unchanged
+- `engines.vscode` raised to `^1.100.0`
+
 ## [8.0.0] - 2026-08-25
 
 Targets React Router 8.3.0.

@@ -2,7 +2,8 @@
 	"import Routes / Route": {
 		"prefix": ["imroutes2", "importRoutes"],
 		"body": ["import { Routes, Route } from 'react-router'"],
-		"description": "**Declarative mode.** Route matching by JSX.\n"
+		"description": "**Declarative mode.** Route matching by JSX.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Routes": {
 		"prefix": ["Routes", "rs"],
@@ -14,27 +15,32 @@
 			"\t</Route>",
 			"</Routes>"
 		],
-		"description": "**Declarative mode.** Picks the best match among its `<Route>` children.\nNo loaders, actions or pending UI.\n"
+		"description": "**Declarative mode.** Picks the best match among its `<Route>` children.\nNo loaders, actions or pending UI.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route": {
 		"prefix": ["Route", "rt"],
 		"body": ["<Route path=\"${1:path}\" element={<${2:Component} />} />$0"],
-		"description": "**Declarative mode.** One route. Nest `<Route>` elements to build layouts, and render an `<Outlet />` in the parent.\n"
+		"description": "**Declarative mode.** One route. Nest `<Route>` elements to build layouts, and render an `<Outlet />` in the parent.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route index": {
 		"prefix": ["RouteIndex"],
 		"body": ["<Route index element={<${1:Home} />} />$0"],
-		"description": "**Declarative mode.** Renders at the parent's exact path. An index route takes no `path` of its own.\n"
+		"description": "**Declarative mode.** Renders at the parent's exact path. An index route takes no `path` of its own.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route 404": {
 		"prefix": ["Route404", "rCatchAll"],
 		"body": ["<Route path=\"*\" element={<${1:NotFound} />} />$0"],
-		"description": "**Declarative mode.** Catch-all for unmatched URLs. Put it last, at the top level.\n"
+		"description": "**Declarative mode.** Catch-all for unmatched URLs. Put it last, at the top level.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import useRoutes": {
 		"prefix": ["imur", "importUseRoutes"],
 		"body": ["import { useRoutes } from 'react-router'"],
-		"description": "**Declarative mode.** Define routes as an object tree inside a component.\n"
+		"description": "**Declarative mode.** Define routes as an object tree inside a component.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"useRoutes()": {
 		"prefix": ["useRoutes", "ur"],
@@ -46,6 +52,7 @@
 			"",
 			"return element"
 		],
-		"description": "**Declarative mode.** The hook form of `<Routes>`, taking plain objects instead of JSX.\nNo data loading.\n"
+		"description": "**Declarative mode.** The hook form of `<Routes>`, taking plain objects instead of JSX.\nNo data loading.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

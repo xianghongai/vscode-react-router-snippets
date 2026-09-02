@@ -12,7 +12,8 @@
 			"\t</>",
 			")"
 		],
-		"description": "A top-level progress bar driven by the pending navigation. Render it in the root layout.\n"
+		"description": "A top-level progress bar driven by the pending navigation. Render it in the root layout.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: submit button pending state": {
 		"prefix": ["rSubmitPending"],
@@ -29,7 +30,8 @@
 			"\t</Form>",
 			")"
 		],
-		"description": "Disable the button and swap its label while the action runs, so double submits are impossible.\n"
+		"description": "Disable the button and swap its label while the action runs, so double submits are impossible.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: per-item pending with fetchers": {
 		"prefix": ["rItemPending"],
@@ -41,7 +43,8 @@
 			"\t\t.map((f) => String(f.formData!.get('${1:id}'))),",
 			")$0"
 		],
-		"description": "Collect the ids of every in-flight fetcher so each row can show its own spinner.\nThe list-view counterpart to a single form's pending state.\n"
+		"description": "Collect the ids of every in-flight fetcher so each row can show its own spinner.\nThe list-view counterpart to a single form's pending state.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: delayed spinner": {
 		"prefix": ["rDelayedSpinner"],
@@ -59,6 +62,7 @@
 			"\treturn () => clearTimeout(timer)",
 			"}, [navigation.state])$0"
 		],
-		"description": "Only show a spinner once the navigation is genuinely slow.\nFast transitions finish before the timer fires, avoiding a flash that reads as jank.\n"
+		"description": "Only show a spinner once the navigation is genuinely slow.\nFast transitions finish before the timer fires, avoiding a flash that reads as jank.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

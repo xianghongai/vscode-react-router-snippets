@@ -2,45 +2,49 @@
 	"import Route types": {
 		"prefix": ["imRoute", "importRouteTypes"],
 		"body": ["import type { Route } from './+types/${1:route-name}'"],
-		"description": "**Framework mode.** Generated per-route types. Run `react-router typegen` (or start the dev server) to produce `./+types/<route>`.\nThe file name must match the route module's own file name.\n"
+		"description": "**Framework mode.** Generated per-route types. Run `react-router typegen` (or start the dev server) to produce `./+types/<route>`.\nThe file name must match the route module's own file name.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route.ComponentProps": {
 		"prefix": ["RouteComponentProps"],
-		"body": [
-			"{ loaderData, actionData, params, matches }: Route.ComponentProps"
-		],
-		"description": "**Framework mode.** Props the route's default export receives. Everything is typed from this route's own loader and action.\n"
+		"body": ["{ loaderData, actionData, params, matches }: Route.ComponentProps"],
+		"description": "**Framework mode.** Props the route's default export receives. Everything is typed from this route's own loader and action.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route.LoaderArgs": {
 		"prefix": ["RouteLoaderArgs"],
 		"body": ["{ params, url, request, context }: Route.LoaderArgs"],
-		"description": "**Framework mode.** Arguments to a server `loader`. `params` is typed from the route's path segments.\n`url` is the normalized `URL`; `pattern` holds the un-interpolated route pattern.\n"
+		"description": "**Framework mode.** Arguments to a server `loader`. `params` is typed from the route's path segments.\n`url` is the normalized `URL`; `pattern` holds the un-interpolated route pattern.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route.ClientLoaderArgs": {
 		"prefix": ["RouteClientLoaderArgs"],
 		"body": ["{ params, request, serverLoader }: Route.ClientLoaderArgs"],
-		"description": "**Framework mode.** Arguments to a `clientLoader`. `serverLoader()` fetches this route's server loader data.\n"
+		"description": "**Framework mode.** Arguments to a `clientLoader`. `serverLoader()` fetches this route's server loader data.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route.ActionArgs": {
 		"prefix": ["RouteActionArgs"],
 		"body": ["{ params, url, request, context }: Route.ActionArgs"],
-		"description": "**Framework mode.** Arguments to a server `action`. Read the submission with `await request.formData()`.\n"
+		"description": "**Framework mode.** Arguments to a server `action`. Read the submission with `await request.formData()`.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route.ClientActionArgs": {
 		"prefix": ["RouteClientActionArgs"],
 		"body": ["{ params, request, serverAction }: Route.ClientActionArgs"],
-		"description": "**Framework mode.** Arguments to a `clientAction`. `serverAction()` delegates to this route's server action.\n"
+		"description": "**Framework mode.** Arguments to a `clientAction`. `serverAction()` delegates to this route's server action.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route.MetaArgs": {
 		"prefix": ["RouteMetaArgs"],
 		"body": ["{ loaderData, params, matches }: Route.MetaArgs"],
-		"description": "**Framework mode.** Arguments to `meta`. Use `loaderData` — the `data` field was removed in v8.\n"
+		"description": "**Framework mode.** Arguments to `meta`. Use `loaderData` — the `data` field was removed in v8.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Route.ErrorBoundaryProps": {
 		"prefix": ["RouteErrorBoundaryProps"],
-		"body": [
-			"{ error, params, loaderData, actionData }: Route.ErrorBoundaryProps"
-		],
-		"description": "**Framework mode.** Props an `ErrorBoundary` export receives. `error` is `unknown` — narrow it with `isRouteErrorResponse`.\n"
+		"body": ["{ error, params, loaderData, actionData }: Route.ErrorBoundaryProps"],
+		"description": "**Framework mode.** Props an `ErrorBoundary` export receives. `error` is `unknown` — narrow it with `isRouteErrorResponse`.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

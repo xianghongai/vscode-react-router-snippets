@@ -27,7 +27,8 @@
 			"\t)$0",
 			"}"
 		],
-		"description": "Server-side validation round trip: return errors with a 400, render them from `actionData`, redirect on success.\nWorks without JS, and `aria-invalid` keeps it accessible.\n"
+		"description": "Server-side validation round trip: return errors with a 400, render them from `actionData`, redirect on success.\nWorks without JS, and `aria-invalid` keeps it accessible.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: optimistic UI": {
 		"prefix": ["rOptimistic"],
@@ -46,7 +47,8 @@
 			"\t</fetcher.Form>",
 			")$0"
 		],
-		"description": "Render the pending submission's value instead of the server's, so the UI responds instantly.\n`fetcher.formData` holds what was submitted; when it clears, the revalidated server value takes over — and a failure reverts on its own.\n"
+		"description": "Render the pending submission's value instead of the server's, so the UI responds instantly.\n`fetcher.formData` holds what was submitted; when it clears, the revalidated server value takes over — and a failure reverts on its own.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: optimistic list item": {
 		"prefix": ["rOptimisticList"],
@@ -59,7 +61,8 @@
 			"",
 			"const items = [...${3:loaderData.items}, ...pendingItems]$0"
 		],
-		"description": "Append not-yet-saved items to the list so a new row appears immediately.\nEach fetcher has a stable `key`, usable as a temporary React key.\n"
+		"description": "Append not-yet-saved items to the list so a new row appears immediately.\nEach fetcher has a stable `key`, usable as a temporary React key.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: reset form after submit": {
 		"prefix": ["rFormReset"],
@@ -72,6 +75,7 @@
 			"\tif (isDone) formRef.current?.reset()",
 			"}, [isDone])$0"
 		],
-		"description": "Clear the inputs once the submission completes — the usual need for an \"add another\" form.\nA fetcher does not navigate, so the form is not remounted and keeps its values otherwise.\n"
+		"description": "Clear the inputs once the submission completes — the usual need for an \"add another\" form.\nA fetcher does not navigate, so the form is not remounted and keeps its values otherwise.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

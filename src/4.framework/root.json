@@ -52,7 +52,8 @@
 			"\t)",
 			"}$0"
 		],
-		"description": "**Framework mode.** Complete `app/root.tsx` for Framework mode: document shell, `<Outlet />` and a root error boundary.\n`Layout` also wraps the error state, so the shell keeps rendering when a route throws.\n"
+		"description": "**Framework mode.** Complete `app/root.tsx` for Framework mode: document shell, `<Outlet />` and a root error boundary.\n`Layout` also wraps the error state, so the shell keeps rendering when a route throws.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"entry.client.tsx": {
 		"prefix": ["rEntryClient", "entryClient"],
@@ -70,7 +71,8 @@
 			"\t)",
 			"})$0"
 		],
-		"description": "**Framework mode.** `app/entry.client.tsx` — the browser entry. Only needed when customizing hydration; Framework mode supplies a default.\n`HydratedRouter` comes from `react-router/dom`, not the root package.\n"
+		"description": "**Framework mode.** `app/entry.client.tsx` — the browser entry. Only needed when customizing hydration; Framework mode supplies a default.\n`HydratedRouter` comes from `react-router/dom`, not the root package.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"entry.server.tsx": {
 		"prefix": ["rEntryServer", "entryServer"],
@@ -95,7 +97,8 @@
 			"\t})",
 			"}$0"
 		],
-		"description": "**Framework mode.** `app/entry.server.tsx` — server rendering entry. Only needed when customizing the SSR response.\n`<ServerRouter />` renders the matched routes on the server.\n"
+		"description": "**Framework mode.** `app/entry.server.tsx` — server rendering entry. Only needed when customizing the SSR response.\n`<ServerRouter />` renders the matched routes on the server.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"react-router.config.ts": {
 		"prefix": ["rConfig", "reactRouterConfig"],
@@ -107,6 +110,7 @@
 			"\tsplitRouteModules: ${2|true,false,\"enforce\"|},$0",
 			"} satisfies Config"
 		],
-		"description": "**Framework mode.** Framework mode build config. `ssr: false` produces a SPA build.\n`splitRouteModules` code-splits each route's client exports; it graduated from a future flag to a top-level option in v8.\nv8 ships with no future flags — the v7 `v8_*` flags are now the default behavior.\n"
+		"description": "**Framework mode.** Framework mode build config. `ssr: false` produces a SPA build.\n`splitRouteModules` code-splits each route's client exports; it graduated from a future flag to a top-level option in v8.\nv8 ships with no future flags — the v7 `v8_*` flags are now the default behavior.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

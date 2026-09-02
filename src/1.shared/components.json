@@ -2,36 +2,38 @@
 	"import Link": {
 		"prefix": ["imlink", "importLink"],
 		"body": ["import { Link } from 'react-router'"],
-		"description": "Client-side navigation link.\n"
+		"description": "Client-side navigation link.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Link": {
 		"prefix": ["Link", "rl"],
 		"body": ["<Link to=\"${1:/path}\">${2:Label}</Link>$0"],
-		"description": "Renders an `<a>` that navigates without a full reload.\nAlways prefer it over `useNavigate` for anything the user clicks — it stays keyboard- and screen-reader-friendly, and works without JS.\n"
+		"description": "Renders an `<a>` that navigates without a full reload.\nAlways prefer it over `useNavigate` for anything the user clicks — it stays keyboard- and screen-reader-friendly, and works without JS.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Link with prefetch": {
 		"prefix": ["LinkPrefetch"],
-		"body": [
-			"<Link to=\"${1:/path}\" prefetch=\"${2|intent,render,viewport,none|}\">${3:Label}</Link>$0"
-		],
-		"description": "Prefetches the route's data and modules.\n`intent` fires on hover/focus and is the usual choice; `viewport` suits mobile lists; `render` is eager.\n"
+		"body": ["<Link to=\"${1:/path}\" prefetch=\"${2|intent,render,viewport,none|}\">${3:Label}</Link>$0"],
+		"description": "Prefetches the route's data and modules.\n`intent` fires on hover/focus and is the usual choice; `viewport` suits mobile lists; `render` is eager.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Link with state": {
 		"prefix": ["LinkState"],
-		"body": [
-			"<Link to=\"${1:/path}\" state={{ ${2:from}: ${3:value} }}>${4:Label}</Link>$0"
-		],
-		"description": "Attaches data to the history entry, readable via `useLocation().state`.\nNot in the URL — it is lost on reload and cannot be shared.\n"
+		"body": ["<Link to=\"${1:/path}\" state={{ ${2:from}: ${3:value} }}>${4:Label}</Link>$0"],
+		"description": "Attaches data to the history entry, readable via `useLocation().state`.\nNot in the URL — it is lost on reload and cannot be shared.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Link with viewTransition": {
 		"prefix": ["LinkViewTransition"],
 		"body": ["<Link to=\"${1:/path}\" viewTransition>${2:Label}</Link>$0"],
-		"description": "Wraps the navigation in `document.startViewTransition()`.\nPair with `useViewTransitionState()` to name the morphing elements.\n"
+		"description": "Wraps the navigation in `document.startViewTransition()`.\nPair with `useViewTransitionState()` to name the morphing elements.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import NavLink": {
 		"prefix": ["imnl", "importNavLink"],
 		"body": ["import { NavLink } from 'react-router'"],
-		"description": "Link that knows whether it is active.\n"
+		"description": "Link that knows whether it is active.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"NavLink": {
 		"prefix": ["NavLink", "rnl"],
@@ -43,7 +45,8 @@
 			"\t${3:Label}",
 			"</NavLink>$0"
 		],
-		"description": "A `<Link>` that reports `isActive`, `isPending` and `isTransitioning` to its `className`, `style` and children.\nMatches by prefix — add `end` so a parent link is not active on child routes.\n"
+		"description": "A `<Link>` that reports `isActive`, `isPending` and `isTransitioning` to its `className`, `style` and children.\nMatches by prefix — add `end` so a parent link is not active on child routes.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"NavLink end": {
 		"prefix": ["NavLinkEnd"],
@@ -52,7 +55,8 @@
 			"\t${3:Home}",
 			"</NavLink>$0"
 		],
-		"description": "`end` restricts the active state to an exact match — required for a \"Home\" link pointing at `/`, which otherwise stays active everywhere.\n"
+		"description": "`end` restricts the active state to an exact match — required for a \"Home\" link pointing at `/`, which otherwise stays active everywhere.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"NavLink with pending state": {
 		"prefix": ["NavLinkPending"],
@@ -66,41 +70,49 @@
 			"\t${4:Label}",
 			"</NavLink>$0"
 		],
-		"description": "`isPending` is true while this link's route is loading — the cheapest per-link loading indicator.\n"
+		"description": "`isPending` is true while this link's route is loading — the cheapest per-link loading indicator.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import Navigate": {
 		"prefix": ["imnav", "importNavigate"],
 		"body": ["import { Navigate } from 'react-router'"],
-		"description": "Redirect by rendering an element.\n"
+		"description": "Redirect by rendering an element.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Navigate": {
 		"prefix": ["Navigate", "rn"],
 		"body": ["<Navigate to=\"${1:/path}\" replace />$0"],
-		"description": "Navigates as a side effect of rendering.\nIn Data or Framework mode prefer `redirect()` in a loader — it runs before rendering and avoids the flash.\n"
+		"description": "Navigates as a side effect of rendering.\nIn Data or Framework mode prefer `redirect()` in a loader — it runs before rendering and avoids the flash.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import Outlet": {
 		"prefix": ["imout", "importOutlet"],
 		"body": ["import { Outlet } from 'react-router'"],
-		"description": "Placeholder for child routes.\n"
+		"description": "Placeholder for child routes.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Outlet": {
 		"prefix": ["Outlet", "ro"],
 		"body": ["<Outlet />$0"],
-		"description": "Where a parent route renders its matched child. A layout route without one renders nothing for its children.\n"
+		"description": "Where a parent route renders its matched child. A layout route without one renders nothing for its children.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Outlet with context": {
 		"prefix": ["OutletContext"],
 		"body": ["<Outlet context={{ ${1:key}: ${2:value} }} />$0"],
-		"description": "Passes data to child routes, read with `useOutletContext()`.\n"
+		"description": "Passes data to child routes, read with `useOutletContext()`.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import ScrollRestoration": {
 		"prefix": ["imsrest", "importScrollRestoration"],
 		"body": ["import { ScrollRestoration } from 'react-router'"],
-		"description": "Restore scroll position across navigations.\n"
+		"description": "Restore scroll position across navigations.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"ScrollRestoration": {
 		"prefix": ["ScrollRestoration", "rsr"],
 		"body": ["<ScrollRestoration />$0"],
-		"description": "Emulates the browser's scroll restoration for client-side navigation. Render it once, near the root.\nPass `getKey` to share a scroll position across paths.\n"
+		"description": "Emulates the browser's scroll restoration for client-side navigation. Render it once, near the root.\nPass `getKey` to share a scroll position across paths.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

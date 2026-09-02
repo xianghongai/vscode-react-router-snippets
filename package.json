@@ -1,16 +1,8 @@
 {
   "name": "vscode-react-router-snippets",
-  "publisher": "NicholasHsiang",
   "displayName": "React Router Snippets",
+  "version": "8.0.1",
   "description": "Code snippets for React Router v7",
-  "version": "8.0.0",
-  "icon": "art/icon.png",
-  "type": "module",
-  "packageManager": "pnpm@11.23.0",
-  "engines": {
-    "vscode": "^1.0.0",
-    "node": ">=24"
-  },
   "categories": [
     "Snippets"
   ],
@@ -20,27 +12,54 @@
     "React Router 7",
     "React Snippets"
   ],
-  "galleryBanner": {
-    "color": "#ffffff",
-    "theme": "dark"
+  "homepage": "https://github.com/xianghongai/vscode-react-router-snippets/",
+  "bugs": {
+    "url": "https://github.com/xianghongai/vscode-react-router-snippets/issues"
   },
+  "license": "MIT",
   "author": {
     "name": "Nicholas Hsiang",
     "url": "https://github.com/xianghongai"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/xianghongai/vscode-react-router-snippets/",
   "repository": {
     "type": "git",
     "url": "https://github.com/xianghongai/vscode-react-router-snippets"
-  },
-  "bugs": {
-    "url": "https://github.com/xianghongai/vscode-react-router-snippets/issues"
   },
   "sponsor": {
     "url": "https://github.com/sponsors/xianghongai"
   },
   "qna": "marketplace",
+  "publisher": "NicholasHsiang",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.ts",
+    "clean": "rimraf --glob \"*.vsix\" snippets",
+    "dev": "node --watch-path=src scripts/build.ts",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint scripts tests",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish --no-dependencies",
+    "test": "vitest run",
+    "vscode:prepublish": "pnpm run clean && pnpm run lint && pnpm run test && pnpm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "@vscode/vsce": "3.9.2",
+    "oxfmt": "^0.65.0",
+    "oxlint": "^1.80.0",
+    "picocolors": "^1.1.1",
+    "rimraf": "^6.1.3",
+    "vitest": "4.1.11"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "path": "./snippets/index.code-snippets"
+      }
+    ]
+  },
+  "icon": "art/icon.png",
   "badges": [
     {
       "url": "https://img.shields.io/badge/React%20Router-7-blue",
@@ -48,41 +67,12 @@
       "description": "React Router 7"
     }
   ],
-  "contributes": {
-    "snippets": [
-      {
-        "language": "javascript",
-        "path": "./snippets/javascript.json"
-      },
-      {
-        "language": "javascriptreact",
-        "path": "./snippets/javascript.json"
-      },
-      {
-        "language": "typescript",
-        "path": "./snippets/javascript.json"
-      },
-      {
-        "language": "typescriptreact",
-        "path": "./snippets/javascript.json"
-      }
-    ]
+  "galleryBanner": {
+    "color": "#ffffff",
+    "theme": "dark"
   },
-  "scripts": {
-    "clean": "rimraf *.vsix snippets/*",
-    "format": "prettier --write --cache .",
-    "dev": "nodemon --watch src -e json -x 'pnpm run prebuild'",
-    "prebuild": "node main.js",
-    "vscode:prepublish": "node main.js",
-    "build": "vsce package",
-    "publish": "vsce publish"
+  "engines": {
+    "vscode": "^1.100.0"
   },
-  "devDependencies": {
-    "@types/node": "^24.13.3",
-    "@vscode/vsce": "^3.9.2",
-    "glob": "^13.0.6",
-    "nodemon": "^3.1.14",
-    "prettier": "^3.9.6",
-    "rimraf": "^6.1.2"
-  }
+  "packageManager": "pnpm@11.25.0"
 }

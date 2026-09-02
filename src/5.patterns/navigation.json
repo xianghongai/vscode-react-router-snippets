@@ -20,7 +20,8 @@
 			"\t</nav>",
 			")$0"
 		],
-		"description": "Breadcrumbs from the matched route tree: each route exports `handle.breadcrumb`, the layout reads them via `useMatches()`.\nNo central config to keep in sync — a route carries its own label.\n"
+		"description": "Breadcrumbs from the matched route tree: each route exports `handle.breadcrumb`, the layout reads them via `useMatches()`.\nNo central config to keep in sync — a route carries its own label.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: search with URL state": {
 		"prefix": ["rSearchParams", "rFilter"],
@@ -37,7 +38,8 @@
 			"\t</Form>",
 			")$0"
 		],
-		"description": "Keep search state in the URL so it survives reloads and can be shared.\n`replace: true` keeps each keystroke out of history; `defaultValue` (not `value`) leaves the input uncontrolled so typing stays smooth.\n"
+		"description": "Keep search state in the URL so it survives reloads and can be shared.\n`replace: true` keeps each keystroke out of history; `defaultValue` (not `value`) leaves the input uncontrolled so typing stays smooth.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: pagination": {
 		"prefix": ["rPagination"],
@@ -51,7 +53,8 @@
 			"\treturn { items, page, totalPages: Math.ceil(total / perPage) }$0",
 			"}"
 		],
-		"description": "Page number lives in the query string, so every page is linkable and the Back button works.\nRead it in the loader — the data is fetched before render, with no client-side loading state to manage.\n"
+		"description": "Page number lives in the query string, so every page is linkable and the Back button works.\nRead it in the loader — the data is fetched before render, with no client-side loading state to manage.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: tab navigation": {
 		"prefix": ["rTabs"],
@@ -66,6 +69,7 @@
 			"</nav>",
 			"<Outlet />$0"
 		],
-		"description": "Tabs as nested routes: each tab is a real URL, deep-linkable and back-button friendly.\nRelative `to` values resolve against the parent route.\n"
+		"description": "Tabs as nested routes: each tab is a real URL, deep-linkable and back-button friendly.\nRelative `to` values resolve against the parent route.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

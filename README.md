@@ -178,10 +178,7 @@ if (isRouteErrorResponse(error)) {
 
 ```ts
 // routesConfig — app/routes.ts，路由清单独立成文件
-export default [
-  index('routes/home.tsx'),
-  route('products/:id', 'routes/product.tsx'),
-] satisfies RouteConfig;
+export default [index('routes/home.tsx'), route('products/:id', 'routes/product.tsx')] satisfies RouteConfig;
 ```
 
 ```tsx

@@ -28,7 +28,8 @@
 			"\treturn <main><h1>${3:Unknown error}</h1></main>$0",
 			"}"
 		],
-		"description": "Handles all three cases: a thrown `Response` (with a 404 branch), a real `Error`, and anything else.\nStack traces stay behind a DEV check so they never reach production output.\n"
+		"description": "Handles all three cases: a thrown `Response` (with a 404 branch), a real `Error`, and anything else.\nStack traces stay behind a DEV check so they never reach production output.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: 404 from a loader": {
 		"prefix": ["rNotFoundLoader"],
@@ -39,22 +40,19 @@
 			"\tthrow new Response('${4:Not Found}', { status: 404 })",
 			"}$0"
 		],
-		"description": "Throw a 404 when the record is missing, instead of returning `null` and null-checking in the component.\nThe nearest `ErrorBoundary` renders, and the status is correct for crawlers and monitoring.\n"
+		"description": "Throw a 404 when the record is missing, instead of returning `null` and null-checking in the component.\nThe nearest `ErrorBoundary` renders, and the status is correct for crawlers and monitoring.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: catch-all 404 route": {
 		"prefix": ["rRoute404"],
 		"body": ["route('*', 'routes/${1:not-found}.tsx'),$0"],
-		"description": "Framework mode catch-all. Put it last in `routes.ts`.\n"
+		"description": "Framework mode catch-all. Put it last in `routes.ts`.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Pattern: error boundary in Data mode route": {
 		"prefix": ["rErrorElement"],
-		"body": [
-			"{",
-			"\tpath: '${1:path}',",
-			"\tComponent: ${2:Component},",
-			"\tErrorBoundary: ${3:ErrorPage},",
-			"}$0"
-		],
-		"description": "Data mode error handling. An error bubbles to the nearest route that defines one, so a root-level boundary is the safety net.\n"
+		"body": ["{", "\tpath: '${1:path}',", "\tComponent: ${2:Component},", "\tErrorBoundary: ${3:ErrorPage},", "}$0"],
+		"description": "Data mode error handling. An error bubbles to the nearest route that defines one, so a root-level boundary is the safety net.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }

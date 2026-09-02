@@ -2,7 +2,8 @@
 	"import createBrowserRouter": {
 		"prefix": ["imcbr", "importCreateBrowserRouter"],
 		"body": ["import { createBrowserRouter } from 'react-router'"],
-		"description": "**Data mode.** Router using the History API.\n"
+		"description": "**Data mode.** Router using the History API.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"createBrowserRouter()": {
 		"prefix": ["createBrowserRouter", "cbr"],
@@ -19,16 +20,14 @@
 			"\t},",
 			"])"
 		],
-		"description": "**Data mode.** The standard router. Pass the tree to `<RouterProvider router={router} />`.\nUse `Component`/`ErrorBoundary` (component refs) or `element`/`errorElement` (JSX) — not both for the same slot.\n"
+		"description": "**Data mode.** The standard router. Pass the tree to `<RouterProvider router={router} />`.\nUse `Component`/`ErrorBoundary` (component refs) or `element`/`errorElement` (JSX) — not both for the same slot.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"createHashRouter()": {
 		"prefix": ["createHashRouter"],
-		"body": [
-			"const ${1:router} = createHashRouter([",
-			"\t{ path: '${2:/}', Component: ${3:Root} },$0",
-			"])"
-		],
-		"description": "**Data mode.** Stores the location in the URL hash. For static hosts that cannot rewrite all paths to index.html.\n"
+		"body": ["const ${1:router} = createHashRouter([", "\t{ path: '${2:/}', Component: ${3:Root} },$0", "])"],
+		"description": "**Data mode.** Stores the location in the URL hash. For static hosts that cannot rewrite all paths to index.html.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"createMemoryRouter()": {
 		"prefix": ["createMemoryRouter"],
@@ -38,12 +37,14 @@
 			"\t{ initialEntries: ['${4:/}'], initialIndex: ${5:0} },",
 			")$0"
 		],
-		"description": "**Data mode.** Keeps history in memory. The router of choice for tests and non-browser environments.\n"
+		"description": "**Data mode.** Keeps history in memory. The router of choice for tests and non-browser environments.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import createRoutesFromElements": {
 		"prefix": ["imcrfe", "importCreateRoutesFromElements"],
 		"body": ["import { createRoutesFromElements } from 'react-router'"],
-		"description": "**Data mode.** Build a route array from JSX `<Route>` elements.\n"
+		"description": "**Data mode.** Build a route array from JSX `<Route>` elements.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"createRoutesFromElements()": {
 		"prefix": ["createRoutesFromElements"],
@@ -57,14 +58,14 @@
 			"\t),",
 			")"
 		],
-		"description": "**Data mode.** Declare Data mode routes as JSX instead of objects. Handy when migrating from a `<Routes>` tree.\n"
+		"description": "**Data mode.** Declare Data mode routes as JSX instead of objects. Handy when migrating from a `<Routes>` tree.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import createStaticHandler": {
 		"prefix": ["imcsh", "importCreateStaticHandler"],
-		"body": [
-			"import { createStaticHandler, createStaticRouter } from 'react-router'"
-		],
-		"description": "**Data mode.** Server-side data loading for a custom SSR setup.\n"
+		"body": ["import { createStaticHandler, createStaticRouter } from 'react-router'"],
+		"description": "**Data mode.** Server-side data loading for a custom SSR setup.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"createStaticHandler()": {
 		"prefix": ["createStaticHandler"],
@@ -72,19 +73,20 @@
 			"const { query, dataRoutes } = createStaticHandler(${1:routes})",
 			"const ${2:context} = await query(${3:request})$0"
 		],
-		"description": "**Data mode.** Runs loaders/actions on the server for a request, producing the context an SSR render needs.\nOnly for hand-rolled SSR — Framework mode does this for you.\n"
+		"description": "**Data mode.** Runs loaders/actions on the server for a request, producing the context an SSR render needs.\nOnly for hand-rolled SSR — Framework mode does this for you.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"createStaticRouter()": {
 		"prefix": ["createStaticRouter"],
-		"body": [
-			"const ${1:router} = createStaticRouter(${2:dataRoutes}, ${3:context})$0"
-		],
-		"description": "**Data mode.** Builds the router that `<StaticRouterProvider>` renders on the server.\n"
+		"body": ["const ${1:router} = createStaticRouter(${2:dataRoutes}, ${3:context})$0"],
+		"description": "**Data mode.** Builds the router that `<StaticRouterProvider>` renders on the server.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import createRoutesStub": {
 		"prefix": ["imcrs", "importCreateRoutesStub"],
 		"body": ["import { createRoutesStub } from 'react-router'"],
-		"description": "Test helper that renders components needing router context.\n"
+		"description": "Test helper that renders components needing router context.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"createRoutesStub()": {
 		"prefix": ["createRoutesStub", "rTestStub"],
@@ -99,17 +101,20 @@
 			"",
 			"render(<Stub initialEntries={['${5:/}']} />)$0"
 		],
-		"description": "Renders a component with real router context, stubbed loaders and actions.\nThe supported way to test components that call `useLoaderData()`, `<Form>` or the navigation hooks.\n"
+		"description": "Renders a component with real router context, stubbed loaders and actions.\nThe supported way to test components that call `useLoaderData()`, `<Form>` or the navigation hooks.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import RouterProvider": {
 		"prefix": ["imrp", "importRouterProvider"],
 		"body": ["import { RouterProvider } from 'react-router/dom'"],
-		"description": "**Data mode.** Provider for browser apps.\nImport it from `react-router/dom` — that build integrates with `flushSync` and view transitions. The one exported from `react-router` targets non-DOM renderers.\n"
+		"description": "**Data mode.** Provider for browser apps.\nImport it from `react-router/dom` — that build integrates with `flushSync` and view transitions. The one exported from `react-router` targets non-DOM renderers.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"RouterProvider": {
 		"prefix": ["RouterProvider", "rp"],
 		"body": ["<RouterProvider router={${1:router}} />$0"],
-		"description": "**Data mode.** Renders a router created by `createBrowserRouter` and friends. Replaces `<BrowserRouter>`.\n"
+		"description": "**Data mode.** Renders a router created by `createBrowserRouter` and friends. Replaces `<BrowserRouter>`.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"Data mode entry": {
 		"prefix": ["rDataEntry", "dataModeSetup"],
@@ -133,18 +138,19 @@
 			"\t<RouterProvider router={router} />,",
 			")"
 		],
-		"description": "**Data mode.** Complete Data mode setup — router definition plus mount. The mode to pick when you want loaders and actions without the Framework build.\n"
+		"description": "**Data mode.** Complete Data mode setup — router definition plus mount. The mode to pick when you want loaders and actions without the Framework build.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"import StaticRouterProvider": {
 		"prefix": ["imsrp", "importStaticRouterProvider"],
 		"body": ["import { StaticRouterProvider } from 'react-router'"],
-		"description": "**Data mode.** Server counterpart of `RouterProvider` for SSR.\n"
+		"description": "**Data mode.** Server counterpart of `RouterProvider` for SSR.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	},
 	"StaticRouterProvider": {
 		"prefix": ["StaticRouterProvider"],
-		"body": [
-			"<StaticRouterProvider router={${1:router}} context={${2:context}} />$0"
-		],
-		"description": "**Data mode.** Renders a static router built by `createStaticRouter`, using the context from `createStaticHandler().query()`.\nThe Data mode SSR pair — Framework mode handles this itself.\n"
+		"body": ["<StaticRouterProvider router={${1:router}} context={${2:context}} />$0"],
+		"description": "**Data mode.** Renders a static router built by `createStaticRouter`, using the context from `createStaticHandler().query()`.\nThe Data mode SSR pair — Framework mode handles this itself.\n",
+		"scope": "javascript,javascriptreact,typescript,typescriptreact"
 	}
 }
