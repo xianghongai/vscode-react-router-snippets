@@ -1,100 +1,110 @@
 {
-	"import href": {
-		"prefix": ["imhref", "importHref"],
-		"body": ["import { href } from 'react-router'"],
-		"description": "Type-safe path builder backed by the generated route types.\n"
-	},
-	"href()": {
-		"prefix": ["href"],
-		"body": ["href('${1:/items/:id}', { ${2:id}: ${3:value} })$0"],
-		"description": "Build a URL from a route pattern with full type-checking of both the pattern and its params.\nA typo in the path or a missing param is a compile error, unlike a hand-written string.\n"
-	},
-	"href() in Link": {
-		"prefix": ["hrefLink"],
-		"body": [
-			"<Link to={href('${1:/items/:id}', { ${2:id}: ${3:item.id} })}>$0</Link>"
-		],
-		"description": "Type-safe `to` for `<Link>` / `<NavLink>`.\n"
-	},
-	"import generatePath": {
-		"prefix": ["imgp", "importGeneratePath"],
-		"body": ["import { generatePath } from 'react-router'"],
-		"description": "Interpolate params into a path pattern (untyped counterpart of `href`).\n"
-	},
-	"generatePath()": {
-		"prefix": ["generatePath"],
-		"body": ["generatePath('${1:/items/:id}', { ${2:id}: ${3:value} })$0"],
-		"description": "Fill a path pattern with params at runtime.\nPrefer `href()` in Framework mode — it validates the pattern against the real routes.\n"
-	},
-	"import matchPath": {
-		"prefix": ["immp", "importMatchPath"],
-		"body": ["import { matchPath } from 'react-router'"],
-		"description": "Match a single pattern against a pathname.\n"
-	},
-	"matchPath()": {
-		"prefix": ["matchPath"],
-		"body": [
-			"const ${1:match} = matchPath('${2:/items/:id}', ${3:pathname})$0"
-		],
-		"description": "Match one pattern against a pathname, returning params or `null`.\nFor \"is this link active\" prefer `useMatch()`, which reads the current location itself.\n"
-	},
-	"import matchRoutes": {
-		"prefix": ["immroutes", "importMatchRoutes"],
-		"body": ["import { matchRoutes } from 'react-router'"],
-		"description": "Match a route array against a location.\n"
-	},
-	"matchRoutes()": {
-		"prefix": ["matchRoutes"],
-		"body": ["const ${1:matches} = matchRoutes(${2:routes}, ${3:location})$0"],
-		"description": "Run the router's matching algorithm manually against a route array.\nUseful on the server or in tests to find which routes a URL would render.\n"
-	},
-	"import resolvePath": {
-		"prefix": ["imresolve", "importResolvePath"],
-		"body": ["import { resolvePath } from 'react-router'"],
-		"description": "Resolve a relative `to` against a pathname.\n"
-	},
-	"resolvePath()": {
-		"prefix": ["resolvePath"],
-		"body": ["const ${1:path} = resolvePath(${2:to}, ${3:fromPathname})$0"],
-		"description": "Resolve a relative path into an absolute `Path` object.\nInside components `useResolvedPath()` does this against the current location.\n"
-	},
-	"import createPath / parsePath": {
-		"prefix": ["imcp", "importCreatePath"],
-		"body": ["import { createPath, parsePath } from 'react-router'"],
-		"description": "Convert between a `Path` object and a URL string.\n"
-	},
-	"createPath()": {
-		"prefix": ["createPath"],
-		"body": [
-			"const ${1:url} = createPath({ pathname: '${2:/path}', search: '${3:?q=1}', hash: '${4:#top}' })$0"
-		],
-		"description": "Serialize a `{ pathname, search, hash }` object into a URL string.\n"
-	},
-	"parsePath()": {
-		"prefix": ["parsePath"],
-		"body": ["const ${1:path} = parsePath('${2:/path?q=1#top}')$0"],
-		"description": "Parse a URL string into `{ pathname, search, hash }`.\n"
-	},
-	"import createSearchParams": {
-		"prefix": ["imcsp", "importCreateSearchParams"],
-		"body": ["import { createSearchParams } from 'react-router'"],
-		"description": "Build a `URLSearchParams` from an object or entry list.\n"
-	},
-	"createSearchParams()": {
-		"prefix": ["createSearchParams"],
-		"body": [
-			"const ${1:searchParams} = createSearchParams({ ${2:q}: ${3:value} })$0"
-		],
-		"description": "Construct `URLSearchParams`, accepting array values (`{ tag: ['a', 'b'] }`) unlike the native constructor.\n"
-	},
-	"import renderMatches": {
-		"prefix": ["imrm", "importRenderMatches"],
-		"body": ["import { renderMatches } from 'react-router'"],
-		"description": "Render the element tree for a set of matches.\n"
-	},
-	"renderMatches()": {
-		"prefix": ["renderMatches"],
-		"body": ["renderMatches(${1:matches})$0"],
-		"description": "Turn the result of `matchRoutes()` into React elements. Pairs with manual matching on the server.\n"
-	}
+  "import href": {
+    "prefix": ["imhref", "importHref"],
+    "body": ["import { href } from 'react-router'"],
+    "description": "Type-safe path builder backed by the generated route types.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "href()": {
+    "prefix": ["href"],
+    "body": ["href('${1:/items/:id}', { ${2:id}: ${3:value} })$0"],
+    "description": "Build a URL from a route pattern with full type-checking of both the pattern and its params.\nA typo in the path or a missing param is a compile error, unlike a hand-written string.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "href() in Link": {
+    "prefix": ["hrefLink"],
+    "body": ["<Link to={href('${1:/items/:id}', { ${2:id}: ${3:item.id} })}>$0</Link>"],
+    "description": "Type-safe `to` for `<Link>` / `<NavLink>`.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import generatePath": {
+    "prefix": ["imgp", "importGeneratePath"],
+    "body": ["import { generatePath } from 'react-router'"],
+    "description": "Interpolate params into a path pattern (untyped counterpart of `href`).\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "generatePath()": {
+    "prefix": ["generatePath"],
+    "body": ["generatePath('${1:/items/:id}', { ${2:id}: ${3:value} })$0"],
+    "description": "Fill a path pattern with params at runtime.\nPrefer `href()` in Framework mode — it validates the pattern against the real routes.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import matchPath": {
+    "prefix": ["immp", "importMatchPath"],
+    "body": ["import { matchPath } from 'react-router'"],
+    "description": "Match a single pattern against a pathname.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "matchPath()": {
+    "prefix": ["matchPath"],
+    "body": ["const ${1:match} = matchPath('${2:/items/:id}', ${3:pathname})$0"],
+    "description": "Match one pattern against a pathname, returning params or `null`.\nFor \"is this link active\" prefer `useMatch()`, which reads the current location itself.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import matchRoutes": {
+    "prefix": ["immroutes", "importMatchRoutes"],
+    "body": ["import { matchRoutes } from 'react-router'"],
+    "description": "Match a route array against a location.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "matchRoutes()": {
+    "prefix": ["matchRoutes"],
+    "body": ["const ${1:matches} = matchRoutes(${2:routes}, ${3:location})$0"],
+    "description": "Run the router's matching algorithm manually against a route array.\nUseful on the server or in tests to find which routes a URL would render.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import resolvePath": {
+    "prefix": ["imresolve", "importResolvePath"],
+    "body": ["import { resolvePath } from 'react-router'"],
+    "description": "Resolve a relative `to` against a pathname.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "resolvePath()": {
+    "prefix": ["resolvePath"],
+    "body": ["const ${1:path} = resolvePath(${2:to}, ${3:fromPathname})$0"],
+    "description": "Resolve a relative path into an absolute `Path` object.\nInside components `useResolvedPath()` does this against the current location.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import createPath / parsePath": {
+    "prefix": ["imcp", "importCreatePath"],
+    "body": ["import { createPath, parsePath } from 'react-router'"],
+    "description": "Convert between a `Path` object and a URL string.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "createPath()": {
+    "prefix": ["createPath"],
+    "body": ["const ${1:url} = createPath({ pathname: '${2:/path}', search: '${3:?q=1}', hash: '${4:#top}' })$0"],
+    "description": "Serialize a `{ pathname, search, hash }` object into a URL string.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "parsePath()": {
+    "prefix": ["parsePath"],
+    "body": ["const ${1:path} = parsePath('${2:/path?q=1#top}')$0"],
+    "description": "Parse a URL string into `{ pathname, search, hash }`.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import createSearchParams": {
+    "prefix": ["imcsp", "importCreateSearchParams"],
+    "body": ["import { createSearchParams } from 'react-router'"],
+    "description": "Build a `URLSearchParams` from an object or entry list.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "createSearchParams()": {
+    "prefix": ["createSearchParams"],
+    "body": ["const ${1:searchParams} = createSearchParams({ ${2:q}: ${3:value} })$0"],
+    "description": "Construct `URLSearchParams`, accepting array values (`{ tag: ['a', 'b'] }`) unlike the native constructor.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import renderMatches": {
+    "prefix": ["imrm", "importRenderMatches"],
+    "body": ["import { renderMatches } from 'react-router'"],
+    "description": "Render the element tree for a set of matches.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "renderMatches()": {
+    "prefix": ["renderMatches"],
+    "body": ["renderMatches(${1:matches})$0"],
+    "description": "Turn the result of `matchRoutes()` into React elements. Pairs with manual matching on the server.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  }
 }

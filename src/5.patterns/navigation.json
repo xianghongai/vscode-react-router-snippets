@@ -1,71 +1,75 @@
 {
-	"Pattern: breadcrumbs": {
-		"prefix": ["rBreadcrumbs"],
-		"body": [
-			"// In each route module:",
-			"// export const handle = { breadcrumb: 'Label' }",
-			"",
-			"const matches = useMatches()",
-			"const crumbs = matches.filter((m) => Boolean((m.handle as any)?.breadcrumb))",
-			"",
-			"return (",
-			"\t<nav aria-label=\"${1:Breadcrumb}\">",
-			"\t\t<ol>",
-			"\t\t\t{crumbs.map((crumb) => (",
-			"\t\t\t\t<li key={crumb.id}>",
-			"\t\t\t\t\t<Link to={crumb.pathname}>{(crumb.handle as any).breadcrumb}</Link>",
-			"\t\t\t\t</li>",
-			"\t\t\t))}",
-			"\t\t</ol>",
-			"\t</nav>",
-			")$0"
-		],
-		"description": "Breadcrumbs from the matched route tree: each route exports `handle.breadcrumb`, the layout reads them via `useMatches()`.\nNo central config to keep in sync — a route carries its own label.\n"
-	},
-	"Pattern: search with URL state": {
-		"prefix": ["rSearchParams", "rFilter"],
-		"body": [
-			"const [searchParams, setSearchParams] = useSearchParams()",
-			"const q = searchParams.get('q') ?? ''",
-			"",
-			"return (",
-			"\t<Form",
-			"\t\trole=\"search\"",
-			"\t\tonChange={(event) => submit(event.currentTarget, { replace: true })}",
-			"\t>",
-			"\t\t<input type=\"search\" name=\"q\" defaultValue={q} aria-label=\"${1:Search}\" />",
-			"\t</Form>",
-			")$0"
-		],
-		"description": "Keep search state in the URL so it survives reloads and can be shared.\n`replace: true` keeps each keystroke out of history; `defaultValue` (not `value`) leaves the input uncontrolled so typing stays smooth.\n"
-	},
-	"Pattern: pagination": {
-		"prefix": ["rPagination"],
-		"body": [
-			"export async function loader({ url }: Route.LoaderArgs) {",
-			"\tconst page = Number(url.searchParams.get('page') ?? '1')",
-			"\tconst perPage = ${1:20}",
-			"",
-			"\tconst { items, total } = await ${2:getItems}({ skip: (page - 1) * perPage, take: perPage })",
-			"",
-			"\treturn { items, page, totalPages: Math.ceil(total / perPage) }$0",
-			"}"
-		],
-		"description": "Page number lives in the query string, so every page is linkable and the Back button works.\nRead it in the loader — the data is fetched before render, with no client-side loading state to manage.\n"
-	},
-	"Pattern: tab navigation": {
-		"prefix": ["rTabs"],
-		"body": [
-			"<nav>",
-			"\t<NavLink to=\"${1:tab-a}\" className={({ isActive }) => (isActive ? '${2:active}' : '')}>",
-			"\t\t${3:Tab A}",
-			"\t</NavLink>",
-			"\t<NavLink to=\"${4:tab-b}\" className={({ isActive }) => (isActive ? '${2:active}' : '')}>",
-			"\t\t${5:Tab B}",
-			"\t</NavLink>",
-			"</nav>",
-			"<Outlet />$0"
-		],
-		"description": "Tabs as nested routes: each tab is a real URL, deep-linkable and back-button friendly.\nRelative `to` values resolve against the parent route.\n"
-	}
+  "Pattern: breadcrumbs": {
+    "prefix": ["rBreadcrumbs"],
+    "body": [
+      "// In each route module:",
+      "// export const handle = { breadcrumb: 'Label' }",
+      "",
+      "const matches = useMatches()",
+      "const crumbs = matches.filter((m) => Boolean((m.handle as any)?.breadcrumb))",
+      "",
+      "return (",
+      "\t<nav aria-label=\"${1:Breadcrumb}\">",
+      "\t\t<ol>",
+      "\t\t\t{crumbs.map((crumb) => (",
+      "\t\t\t\t<li key={crumb.id}>",
+      "\t\t\t\t\t<Link to={crumb.pathname}>{(crumb.handle as any).breadcrumb}</Link>",
+      "\t\t\t\t</li>",
+      "\t\t\t))}",
+      "\t\t</ol>",
+      "\t</nav>",
+      ")$0"
+    ],
+    "description": "Breadcrumbs from the matched route tree: each route exports `handle.breadcrumb`, the layout reads them via `useMatches()`.\nNo central config to keep in sync — a route carries its own label.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Pattern: search with URL state": {
+    "prefix": ["rSearchParams", "rFilter"],
+    "body": [
+      "const [searchParams, setSearchParams] = useSearchParams()",
+      "const q = searchParams.get('q') ?? ''",
+      "",
+      "return (",
+      "\t<Form",
+      "\t\trole=\"search\"",
+      "\t\tonChange={(event) => submit(event.currentTarget, { replace: true })}",
+      "\t>",
+      "\t\t<input type=\"search\" name=\"q\" defaultValue={q} aria-label=\"${1:Search}\" />",
+      "\t</Form>",
+      ")$0"
+    ],
+    "description": "Keep search state in the URL so it survives reloads and can be shared.\n`replace: true` keeps each keystroke out of history; `defaultValue` (not `value`) leaves the input uncontrolled so typing stays smooth.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Pattern: pagination": {
+    "prefix": ["rPagination"],
+    "body": [
+      "export async function loader({ url }: Route.LoaderArgs) {",
+      "\tconst page = Number(url.searchParams.get('page') ?? '1')",
+      "\tconst perPage = ${1:20}",
+      "",
+      "\tconst { items, total } = await ${2:getItems}({ skip: (page - 1) * perPage, take: perPage })",
+      "",
+      "\treturn { items, page, totalPages: Math.ceil(total / perPage) }$0",
+      "}"
+    ],
+    "description": "Page number lives in the query string, so every page is linkable and the Back button works.\nRead it in the loader — the data is fetched before render, with no client-side loading state to manage.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Pattern: tab navigation": {
+    "prefix": ["rTabs"],
+    "body": [
+      "<nav>",
+      "\t<NavLink to=\"${1:tab-a}\" className={({ isActive }) => (isActive ? '${2:active}' : '')}>",
+      "\t\t${3:Tab A}",
+      "\t</NavLink>",
+      "\t<NavLink to=\"${4:tab-b}\" className={({ isActive }) => (isActive ? '${2:active}' : '')}>",
+      "\t\t${5:Tab B}",
+      "\t</NavLink>",
+      "</nav>",
+      "<Outlet />$0"
+    ],
+    "description": "Tabs as nested routes: each tab is a real URL, deep-linkable and back-button friendly.\nRelative `to` values resolve against the parent route.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  }
 }

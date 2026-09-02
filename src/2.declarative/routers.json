@@ -1,60 +1,62 @@
 {
-	"import BrowserRouter": {
-		"prefix": ["imbr", "importBrowserRouter"],
-		"body": ["import { BrowserRouter } from 'react-router'"],
-		"description": "**Declarative mode.** Router using the History API.\n"
-	},
-	"BrowserRouter": {
-		"prefix": ["BrowserRouter", "rbr"],
-		"body": ["<BrowserRouter>", "\t$0", "</BrowserRouter>"],
-		"description": "**Declarative mode.** No loaders, actions or pending states.\nFor data features use `createBrowserRouter` + `<RouterProvider>`.\n"
-	},
-	"import HashRouter": {
-		"prefix": ["imhr", "importHashRouter"],
-		"body": ["import { HashRouter } from 'react-router'"],
-		"description": "**Declarative mode.** Router storing the location in the URL hash.\n"
-	},
-	"HashRouter": {
-		"prefix": ["HashRouter", "rhr"],
-		"body": ["<HashRouter>", "\t$0", "</HashRouter>"],
-		"description": "**Declarative mode.** Keeps the location after `#`. For static hosts that cannot rewrite every path to index.html.\n"
-	},
-	"import MemoryRouter": {
-		"prefix": ["immr", "importMemoryRouter"],
-		"body": ["import { MemoryRouter } from 'react-router'"],
-		"description": "**Declarative mode.** Router keeping history in memory.\n"
-	},
-	"MemoryRouter": {
-		"prefix": ["MemoryRouter", "rmr"],
-		"body": [
-			"<MemoryRouter initialEntries={['${1:/}']} initialIndex={${2:0}}>",
-			"\t$0",
-			"</MemoryRouter>"
-		],
-		"description": "**Declarative mode.** No URL involved — the router of choice for tests and React Native.\n"
-	},
-	"import StaticRouter": {
-		"prefix": ["imsr", "importStaticRouter"],
-		"body": ["import { StaticRouter } from 'react-router'"],
-		"description": "**Declarative mode.** Router for server rendering.\n"
-	},
-	"StaticRouter": {
-		"prefix": ["StaticRouter"],
-		"body": ["<StaticRouter location={${1:url}}>", "\t$0", "</StaticRouter>"],
-		"description": "**Declarative mode.** Renders a fixed location on the server. No data loading — use `<StaticRouterProvider>` for that.\n"
-	},
-	"import Router": {
-		"prefix": ["imrouter", "importRouter"],
-		"body": ["import { Router } from 'react-router'"],
-		"description": "Low-level router primitive.\n"
-	},
-	"Router": {
-		"prefix": ["Router"],
-		"body": [
-			"<Router location={${1:location}} navigator={${2:navigator}}>",
-			"\t$0",
-			"</Router>"
-		],
-		"description": "The primitive the other routers build on. Only reach for it when implementing a custom history integration.\n"
-	}
+  "import BrowserRouter": {
+    "prefix": ["imbr", "importBrowserRouter"],
+    "body": ["import { BrowserRouter } from 'react-router'"],
+    "description": "**Declarative mode.** Router using the History API.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "BrowserRouter": {
+    "prefix": ["BrowserRouter", "rbr"],
+    "body": ["<BrowserRouter>", "\t$0", "</BrowserRouter>"],
+    "description": "**Declarative mode.** No loaders, actions or pending states.\nFor data features use `createBrowserRouter` + `<RouterProvider>`.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import HashRouter": {
+    "prefix": ["imhr", "importHashRouter"],
+    "body": ["import { HashRouter } from 'react-router'"],
+    "description": "**Declarative mode.** Router storing the location in the URL hash.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "HashRouter": {
+    "prefix": ["HashRouter", "rhr"],
+    "body": ["<HashRouter>", "\t$0", "</HashRouter>"],
+    "description": "**Declarative mode.** Keeps the location after `#`. For static hosts that cannot rewrite every path to index.html.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import MemoryRouter": {
+    "prefix": ["immr", "importMemoryRouter"],
+    "body": ["import { MemoryRouter } from 'react-router'"],
+    "description": "**Declarative mode.** Router keeping history in memory.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "MemoryRouter": {
+    "prefix": ["MemoryRouter", "rmr"],
+    "body": ["<MemoryRouter initialEntries={['${1:/}']} initialIndex={${2:0}}>", "\t$0", "</MemoryRouter>"],
+    "description": "**Declarative mode.** No URL involved — the router of choice for tests and React Native.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import StaticRouter": {
+    "prefix": ["imsr", "importStaticRouter"],
+    "body": ["import { StaticRouter } from 'react-router'"],
+    "description": "**Declarative mode.** Router for server rendering.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "StaticRouter": {
+    "prefix": ["StaticRouter"],
+    "body": ["<StaticRouter location={${1:url}}>", "\t$0", "</StaticRouter>"],
+    "description": "**Declarative mode.** Renders a fixed location on the server. No data loading — use `<StaticRouterProvider>` for that.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import Router": {
+    "prefix": ["imrouter", "importRouter"],
+    "body": ["import { Router } from 'react-router'"],
+    "description": "Low-level router primitive.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Router": {
+    "prefix": ["Router"],
+    "body": ["<Router location={${1:location}} navigator={${2:navigator}}>", "\t$0", "</Router>"],
+    "description": "The primitive the other routers build on. Only reach for it when implementing a custom history integration.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  }
 }

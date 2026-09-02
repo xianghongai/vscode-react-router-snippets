@@ -1,81 +1,95 @@
 {
-	"import data": {
-		"prefix": ["imdata", "importData"],
-		"body": ["import { data } from 'react-router'"],
-		"description": "**Framework / Data mode.** Wrap a loader/action return value to attach a status code or headers.\n"
-	},
-	"data()": {
-		"prefix": ["data", "rdata"],
-		"body": ["return data({ ${1:key}: ${2:value} }, { status: ${3:201} })$0"],
-		"description": "**Framework / Data mode.** Return data together with a status code or headers, without turning it into a `Response`.\nThe value still arrives at the component as a plain object.\nReplaces the deprecated `json()` — return a bare object when you need no status or headers.\n"
-	},
-	"data() with headers": {
-		"prefix": ["dataHeaders"],
-		"body": [
-			"return data(",
-			"\t{ ${1:key}: ${2:value} },",
-			"\t{",
-			"\t\theaders: {",
-			"\t\t\t'${3:Cache-Control}': '${4:max-age=300}',$0",
-			"\t\t},",
-			"\t},",
-			")"
-		],
-		"description": "**Framework / Data mode.** Attach response headers to loader or action data.\n"
-	},
-	"import redirect": {
-		"prefix": ["imrd", "importRedirect"],
-		"body": ["import { redirect } from 'react-router'"],
-		"description": "**Framework / Data mode.** Redirect helper for loaders and actions.\n"
-	},
-	"redirect()": {
-		"prefix": ["redirect", "rd"],
-		"body": ["return redirect('${1:/path}')$0"],
-		"description": "**Framework / Data mode.** Redirect from a loader or action. Returns a 302 `Response`.\nInside a loader, `throw redirect(...)` is the more common form — it stops execution immediately.\n"
-	},
-	"throw redirect()": {
-		"prefix": ["throwRedirect"],
-		"body": ["throw redirect('${1:/login}')$0"],
-		"description": "**Framework / Data mode.** Abort the current loader/action and redirect. Preferred inside guard clauses, since it needs no early-return plumbing.\n"
-	},
-	"redirect() with status": {
-		"prefix": ["redirectStatus"],
-		"body": ["return redirect('${1:/path}', ${2|301,302,303,307,308|})$0"],
-		"description": "**Framework / Data mode.** Redirect with an explicit status. Use 301/308 for permanent moves, 303 after a successful mutation.\n"
-	},
-	"import replace": {
-		"prefix": ["imreplace", "importReplace"],
-		"body": ["import { replace } from 'react-router'"],
-		"description": "**Framework / Data mode.** Redirect that replaces the current history entry.\n"
-	},
-	"replace()": {
-		"prefix": ["replace"],
-		"body": ["return replace('${1:/path}')$0"],
-		"description": "**Framework / Data mode.** Like `redirect()`, but replaces the current history entry instead of pushing a new one.\nUse it so the Back button does not return to the page that redirected.\n"
-	},
-	"import redirectDocument": {
-		"prefix": ["imrdd", "importRedirectDocument"],
-		"body": ["import { redirectDocument } from 'react-router'"],
-		"description": "**Framework / Data mode.** Redirect with a full document reload.\n"
-	},
-	"redirectDocument()": {
-		"prefix": ["redirectDocument"],
-		"body": ["return redirectDocument('${1:/path}')$0"],
-		"description": "**Framework / Data mode.** Redirect with a full browser navigation instead of a client-side transition.\nUse it when leaving the SPA — for example to a server-rendered auth flow on another origin.\n"
-	},
-	"import isRouteErrorResponse": {
-		"prefix": ["imirer", "importIsRouteErrorResponse"],
-		"body": ["import { isRouteErrorResponse } from 'react-router'"],
-		"description": "Type guard separating thrown `Response`s from real errors.\n"
-	},
-	"isRouteErrorResponse()": {
-		"prefix": ["isRouteErrorResponse", "irer"],
-		"body": ["if (isRouteErrorResponse(${1:error})) {", "\t$0", "}"],
-		"description": "True when the error came from a thrown `Response` (`throw new Response(...)` or a 404 from the router).\nNarrows the value so `.status`, `.statusText` and `.data` are available.\n"
-	},
-	"throw new Response()": {
-		"prefix": ["throwResponse", "rThrow404"],
-		"body": ["throw new Response('${1:Not Found}', { status: ${2:404} })$0"],
-		"description": "Throw from a loader or action to render the nearest `ErrorBoundary` with a status.\nCaught by `isRouteErrorResponse()`, unlike a plain `Error`.\n"
-	}
+  "import data": {
+    "prefix": ["imdata", "importData"],
+    "body": ["import { data } from 'react-router'"],
+    "description": "**Framework / Data mode.** Wrap a loader/action return value to attach a status code or headers.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "data()": {
+    "prefix": ["data", "rdata"],
+    "body": ["return data({ ${1:key}: ${2:value} }, { status: ${3:201} })$0"],
+    "description": "**Framework / Data mode.** Return data together with a status code or headers, without turning it into a `Response`.\nThe value still arrives at the component as a plain object.\nReplaces the deprecated `json()` — return a bare object when you need no status or headers.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "data() with headers": {
+    "prefix": ["dataHeaders"],
+    "body": [
+      "return data(",
+      "\t{ ${1:key}: ${2:value} },",
+      "\t{",
+      "\t\theaders: {",
+      "\t\t\t'${3:Cache-Control}': '${4:max-age=300}',$0",
+      "\t\t},",
+      "\t},",
+      ")"
+    ],
+    "description": "**Framework / Data mode.** Attach response headers to loader or action data.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import redirect": {
+    "prefix": ["imrd", "importRedirect"],
+    "body": ["import { redirect } from 'react-router'"],
+    "description": "**Framework / Data mode.** Redirect helper for loaders and actions.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "redirect()": {
+    "prefix": ["redirect", "rd"],
+    "body": ["return redirect('${1:/path}')$0"],
+    "description": "**Framework / Data mode.** Redirect from a loader or action. Returns a 302 `Response`.\nInside a loader, `throw redirect(...)` is the more common form — it stops execution immediately.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "throw redirect()": {
+    "prefix": ["throwRedirect"],
+    "body": ["throw redirect('${1:/login}')$0"],
+    "description": "**Framework / Data mode.** Abort the current loader/action and redirect. Preferred inside guard clauses, since it needs no early-return plumbing.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "redirect() with status": {
+    "prefix": ["redirectStatus"],
+    "body": ["return redirect('${1:/path}', ${2|301,302,303,307,308|})$0"],
+    "description": "**Framework / Data mode.** Redirect with an explicit status. Use 301/308 for permanent moves, 303 after a successful mutation.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import replace": {
+    "prefix": ["imreplace", "importReplace"],
+    "body": ["import { replace } from 'react-router'"],
+    "description": "**Framework / Data mode.** Redirect that replaces the current history entry.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "replace()": {
+    "prefix": ["replace"],
+    "body": ["return replace('${1:/path}')$0"],
+    "description": "**Framework / Data mode.** Like `redirect()`, but replaces the current history entry instead of pushing a new one.\nUse it so the Back button does not return to the page that redirected.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import redirectDocument": {
+    "prefix": ["imrdd", "importRedirectDocument"],
+    "body": ["import { redirectDocument } from 'react-router'"],
+    "description": "**Framework / Data mode.** Redirect with a full document reload.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "redirectDocument()": {
+    "prefix": ["redirectDocument"],
+    "body": ["return redirectDocument('${1:/path}')$0"],
+    "description": "**Framework / Data mode.** Redirect with a full browser navigation instead of a client-side transition.\nUse it when leaving the SPA — for example to a server-rendered auth flow on another origin.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "import isRouteErrorResponse": {
+    "prefix": ["imirer", "importIsRouteErrorResponse"],
+    "body": ["import { isRouteErrorResponse } from 'react-router'"],
+    "description": "Type guard separating thrown `Response`s from real errors.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "isRouteErrorResponse()": {
+    "prefix": ["isRouteErrorResponse", "irer"],
+    "body": ["if (isRouteErrorResponse(${1:error})) {", "\t$0", "}"],
+    "description": "True when the error came from a thrown `Response` (`throw new Response(...)` or a 404 from the router).\nNarrows the value so `.status`, `.statusText` and `.data` are available.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "throw new Response()": {
+    "prefix": ["throwResponse", "rThrow404"],
+    "body": ["throw new Response('${1:Not Found}', { status: ${2:404} })$0"],
+    "description": "Throw from a loader or action to render the nearest `ErrorBoundary` with a status.\nCaught by `isRouteErrorResponse()`, unlike a plain `Error`.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  }
 }

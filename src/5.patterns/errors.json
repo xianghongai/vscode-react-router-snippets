@@ -1,60 +1,58 @@
 {
-	"Pattern: full ErrorBoundary": {
-		"prefix": ["rErrorBoundaryFull"],
-		"body": [
-			"export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {",
-			"\tif (isRouteErrorResponse(error)) {",
-			"\t\tif (error.status === 404) {",
-			"\t\t\treturn <${1:NotFound} />",
-			"\t\t}",
-			"",
-			"\t\treturn (",
-			"\t\t\t<main>",
-			"\t\t\t\t<h1>{error.status} {error.statusText}</h1>",
-			"\t\t\t\t<p>{error.data}</p>",
-			"\t\t\t</main>",
-			"\t\t)",
-			"\t}",
-			"",
-			"\tif (error instanceof Error) {",
-			"\t\treturn (",
-			"\t\t\t<main>",
-			"\t\t\t\t<h1>${2:Something went wrong}</h1>",
-			"\t\t\t\t{import.meta.env.DEV && <pre>{error.stack}</pre>}",
-			"\t\t\t</main>",
-			"\t\t)",
-			"\t}",
-			"",
-			"\treturn <main><h1>${3:Unknown error}</h1></main>$0",
-			"}"
-		],
-		"description": "Handles all three cases: a thrown `Response` (with a 404 branch), a real `Error`, and anything else.\nStack traces stay behind a DEV check so they never reach production output.\n"
-	},
-	"Pattern: 404 from a loader": {
-		"prefix": ["rNotFoundLoader"],
-		"body": [
-			"const ${1:item} = await ${2:getItem}(params.${3:id})",
-			"",
-			"if (!${1:item}) {",
-			"\tthrow new Response('${4:Not Found}', { status: 404 })",
-			"}$0"
-		],
-		"description": "Throw a 404 when the record is missing, instead of returning `null` and null-checking in the component.\nThe nearest `ErrorBoundary` renders, and the status is correct for crawlers and monitoring.\n"
-	},
-	"Pattern: catch-all 404 route": {
-		"prefix": ["rRoute404"],
-		"body": ["route('*', 'routes/${1:not-found}.tsx'),$0"],
-		"description": "Framework mode catch-all. Put it last in `routes.ts`.\n"
-	},
-	"Pattern: error boundary in Data mode route": {
-		"prefix": ["rErrorElement"],
-		"body": [
-			"{",
-			"\tpath: '${1:path}',",
-			"\tComponent: ${2:Component},",
-			"\tErrorBoundary: ${3:ErrorPage},",
-			"}$0"
-		],
-		"description": "Data mode error handling. An error bubbles to the nearest route that defines one, so a root-level boundary is the safety net.\n"
-	}
+  "Pattern: full ErrorBoundary": {
+    "prefix": ["rErrorBoundaryFull"],
+    "body": [
+      "export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {",
+      "\tif (isRouteErrorResponse(error)) {",
+      "\t\tif (error.status === 404) {",
+      "\t\t\treturn <${1:NotFound} />",
+      "\t\t}",
+      "",
+      "\t\treturn (",
+      "\t\t\t<main>",
+      "\t\t\t\t<h1>{error.status} {error.statusText}</h1>",
+      "\t\t\t\t<p>{error.data}</p>",
+      "\t\t\t</main>",
+      "\t\t)",
+      "\t}",
+      "",
+      "\tif (error instanceof Error) {",
+      "\t\treturn (",
+      "\t\t\t<main>",
+      "\t\t\t\t<h1>${2:Something went wrong}</h1>",
+      "\t\t\t\t{import.meta.env.DEV && <pre>{error.stack}</pre>}",
+      "\t\t\t</main>",
+      "\t\t)",
+      "\t}",
+      "",
+      "\treturn <main><h1>${3:Unknown error}</h1></main>$0",
+      "}"
+    ],
+    "description": "Handles all three cases: a thrown `Response` (with a 404 branch), a real `Error`, and anything else.\nStack traces stay behind a DEV check so they never reach production output.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Pattern: 404 from a loader": {
+    "prefix": ["rNotFoundLoader"],
+    "body": [
+      "const ${1:item} = await ${2:getItem}(params.${3:id})",
+      "",
+      "if (!${1:item}) {",
+      "\tthrow new Response('${4:Not Found}', { status: 404 })",
+      "}$0"
+    ],
+    "description": "Throw a 404 when the record is missing, instead of returning `null` and null-checking in the component.\nThe nearest `ErrorBoundary` renders, and the status is correct for crawlers and monitoring.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Pattern: catch-all 404 route": {
+    "prefix": ["rRoute404"],
+    "body": ["route('*', 'routes/${1:not-found}.tsx'),$0"],
+    "description": "Framework mode catch-all. Put it last in `routes.ts`.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  },
+  "Pattern: error boundary in Data mode route": {
+    "prefix": ["rErrorElement"],
+    "body": ["{", "\tpath: '${1:path}',", "\tComponent: ${2:Component},", "\tErrorBoundary: ${3:ErrorPage},", "}$0"],
+    "description": "Data mode error handling. An error bubbles to the nearest route that defines one, so a root-level boundary is the safety net.\n",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact"
+  }
 }
