@@ -1,15 +1,15 @@
 {
   "name": "vscode-react-router-snippets",
   "displayName": "React Router Snippets",
-  "version": "8.0.1",
-  "description": "Code snippets for React Router v7",
+  "version": "8.0.2",
+  "description": "Code snippets for React Router 8",
   "categories": [
     "Snippets"
   ],
   "keywords": [
     "React",
     "React Router",
-    "React Router 7",
+    "React Router 8",
     "React Snippets"
   ],
   "homepage": "https://github.com/xianghongai/vscode-react-router-snippets/",
@@ -62,9 +62,9 @@
   "icon": "art/icon.png",
   "badges": [
     {
-      "url": "https://img.shields.io/badge/React%20Router-7-blue",
+      "url": "https://img.shields.io/badge/React%20Router-8-blue",
       "href": "https://reactrouter.com/",
-      "description": "React Router 7"
+      "description": "React Router 8"
     }
   ],
   "galleryBanner": {
