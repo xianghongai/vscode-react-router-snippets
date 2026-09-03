@@ -4,6 +4,11 @@ All notable changes to the **React Router Snippets** extension are documented in
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Each entry lists only the headline change per release — see git history/tags for full detail.
 
+## [8.0.4] - 2026-09-03
+
+- Publish extension to Open VSX Registry alongside the VS Code Marketplace
+- Update CI workflow to build the VSIX package once and reuse it across both marketplaces
+
 ## [8.0.3] - 2026-09-03
 
 - Support React Router 8
